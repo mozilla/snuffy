@@ -1,7 +1,10 @@
 {
-  "author": {
-    "name": "Erik Rose",
-    "url": "https://grinchcentral.com"
+  "name": "fathom",
+  "description": "Find meaning in the web.",
+  "version": "0.1.0",
+  "author": "Erik Rose (https://grinchcentral.com)",
+  "bugs": {
+    "url": "https://github.com/mozilla/fathom/issues"
   },
   "dependencies": {
     "jsdom": "^8.3.0",
@@ -9,9 +12,18 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "jshint": "^2.9.1",
+    "eslint": "^2.9.0",
     "mocha": "^2.4.5",
     "node-inspector": ">=0.12.8"
   },
-  "engine": "node >= 6.0.0"
+  "engine": "node >= 6.0.0",
+  "homepage": "https://github.com/mozilla/fathom",
+  "keywords": [],
+  "license": "MPL-2.0",
+  "main": "fathom.js",
+  "repository": "mozilla/fathom",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "mocha test/test.js"
+  }
 }
