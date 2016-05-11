@@ -23,7 +23,8 @@
   "main": "fathom.js",
   "repository": "mozilla/fathom",
   "scripts": {
+    "debug": "node-debug fathom.js",
     "lint": "eslint .",
-    "test": "mocha test/test.js"
+    "test": "mocha"
   }
 }

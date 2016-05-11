@@ -1,16 +1,16 @@
 all:
 
 debug:
-	@node_modules/.bin/node-debug fathom.js
+	@npm run debug
 
 lint:
-	@node_modules/.bin/jshint fathom.js
+	@npm run lint
 
 test:
-	@node_modules/.bin/mocha
+	@npm run test
 
 debugtest:
-	@node_modules/.bin/mocha -d
+	@npm run test -- -d
 	# Run `node debug localhost:5858` to connect to the debugger when it stops.
 	#
 	# Better, run node_modules/.bin/node-inspector first, then run `make
