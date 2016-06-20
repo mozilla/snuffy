@@ -65,7 +65,7 @@ function sum(iterable) {
 
 function length(iterable) {
     let num = 0;
-    for (const item of iterable) {
+    for (const item of iterable) { // eslint-disable-line no-unused-vars
         num++;
     }
     return num;
