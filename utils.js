@@ -22,7 +22,7 @@ function best(iterable, by, isBetter) {
         },
         iterable);
     if (isFirst) {
-        throw 'Tried to call best() on empty iterable';
+        throw new Error('Tried to call best() on empty iterable');
     }
     return bestSoFar;
 }
@@ -65,7 +65,7 @@ function sum(iterable) {
 
 function length(iterable) {
     let num = 0;
-    for (const item of iterable) {
+    for (const item of iterable) { // eslint-disable-line no-unused-vars
         num++;
     }
     return num;
