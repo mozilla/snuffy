@@ -135,6 +135,15 @@ This will also run the linter and analyze test coverage. You can find the covera
 
 If you're in the midst of a tornado of rapid development and the fancy stuff is too slow, you can invoke `make test` to run "just the tests, ma'am".
 
+## Running Fathom on the Client
+
+Out of the box, Fathom assumes your running the library in a Node.js project. If you're interested in running Fathom on the client side, you can run:
+
+`npm run clientize`
+
+This command will create a file named _fathom.bundle.js_ under the bin/ directory that you can import into your web page using a `<script>` tag.
+Behind the scenes, this command uses webpack and Babel to transpile the ES6 code Fathom is written in to ES5 and inlines all dependencies using webpack to allow easier embedding into the client.
+
 
 ## Version History
 
