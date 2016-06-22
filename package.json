@@ -10,13 +10,18 @@
     "wu": "^2.1.0"
   },
   "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.10.1",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
     "chai": "^3.5.0",
     "coveralls": "^2.11.11",
     "eslint": "^2.9.0",
     "istanbul": "^0.4.4",
     "jsdom": "^8.3.0",
     "mocha": "^2.4.5",
-    "node-inspector": ">=0.12.8"
+    "node-inspector": ">=0.12.8",
+    "webpack": "^1.13.1"
   },
   "engines": {
     "node": ">= 6.0.0"
@@ -37,6 +42,7 @@
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "lint": "make lint",
     "pretest": "npm run lint",
-    "test": "istanbul cover _mocha"
+    "test": "istanbul cover _mocha",
+    "clientize": "webpack"
   }
 }
