@@ -11,10 +11,11 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "changelog": "^1.0.7",
     "eslint": "^2.9.0",
     "jsdom": "^8.3.0",
     "mocha": "^2.4.5",
-    "node-inspector": ">=0.12.8"
+    "node-inspector": "^0.12.8"
   },
   "engines": {
     "node": ">= 6.0.0"
@@ -32,6 +33,7 @@
     "url": "https://github.com/mozilla/fathom.git"
   },
   "scripts": {
+    "changelog": "changelog fathom-web all -m > CHANGELOG.md",
     "lint": "make lint",
     "pretest": "npm run lint",
     "test": "mocha"
