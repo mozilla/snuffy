@@ -1,6 +1,7 @@
 # Fathom
 
 [![Build Status](https://travis-ci.org/mozilla/fathom.svg?branch=master)](https://travis-ci.org/mozilla/fathom)
+[![Coverage Status](https://coveralls.io/repos/github/mozilla/fathom/badge.svg?branch=master)](https://coveralls.io/github/mozilla/fathom?branch=master)
 
 Find meaning in the web.
 
