@@ -167,7 +167,8 @@ function *resultsOfDomRule(rule, specialDomNode, kb) {
     // Use the special "tree" property of the special starting node:
     const matches = specialDomNode.tree.querySelectorAll(rule.source.selector);
 
-    for (let element of matches) {
+    for (let i = 0; i < matches.length; i++) {  // matches is a NodeList, which doesn't conform to iterator protocol
+        const element = matches[i];
         const newFacts = explicitFacts(rule.ranker(kb.nodeForElement(element)));
         for (let fact of newFacts) {
             if (fact.element === undefined) {
