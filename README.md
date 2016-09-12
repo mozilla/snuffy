@@ -137,7 +137,7 @@ If you're in the midst of a tornado of rapid development and the fancy stuff is 
 
 ## Running Fathom on the Client
 
-Out of the box, Fathom assumes your running the library in a Node.js project. If you're interested in running Fathom on the client side, you can run:
+Out of the box, Fathom assumes you're running the library in a Node.js project. If you're interested in running Fathom on the client side, you can run:
 
 `npm run clientize`
 
