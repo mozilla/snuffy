@@ -1,7 +1,7 @@
 // Tests for fathom/utils.js
 
-const assert = require('chai').assert;
-const jsdom = require('jsdom').jsdom;
+const {assert} = require('chai');
+const {jsdom} = require('jsdom');
 
 const {distance, clusters} = require('../utils');
 

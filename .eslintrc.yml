@@ -1,0 +1,32 @@
+env:
+  es6: true
+  mocha: true
+  node: true
+
+extends:
+  - eslint:recommended
+  - plugin:node/recommended
+
+plugins:
+  - node
+
+root: true
+
+rules:
+  node/exports-style: [error, module.exports]
+  node/no-unpublished-require: [error, {allowModules: [chai, jsdom]}]
+
+  comma-spacing: error
+  eol-last: error
+  eqeqeq: error
+  guard-for-in: warn  # There's nothing wrong with for..in if you know what you're doing. This is here just to keep me from accidentally saying "for..in" when I mean "for..of". Delete this and come up with a better solution if we ever need to use "for..in".
+  indent: [error, 4]
+  no-throw-literal: error
+  no-trailing-spaces: error
+  no-unused-vars: [warn, {vars: all, args: none}]
+  no-use-before-define: [error, {functions: false, classes: false}]
+  no-var: warn
+  no-warning-comments: [warn, {terms: [xxx, fixme, hack], location: start}]
+  object-shorthand: [error, properties]
+  prefer-const: error
+  quotes: [error, single, {avoidEscape: true}]
