@@ -33,7 +33,7 @@ function ruleset(...rules) {
         // elements. Return the knowledgebase.
         //
         // This is the "rank" portion of the rank-and-yank algorithm.
-        score: function (tree) {
+        score (tree) {
             const kb = knowledgebase();
 
             // Introduce the whole DOM into the KB as flavor 'dom' to get
@@ -45,9 +45,9 @@ function ruleset(...rules) {
             // digested. Rules run in no particular guaranteed order.
             while (nonterminals.length) {
                 const [inNode, inFlavor] = nonterminals.pop();
-                for (let rule of getDefault(rulesByInputFlavor, inFlavor, () => [])) {
+                for (const rule of getDefault(rulesByInputFlavor, inFlavor, () => [])) {
                     const outFacts = resultsOf(rule, inNode, inFlavor, kb);
-                    for (let fact of outFacts) {
+                    for (const fact of outFacts) {
                         const outNode = kb.nodeForElement(fact.element);
 
                         // No matter whether or not this flavor has been
@@ -126,7 +126,7 @@ function knowledgebase() {
     return {
         // Return the "node" (our own data structure that we control) that
         // corresponds to a given DOM element, creating one if necessary.
-        nodeForElement: function (element) {
+        nodeForElement (element) {
             return getDefault(nodesByElement,
                               element,
                               () => ({element,
@@ -136,17 +136,17 @@ function knowledgebase() {
 
         // Return the highest-scored node of the given flavor, undefined if
         // there is none.
-        max: function (flavor) {
+        max (flavor) {
             const nodes = nodesByFlavor.get(flavor);
             return nodes === undefined ? undefined : max(nodes, node => node.score);
         },
 
         // Let the KB know that a new flavor has been added to an element.
-        indexNodeByFlavor: function (node, flavor) {
+        indexNodeByFlavor (node, flavor) {
             getDefault(nodesByFlavor, flavor, () => []).push(node);
         },
 
-        nodesOfFlavor: function (flavor) {
+        nodesOfFlavor (flavor) {
             return getDefault(nodesByFlavor, flavor, () => []);
         }
     };
@@ -170,7 +170,7 @@ function *resultsOfDomRule(rule, specialDomNode, kb) {
     for (let i = 0; i < matches.length; i++) {  // matches is a NodeList, which doesn't conform to iterator protocol
         const element = matches[i];
         const newFacts = explicitFacts(rule.ranker(kb.nodeForElement(element)));
-        for (let fact of newFacts) {
+        for (const fact of newFacts) {
             if (fact.element === undefined) {
                 fact.element = element;
             }
@@ -186,7 +186,7 @@ function *resultsOfDomRule(rule, specialDomNode, kb) {
 function *resultsOfFlavorRule(rule, node, flavor) {
     const newFacts = explicitFacts(rule.ranker(node));
 
-    for (let fact of newFacts) {
+    for (const fact of newFacts) {
         // If the ranker didn't specify a different element, assume it's
         // talking about the one we passed in:
         if (fact.element === undefined) {
@@ -207,7 +207,7 @@ function *resultsOfFlavorRule(rule, node, flavor) {
 // array of facts.
 function *explicitFacts(rankerResult) {
     const array = (rankerResult === undefined) ? [] : (Array.isArray(rankerResult) ? rankerResult : [rankerResult]);
-    for (let fact of array) {
+    for (const fact of array) {
         if (fact.score === undefined) {
             fact.score = 1;
         }

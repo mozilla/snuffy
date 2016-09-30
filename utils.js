@@ -65,7 +65,7 @@ function sum(iterable) {
 
 function length(iterable) {
     let num = 0;
-    for (let item of iterable) {
+    for (const item of iterable) { // eslint-disable-line no-unused-vars
         num++;
     }
     return num;
@@ -77,9 +77,9 @@ function length(iterable) {
 //     and its children
 function *walk(element, shouldTraverse) {
     yield element;
-    for (let child of element.childNodes) {
+    for (const child of element.childNodes) {
         if (shouldTraverse(child)) {
-            for (let w of walk(child, shouldTraverse)) {
+            for (const w of walk(child, shouldTraverse)) {
                 yield w;
             }
         }
@@ -109,7 +109,7 @@ function isBlock(element) {
 function *inlineTexts(element, shouldTraverse = element => true) {
     // TODO: Could we just use querySelectorAll() with a really long
     // selector rather than walk(), for speed?
-    for (let child of walk(element,
+    for (const child of walk(element,
                              element => !(isBlock(element) ||
                                           element.tagName === 'SCRIPT' &&
                                           element.tagName === 'STYLE')
@@ -305,9 +305,9 @@ class DistanceMatrix {
         const clusters = elements.map(el => [el]);
 
         // Init matrix:
-        for (let outerCluster of clusters) {
+        for (const outerCluster of clusters) {
             const innerMap = new Map();
-            for (let innerCluster of this._matrix.keys()) {
+            for (const innerCluster of this._matrix.keys()) {
                 innerMap.set(innerCluster, distance(outerCluster[0],
                                                     innerCluster[0]));
             }
@@ -327,8 +327,8 @@ class DistanceMatrix {
 
         // Return the distances between every pair of clusters.
         function *clustersAndDistances() {
-            for (let [outerKey, row] of self._matrix.entries()) {
-                for (let [innerKey, storedDistance] of row.entries()) {
+            for (const [outerKey, row] of self._matrix.entries()) {
+                for (const [innerKey, storedDistance] of row.entries()) {
                     yield {a: outerKey, b: innerKey, distance: storedDistance};
                 }
             }
@@ -373,7 +373,7 @@ class DistanceMatrix {
         // There will be no repetition in the matrix because, after all,
         // nothing pointed to this new cluster before it existed.
         const newRow = new Map();
-        for (let outerKey of this._matrix.keys()) {
+        for (const outerKey of this._matrix.keys()) {
             if (outerKey !== clusterA && outerKey !== clusterB) {
                 newRow.set(outerKey, Math.min(this._cachedDistance(clusterA, outerKey),
                                               this._cachedDistance(clusterB, outerKey)));
@@ -385,7 +385,7 @@ class DistanceMatrix {
         this._matrix.delete(clusterB);
 
         // Remove inner refs to the clusters we're merging.
-        for (let inner of this._matrix.values()) {
+        for (const inner of this._matrix.values()) {
             inner.delete(clusterA);
             inner.delete(clusterB);
         }

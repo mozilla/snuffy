@@ -1,5 +1,5 @@
-const assert = require('chai').assert;
-const jsdom = require('jsdom');
+const {assert} = require('chai');
+const {jsdom} = require('jsdom');
 
 const {dom, flavor, rule, ruleset} = require('../index');
 const {inlineTextLength, linkDensity} = require('../utils');
@@ -12,7 +12,7 @@ describe('Design-driving demos', function() {
         // declarative, such that the engine can be smart enough to run the
         // highest-possible-scoring flavor-chain of rules first and, if it
         // succeeds, omit the others.
-        const doc = jsdom.jsdom(`
+        const doc = jsdom(`
             <meta name="hdl" content="HDL">
             <meta property="og:title" content="OpenGraph">
             <meta property="twitter:title" content="Twitter">
@@ -46,7 +46,7 @@ describe('Design-driving demos', function() {
             };
         }
 
-        const doc = jsdom.jsdom(`
+        const doc = jsdom(`
             <p>
                 <a class="good" href="/things">Things</a> / <a class="bad" href="/things/tongs">Tongs</a>
             </p>

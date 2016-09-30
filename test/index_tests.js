@@ -1,14 +1,14 @@
 // Tests for fathom/index.js
 
-const assert = require('chai').assert;
-const jsdom = require('jsdom');
+const {assert} = require('chai');
+const {jsdom} = require('jsdom');
 
 const {dom, rule, ruleset, flavor} = require('../index');
 
 
 describe('Ranker tests', function() {
     it('scores a node with a simple DOM rule and inserts an empty scribble', function () {
-        const doc = jsdom.jsdom(`
+        const doc = jsdom(`
             <p>
                 <a class="good" href="https://github.com/jsdom">Good!</a>
                 <a class="bad" href="https://github.com/jsdom">Bad!</a>
@@ -24,7 +24,7 @@ describe('Ranker tests', function() {
     });
 
     it('applies flavored rules when there is input for them', function () {
-        const doc = jsdom.jsdom(`
+        const doc = jsdom(`
             <p>Hi</p>
             <div>Hooooooo</div>
         `);
