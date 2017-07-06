@@ -203,16 +203,6 @@ function deviationScore(docPairs, coeffs = []) {
 
 /** Return (expected DOM, source DOM) for all the readbaility test docs. */
 function readabilityDocPairs() {
-    // return ['basic-tags-cleaning',
-    //         '001',
-    //         //'002', // hellish number of candidate tags. Takes 14s.
-    //         'daringfireball-1',
-    //         'buzzfeed-1',
-    //         'clean-links',
-    //         'ehow-1',
-    //         'embedded-videos',
-    //         'heise',
-    //         'herald-sun-1'].map(expectedAndSourceDocs);
     return [ [staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/basic-tags-cleaning/expected.html', 'utf-8')),
               staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/basic-tags-cleaning/source.html', 'utf-8'))],
              [staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/001/expected.html', 'utf-8')),
