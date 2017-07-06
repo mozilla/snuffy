@@ -10,6 +10,7 @@
     "wu": "^2.1.0"
   },
   "devDependencies": {
+    "brfs": "^1.4.3",
     "browserify": "^14.4.0",
     "chai": "^4.0.2",
     "coveralls": "^2.11.11",

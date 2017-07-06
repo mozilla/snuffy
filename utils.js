@@ -398,8 +398,11 @@ function isDomElement(thing) {
  * execute any of its inline scripts.
  */
 function staticDom(html) {
-    const {jsdom} = require('jsdom');
-    return jsdom(html, {features: {ProcessExternalResources: false}});
+    // const {jsdom} = require('jsdom');
+    // return jsdom(html, {features: {ProcessExternalResources: false}});
+    const newDoc = document.implementation.createHTMLDocument();;
+    newDoc.write(html);
+    return newDoc;
 }
 
 module.exports = {
