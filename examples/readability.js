@@ -15,8 +15,7 @@
  *   over, loosening constraints each time, if it fails
  * * Happily finds body text in things other than divs and p tags.
  */
- var fs = require('fs');
-// const {readFileSync} = require('fs');
+var fs = require('fs');
 const {dirname, join} = require('path');
 
 const leven = require('leven');
