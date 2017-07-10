@@ -5,29 +5,58 @@ const leven = require('leven');
 
 const {dom, props, out, rule, ruleset, score, type} = require('../index');
 const {domSort, inlineTextLength, linkDensity, staticDom} = require('../utils');
-const files = ['amazon',
-               'craigslist',
-               'ebay',
-               'etsy',
-               'newegg',
-               'target'
-             ];
+const {Annealer} = require('../optimizers');
 
-function tunedImageFnodes(coeffLinkDensity = 1.5, coeffParagraphTag = 4.5, coeffLength = 2, coeffDifferentDepth = 6.5, coeffDifferentTag = 2, coeffSameTag = 0.5, coeffStride = 0) {
+
+function euclideanDistance(nodeA, nodeB){
+  var rectA = nodeA.getBoundingClientRect();
+  var rectB = nodeB.getBoundingClientRect();
+  var x = rectB.left - rectA.left;
+  var y = rectB.bottom - rectB.bottom;
+  return Math.sqrt(x^2 + y^2);
+}
+
+function tunedImageFnodes() {
     function imageSize(fnode) {
       return fnode.element.offsetWidth * fnode.element.offsetHeight;
+    }
+
+    function imageHasSrc(fnode){
+      return fnode.element.hasAttribute('src') && fnode.element.getAttribute('src') != '';
+    }
+
+    function imageTitle(fnode){
+      var title = document.getElementsByTagName('title')[1];
+      if(title === undefined){
+        return 0;
+      }
+
+      // return fnode.element.getAttribute('title') &&
+      //        (fnode.element.getAttribute('title').includes(title.innerHTML) || title.innerHTML.includes(fnode.element.getAttribute('title'))) ||
+      //        fnode.element.getAttribute('alt') &&
+      //        (fnode.element.getAttribute('alt').includes(title.innerHTML) || title.innerHTML.includes(fnode.element.getAttribute('alt')));
+      if (fnode.element.getAttribute('title') &&
+             (fnode.element.getAttribute('title').includes(title.innerHTML) || title.innerHTML.includes(fnode.element.getAttribute('title'))) ||
+             fnode.element.getAttribute('alt') &&
+             (fnode.element.getAttribute('alt').includes(title.innerHTML) || title.innerHTML.includes(fnode.element.getAttribute('alt')))){
+               return 10000;
+             };
     }
 
     const rules = ruleset(
       //get all images
       rule(dom('img'), type('images')),
-      
+
       //better score for larger images
       rule(type('images'), score(imageSize)),
 
-      //better score with smaller min distance to a header tag
-      //rule(type('images'), score(distanceToHeader)),
+      //make sure image has src
+      rule(type('images'), score(imageHasSrc)),
 
+      //image title matches page title
+      rule(type('images'), score(imageTitle)),
+
+      //return image with max score
       rule(type('images').max(), out('main-image'))
 
     );
@@ -51,8 +80,9 @@ class DiffStats {
     }
 
     compare(expectedDom, sourceDom) {
-        const expectedText = expectedDom.documentElement.innerHTML;
-        const gotText = '<head></head><body>' + this.contentFnodes(sourceDom).map(fnode => fnode.element.outerHTML)[0] + '\n</body>';
+        //compare images by src
+        const expectedText = expectedDom.body.firstChild.getAttribute('src');
+        const gotText = this.contentFnodes(sourceDom).map(fnode => fnode.element.getAttribute('src'))[0];
 
         this.lengthOfExpectedTexts += expectedText.length;
         this.lengthOfDiffs += leven(expectedText, gotText);
@@ -72,11 +102,17 @@ class DiffStats {
 
 function deviationScore(docPairs, coeffs = []) {
     const stats = new DiffStats(tunedImageFnodes(...coeffs));
+    window.width = 1661;
+    window.height = 562;
     for (let pair of docPairs) {
         window.document.body.insertAdjacentHTML('afterbegin', '<div id = "fixture">' + pair[1] + '</div>');
+        if(document.getElementsByTagName('title')[1] !== undefined){
+          console.log(document.getElementsByTagName('title')[1].innerHTML);
+        }
         stats.compare(pair[0], window.document);
         window.document.body.removeChild(document.getElementById('fixture'));
     }
+    console.log(stats.score());
     return stats.score();
 }
 

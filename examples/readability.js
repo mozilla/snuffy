@@ -210,8 +210,8 @@ function readabilityDocPairs() {
               staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/daringfireball-1/source.html', 'utf-8'))],
              [staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/buzzfeed-1/expected.html', 'utf-8')),
               staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/buzzfeed-1/source.html', 'utf-8'))],
-            //  [staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/clean-links/expected.html', 'utf-8')),
-            //   staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/clean-links/source.html', 'utf-8'))]
+             [staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/clean-links/expected.html', 'utf-8')),
+              staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/clean-links/source.html', 'utf-8'))],
              [staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/ehow-1/expected.html', 'utf-8')),
               staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/ehow-1/source.html', 'utf-8'))],
              [staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/embedded-videos/expected.html', 'utf-8')),

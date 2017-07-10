@@ -4,7 +4,7 @@ const {deviationScore, productDocPairs, tunedContentFnodes} = require('../exampl
 const {staticDom} = require('../utils');
 
 
-describe('Readability ruleset finds content from...', function () {
+describe('Products ruleset finds content from...', function () {
     this.timeout(0);  // This early in the dev process, some things still take awhile.
 
     // ---------------------- Test helper routines: -----------------------
@@ -20,7 +20,7 @@ describe('Readability ruleset finds content from...', function () {
 
     // ----------------------------- Tests: -------------------------------
 
-    it.only('the Products test suite', function () {
+    it('the Products test suite', function () {
         assert.isBelow(deviationScore(productDocPairs()), 100);
     });
 });
