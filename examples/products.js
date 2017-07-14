@@ -24,7 +24,7 @@ const leven = require('leven');
 const {dom, props, out, rule, ruleset, score, type} = require('../index');
 const {domSort, staticDom} = require('../utils');
 const {Annealer} = require('../optimizers');
-
+const {productImageDocPairs, productTitleDocPairs, productPriceDocPairs} = require('../docpairs');
 
 
 function euclideanDistance(nodeA, nodeB){
@@ -37,7 +37,7 @@ function euclideanDistance(nodeA, nodeB){
   var rectB = nodeB.getBoundingClientRect();
   var x = rectB.left - rectA.left;
   var y = rectB.bottom - rectB.bottom;
-  return Math.sqrt(x**2 + y**2);
+  return Math.sqrt(Math.pow(x,2) + Math.pow(y,2));
 }
 
 function tunedImageFnodes() {
@@ -64,9 +64,45 @@ function tunedImageFnodes() {
       return 1;
     }
 
-    function thumbnail(fnode) {
-      if(fnode.element.hasAttribute('src') && fnode.element.getAttribute('src').includes('thumb')){
+    function keywords(fnode) {
+      if(fnode.element.hasAttribute('src') && fnode.element.src.match(/(thumb|logo|icon)/i)){
         return 0;
+      } else if (fnode.element.hasAttribute('src') && fnode.element.src.match(/(hero|main|product)/i)){
+        return 100;
+      }
+      return 1;
+    }
+
+    function imageType(fnode){
+      if(fnode.element.hasAttribute('src') && fnode.element.src.match(/(jpg|jpeg)/i)){
+        return 100;
+      } else if (fnode.element.hasAttribute('src') && fnode.element.src.match(/(gif|webp)/i)){
+        return 0;
+      }
+      return 1;
+    }
+
+    function titleInSrc(fnode){
+      var title = document.getElementsByTagName('title')[1];
+      if (title === undefined) {
+        return 1;
+      }
+
+      var arr = title.innerHTML.split(' ');
+      var regexstring = '.*';
+      for(var i = 0; i < arr.length; i++){
+        regexstring += '.*' + arr[i];
+      }
+      regexstring += '.*';
+      var regex = new RegExp(regexstring, "gi");
+
+      if(fnode.element.hasAttribute('src')) {
+        console.log(title.innerHTML, regexstring, fnode.element.getAttribute('src'));
+      }
+
+      if(fnode.element.hasAttribute('src') && fnode.element.getAttribute('src').match(regex)){
+        console.log(regexstring, "REGEXSTRING MATCH");
+        return 1000;
       }
       return 1;
     }
@@ -79,22 +115,28 @@ function tunedImageFnodes() {
       //better score for larger images
       rule(type('images'), score(imageSize)),
 
+      //jpegs used more often than pngs
+      rule(type('images'), score(imageType)),
+
       //make sure image has src
       rule(type('images'), score(imageHasSrc)),
 
       //image title matches page title
       rule(type('images'), score(imageTitle)),
 
-      //not to be confused with the thumbnail
-      rule(type('images'), score(thumbnail)),
+      //image title contained in image src
+      //rule(type('images'), score(titleInSrc)),
+
+      //not to be confused with the thumbnail or logo
+      rule(type('images'), score(keywords)),
 
       //return image with max score
-      rule(type('images').max(), out('main-image'))
+      rule(type('images').max(), out('product-image'))
 
     );
 
     function contentFnodes(doc) {
-        return rules.against(doc).get('main-image');
+        return rules.against(doc).get('product-image');
     }
 
     return contentFnodes;
@@ -117,6 +159,56 @@ function tunedTitleFnodes() {
     return contentFnodes;
 }
 
+function tunedPriceFnodes() {
+
+    function hasDollarSign(fnode){
+      if(fnode.element.childNodes[0] && fnode.element.childNodes[0].nodeValue && fnode.element.childNodes[0].nodeValue.includes('$')){
+        return 2;
+      }
+      return 1;
+    }
+
+    function tagHasGoodCss(fnode){
+      if(fnode.element.id.match(/price/i) || fnode.element.classList.contains(/price/i)){
+        return 2;
+      }
+      return 1;
+    }
+
+    function notSavingsAmount(fnode){
+      if(fnode.element.childNodes[0] && fnode.element.childNodes[0].nodeValue &&
+        (fnode.element.childNodes[0].nodeValue.includes('-') || window.getComputedStyle(fnode.element).getPropertyValue('text-decoration') === 'line-through')){
+        return 0;
+      }
+      return 1;
+    }
+
+
+    const rules = ruleset(
+      //get all elements that could contain the price
+      rule(dom('span, div, li'), type('priceish')),
+
+      //bonus if direct text (not children) contains a dollar sign
+      rule(type('priceish'), score(hasDollarSign)),
+
+      //look for good css within tag
+      rule(type('priceish'), score(tagHasGoodCss)),
+
+      //not to be confused with amount off (minus sign, crossed off)
+      rule(type('priceish'), score(notSavingsAmount)),
+
+      //return image with max score
+      rule(type('priceish').max(), out('product-price'))
+
+    );
+
+    function contentFnodes(doc) {
+        return rules.against(doc).get('product-price');
+    }
+
+    return contentFnodes;
+}
+
 /**
  * Maintain state as we compare a series of DOMs, reporting the percent
  * difference at the end.
@@ -125,12 +217,13 @@ class DiffStats {
     constructor(contentFnodes, feature) {
         this.lengthOfExpectedTexts = 0;
         this.lengthOfDiffs = 0;
+        this.feature = feature;
         if (feature === 'image') {
           this.contentFnodes = contentFnodes || tunedImageFnodes();
-          this.feature = 'image';
-        } else {
+        } else if (feature === 'title'){
           this.contentFnodes = contentFnodes || tunedTitleFnodes();
-          this.feature = 'title';
+        } else {
+          this.contentFnodes = contentFnodes || tunedPriceFnodes();
         }
     }
 
@@ -141,10 +234,14 @@ class DiffStats {
           //compare images by src
           expectedText = expectedDom.body.firstChild.getAttribute('src');
           gotText = this.contentFnodes(sourceDom).map(fnode => fnode.element.getAttribute('src'))[0];
-        } else {
+        } else if (this.feature === 'title') {
           //compare innerHTML text of titles
           expectedText = expectedDom.head.firstChild.innerHTML;
           gotText = this.contentFnodes(sourceDom).map(fnode => fnode.element.innerHTML)[0];
+        } else if (this.feature === 'price') {
+          //strip whitespace and dollar sign if there is one when comparing price
+          expectedText = expectedDom.body.firstChild.textContent.replace('$', '').trim();
+          gotText = this.contentFnodes(sourceDom).map(fnode => fnode.element.textContent.replace('$', '').trim())[0];
         }
 
         this.lengthOfExpectedTexts++;
@@ -167,9 +264,11 @@ class DiffStats {
 function deviationScore(docPairs, feature, coeffs = []) {
     var stats;
     if(feature === 'image') {
-      stats = new DiffStats(tunedImageFnodes(...coeffs), 'image');
+      stats = new DiffStats(tunedImageFnodes(...coeffs), feature);
+    } else if (feature === 'title') {
+      stats = new DiffStats(tunedTitleFnodes(...coeffs), feature);
     } else {
-      stats = new DiffStats(tunedTitleFnodes(...coeffs), 'title');
+      stats = new DiffStats(tunedPriceFnodes(...coeffs), feature);
     }
 
     for (let pair of docPairs) {
@@ -181,87 +280,13 @@ function deviationScore(docPairs, feature, coeffs = []) {
     return stats.score();
 }
 
-function productImageDocPairs() {
-  return [
-    [staticDom(fs.readFileSync(__dirname + '/../test/product_classification_test_data/amazon/expected-image.html', 'utf-8')),
-      fs.readFileSync(__dirname + '/../test/product_classification_test_data/amazon/source.html', 'utf-8')
-    ],
-    [staticDom(fs.readFileSync(__dirname + '/../test/product_classification_test_data/craigslist/expected-image.html', 'utf-8')),
-      fs.readFileSync(__dirname + '/../test/product_classification_test_data/craigslist/source.html', 'utf-8')
-    ],
-    [staticDom(fs.readFileSync(__dirname + '/../test/product_classification_test_data/ebay/expected-image.html', 'utf-8')),
-      fs.readFileSync(__dirname + '/../test/product_classification_test_data/ebay/source.html', 'utf-8')
-    ],
-    [staticDom(fs.readFileSync(__dirname + '/../test/product_classification_test_data/etsy/expected-image.html', 'utf-8')),
-      fs.readFileSync(__dirname + '/../test/product_classification_test_data/etsy/source.html', 'utf-8')
-    ],
-     [staticDom(fs.readFileSync(__dirname + '/../test/product_classification_test_data/newegg/expected-image.html', 'utf-8')),
-      fs.readFileSync(__dirname + '/../test/product_classification_test_data/newegg/source.html', 'utf-8')
-    ],
-    [staticDom(fs.readFileSync(__dirname + '/../test/product_classification_test_data/uniqlo/expected-image.html', 'utf-8')),
-     fs.readFileSync(__dirname + '/../test/product_classification_test_data/uniqlo/source.html', 'utf-8')
-    ],
-    [staticDom(fs.readFileSync(__dirname + '/../test/product_classification_test_data/h&m/expected-image.html', 'utf-8')),
-     fs.readFileSync(__dirname + '/../test/product_classification_test_data/h&m/source.html', 'utf-8')
-    ],
-    [staticDom(fs.readFileSync(__dirname + '/../test/product_classification_test_data/barnes&noble/expected-image.html', 'utf-8')),
-     fs.readFileSync(__dirname + '/../test/product_classification_test_data/barnes&noble/source.html', 'utf-8')
-    ],
-    [staticDom(fs.readFileSync(__dirname + '/../test/product_classification_test_data/bose/expected-image.html', 'utf-8')),
-     fs.readFileSync(__dirname + '/../test/product_classification_test_data/bose/source.html', 'utf-8')
-    ],
-    [staticDom(fs.readFileSync(__dirname + '/../test/product_classification_test_data/target/expected-image.html', 'utf-8')),
-      fs.readFileSync(__dirname + '/../test/product_classification_test_data/target/source.html', 'utf-8')
-    ]
-  ];
-}
-function productTitleDocPairs() {
-  return [
-    [staticDom(fs.readFileSync(__dirname + '/../test/product_classification_test_data/amazon/expected-title.html', 'utf-8')),
-      fs.readFileSync(__dirname + '/../test/product_classification_test_data/amazon/source.html', 'utf-8')
-    ],
-    [staticDom(fs.readFileSync(__dirname + '/../test/product_classification_test_data/craigslist/expected-title.html', 'utf-8')),
-      fs.readFileSync(__dirname + '/../test/product_classification_test_data/craigslist/source.html', 'utf-8')
-    ],
-    [staticDom(fs.readFileSync(__dirname + '/../test/product_classification_test_data/ebay/expected-title.html', 'utf-8')),
-      fs.readFileSync(__dirname + '/../test/product_classification_test_data/ebay/source.html', 'utf-8')
-    ],
-    [staticDom(fs.readFileSync(__dirname + '/../test/product_classification_test_data/etsy/expected-title.html', 'utf-8')),
-      fs.readFileSync(__dirname + '/../test/product_classification_test_data/etsy/source.html', 'utf-8')
-    ],
-     [staticDom(fs.readFileSync(__dirname + '/../test/product_classification_test_data/newegg/expected-title.html', 'utf-8')),
-      fs.readFileSync(__dirname + '/../test/product_classification_test_data/newegg/source.html', 'utf-8')
-    ],
-    [staticDom(fs.readFileSync(__dirname + '/../test/product_classification_test_data/uniqlo/expected-title.html', 'utf-8')),
-     fs.readFileSync(__dirname + '/../test/product_classification_test_data/uniqlo/source.html', 'utf-8')
-    ],
-    [staticDom(fs.readFileSync(__dirname + '/../test/product_classification_test_data/h&m/expected-title.html', 'utf-8')),
-     fs.readFileSync(__dirname + '/../test/product_classification_test_data/h&m/source.html', 'utf-8')
-    ],
-    [staticDom(fs.readFileSync(__dirname + '/../test/product_classification_test_data/barnes&noble/expected-title.html', 'utf-8')),
-     fs.readFileSync(__dirname + '/../test/product_classification_test_data/barnes&noble/source.html', 'utf-8')
-    ],
-    [staticDom(fs.readFileSync(__dirname + '/../test/product_classification_test_data/bose/expected-title.html', 'utf-8')),
-     fs.readFileSync(__dirname + '/../test/product_classification_test_data/bose/source.html', 'utf-8')
-    ],
-    [staticDom(fs.readFileSync(__dirname + '/../test/product_classification_test_data/target/expected-title.html', 'utf-8')),
-      fs.readFileSync(__dirname + '/../test/product_classification_test_data/target/source.html', 'utf-8')
-    ]
-  ];
-}
-
 
 if (require.main === module) {
-    window.width = 1661;
-    window.height = 562;
     console.log('% difference from ideal:', deviationScore(productImageDocPairs(), 'image'));
     console.log('% difference from ideal:', deviationScore(productTitleDocPairs(), 'title'));
-
+    console.log('% difference from ideal:', deviationScore(productPriceDocPairs(), 'price'));
 }
 
 module.exports = {
-    deviationScore,
-    productImageDocPairs,
-    productTitleDocPairs,
-    tunedImageFnodes
+    deviationScore
 };

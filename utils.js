@@ -399,10 +399,10 @@ function isDomElement(thing) {
  */
 function staticDom(html) {
     var parser = new DOMParser();
-    var doc = parser.parseFromString(html, "text/html");
-    Array.from(doc.getElementsByTagName('script')).map(node => node.type = "application/json");
-    return doc;
-    //return parser.parseFromString(html, "text/html");
+    // var doc = parser.parseFromString(html, "text/html");
+    // Array.from(doc.getElementsByTagName('script')).map(node => node.type = "application/json");
+    // return doc;
+    return parser.parseFromString(html, "text/html");
 }
 
 module.exports = {
