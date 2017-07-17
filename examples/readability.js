@@ -241,7 +241,7 @@ if (require.main === module) {
         }
     }
 
-    if (argv[2] == '--tune') {
+    if (argv[2] === '--tune') {
         // Tune coefficients using simulated annealing.
         const annealer = new ContentFnodesTuner();
         coeffs = annealer.anneal();
