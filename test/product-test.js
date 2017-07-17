@@ -1,6 +1,6 @@
 const assert = require('chai').assert;
-const {deviationScore} = require('../examples/products');
-const {productImageDocPairs, productTitleDocPairs, productPriceDocPairs} = require('../docpairs');
+const {deviationScore} = require('../examples/products/products');
+const {productImageDocPairs, productTitleDocPairs, productPriceDocPairs} = require('../examples/products/docpairs');
 const {Annealer} = require('../optimizers');
 
 

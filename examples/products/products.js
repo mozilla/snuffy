@@ -21,10 +21,10 @@
 var fs = require('fs');
 const {dirname} = require('path');
 const leven = require('leven');
-const {dom, props, out, rule, ruleset, score, type} = require('../index');
-const {domSort, staticDom} = require('../utils');
-const {Annealer} = require('../optimizers');
-const {productImageDocPairs, productTitleDocPairs, productPriceDocPairs} = require('../docpairs');
+const {dom, props, out, rule, ruleset, score, type} = require('../../index');
+const {domSort, staticDom} = require('../../utils');
+const {Annealer} = require('../../optimizers');
+const {productImageDocPairs, productTitleDocPairs, productPriceDocPairs} = require('./docpairs');
 
 
 function euclideanDistance(nodeA, nodeB){
