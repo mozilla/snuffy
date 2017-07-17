@@ -9,7 +9,8 @@ module.exports = function(config) {
     },
 
     browserify: {
-      debug: true
+      debug: true,
+      transform:['brfs']
     },
 
     reporters: ['progress'],
@@ -17,6 +18,7 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     browsers: ['ChromeHeadless'],
+    browserNoActivityTimeout: 1000000,
     autoWatch: false,
     // singleRun: false, // Karma captures browsers, runs the tests and exits
     concurrency: Infinity

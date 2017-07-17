@@ -3,7 +3,10 @@ language: node_js
 node_js:
   - 6
 
+dist: trusty
+
 addons:
+  chrome: stable
   apt:
     packages:
       - python-virtualenv

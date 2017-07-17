@@ -1,0 +1,909 @@
+<html lang="en" style="display: block;"><head><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="Container" data-namespace="s7classic">[data-namespace='s7classic'].s7container {
+	width:100%;
+	height:100%;
+ }
+[data-namespace='s7classic'].s7container .s7innercontainer {
+	position:relative;
+	left:0px;
+	top:0px;
+	width:100%;
+	height:100%;
+	border:0px !important;
+	margin:0px !important;
+	padding:0px !important;
+	max-width:none !important;
+	max-height:none !important;
+ }
+[data-namespace='s7classic'].s7container[mode='fullscreen'] {
+	z-index:9900;
+	overflow:visible !important;
+ }
+[data-namespace='s7classic'].s7container .s7innercontainer[mode='fullscreen'] {
+	position:absolute;
+ }
+[data-namespace='s7classic'].s7supressminsize {
+	padding:0px !important;
+	border:0px !important;
+	min-width:0px !important;
+	min-height:0px !important;
+ }
+</style><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="ScrollLeftRightButton" data-namespace="s7classic">[data-namespace='s7classic'].s7scrollleftrightbutton {
+	width:25px;
+	height:25px;
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+ }
+[data-namespace='s7classic'].s7scrollleftrightbutton {
+	position:absolute;
+	width:25px;
+	height:25px;
+ }
+[data-namespace='s7classic'].s7scrollleftrightbutton[selected='true'][state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/controlbarleftbutton_dark_up.png);
+ }
+[data-namespace='s7classic'].s7scrollleftrightbutton[selected='true'][state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/controlbarleftbutton_dark_over.png);
+ }
+[data-namespace='s7classic'].s7scrollleftrightbutton[selected='true'][state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/controlbarleftbutton_dark_down.png);
+ }
+[data-namespace='s7classic'].s7scrollleftrightbutton[selected='true'][state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/controlbarleftbutton_dark_disabled.png);
+ }
+[data-namespace='s7classic'].s7scrollleftrightbutton[selected='false'][state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/controlbarrightbutton_dark_up.png);
+ }
+[data-namespace='s7classic'].s7scrollleftrightbutton[selected='false'][state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/controlbarrightbutton_dark_over.png);
+ }
+[data-namespace='s7classic'].s7scrollleftrightbutton[selected='false'][state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/controlbarrightbutton_dark_down.png);
+ }
+[data-namespace='s7classic'].s7scrollleftrightbutton[selected='false'][state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/controlbarrightbutton_dark_disabled.png);
+ }
+</style><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="SearchButton" data-namespace="s7classic">[data-namespace='s7classic'].s7searchbutton {
+	width:25px;
+	height:25px;
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+ }
+[data-namespace='s7classic'].s7searchbutton {
+	position:absolute;
+	width:25px;
+	height:25px;
+ }
+[data-namespace='s7classic'].s7searchbutton[selected='true'][state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/searchbutton_on_over.png);
+ }
+[data-namespace='s7classic'].s7searchbutton[selected='true'][state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/searchbutton_on_over.png);
+ }
+[data-namespace='s7classic'].s7searchbutton[selected='true'][state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/searchbutton_on_over.png);
+ }
+[data-namespace='s7classic'].s7searchbutton[selected='true'][state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/searchbutton_off_disabled.png);
+ }
+[data-namespace='s7classic'].s7searchbutton[selected='false'][state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/searchbutton_off_up.png);
+ }
+[data-namespace='s7classic'].s7searchbutton[selected='false'][state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/searchbutton_off_over.png);
+ }
+[data-namespace='s7classic'].s7searchbutton[selected='false'][state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/searchbutton_off_down.png);
+ }
+[data-namespace='s7classic'].s7searchbutton[selected='false'][state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/searchbutton_off_disabled.png);
+ }
+</style><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="Download" data-namespace="s7classic">[data-namespace='s7classic'].s7download {
+	width:25px;
+	height:25px;
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+ }
+[data-namespace='s7classic'].s7download[state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/download_up.png);
+ }
+[data-namespace='s7classic'].s7download[state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/download_over.png);
+ }
+[data-namespace='s7classic'].s7download[state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/download_down.png);
+ }
+[data-namespace='s7classic'].s7download[state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/download_disabled.png);
+ }
+</style><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="ClosedCaptionButton" data-namespace="s7classic">[data-namespace='s7classic'].s7closedcaptionbutton {
+	width:25px;
+	height:25px;
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+ }
+[data-namespace='s7classic'].s7closedcaptionbutton {
+	position:absolute;
+	width:25px;
+	height:25px;
+ }
+[data-namespace='s7classic'].s7closedcaptionbutton[selected='true'][state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/closedcaptions_up.png);
+ }
+[data-namespace='s7classic'].s7closedcaptionbutton[selected='true'][state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/closedcaptions_over.png);
+ }
+[data-namespace='s7classic'].s7closedcaptionbutton[selected='true'][state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/closedcaptions_down.png);
+ }
+[data-namespace='s7classic'].s7closedcaptionbutton[selected='true'][state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/closedcaptions_disabled.png);
+ }
+[data-namespace='s7classic'].s7closedcaptionbutton[selected='false'][state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/closedcaptions_disabled.png);
+ }
+[data-namespace='s7classic'].s7closedcaptionbutton[selected='false'][state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/closedcaptions_over.png);
+ }
+[data-namespace='s7classic'].s7closedcaptionbutton[selected='false'][state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/closedcaptions_down.png);
+ }
+[data-namespace='s7classic'].s7closedcaptionbutton[selected='false'][state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/closedcaptions_disabled.png);
+ }
+</style><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="ThumbnailPageButton" data-namespace="s7classic">[data-namespace='s7classic'].s7thumbnailpagebutton {
+	width:25px;
+	height:25px;
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+ }
+[data-namespace='s7classic'].s7thumbnailpagebutton {
+	position:absolute;
+	width:25px;
+	height:25px;
+ }
+[data-namespace='s7classic'].s7thumbnailpagebutton[selected='true'][state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/thumb_up.png);
+ }
+[data-namespace='s7classic'].s7thumbnailpagebutton[selected='true'][state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/thumb_over.png);
+ }
+[data-namespace='s7classic'].s7thumbnailpagebutton[selected='true'][state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/thumb_down.png);
+ }
+[data-namespace='s7classic'].s7thumbnailpagebutton[selected='true'][state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/thumb_disabled.png);
+ }
+[data-namespace='s7classic'].s7thumbnailpagebutton[selected='false'][state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/page_up.png);
+ }
+[data-namespace='s7classic'].s7thumbnailpagebutton[selected='false'][state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/page_over.png);
+ }
+[data-namespace='s7classic'].s7thumbnailpagebutton[selected='false'][state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/page_down.png);
+ }
+[data-namespace='s7classic'].s7thumbnailpagebutton[selected='false'][state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/page_disabled.png);
+ }
+</style><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="ScrubberSwatchesButton" data-namespace="s7classic">[data-namespace='s7classic'].s7scrubberswatchesbutton {
+	width:25px;
+	height:25px;
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+ }
+[data-namespace='s7classic'].s7scrubberswatchesbutton {
+	position:absolute;
+	width:25px;
+	height:25px;
+ }
+[data-namespace='s7classic'].s7scrubberswatchesbutton[selected='true'][state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/swatches_up.png);
+ }
+[data-namespace='s7classic'].s7scrubberswatchesbutton[selected='true'][state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/swatches_over.png);
+ }
+[data-namespace='s7classic'].s7scrubberswatchesbutton[selected='true'][state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/swatches_down.png);
+ }
+[data-namespace='s7classic'].s7scrubberswatchesbutton[selected='true'][state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/swatches_disabled.png);
+ }
+[data-namespace='s7classic'].s7scrubberswatchesbutton[selected='false'][state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scrubber_up.png);
+ }
+[data-namespace='s7classic'].s7scrubberswatchesbutton[selected='false'][state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scrubber_over.png);
+ }
+[data-namespace='s7classic'].s7scrubberswatchesbutton[selected='false'][state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scrubber_down.png);
+ }
+[data-namespace='s7classic'].s7scrubberswatchesbutton[selected='false'][state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scrubber_disabled.png);
+ }
+</style><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="FullScreenButton" data-namespace="s7classic">[data-namespace='s7classic'].s7fullscreenbutton {
+	width:25px;
+	height:25px;
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+ }
+[data-namespace='s7classic'].s7fullscreenbutton {
+	position:absolute;
+	width:25px;
+	height:25px;
+ }
+[data-namespace='s7classic'].s7fullscreenbutton[selected='true'][state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/fullscreen_up.png);
+ }
+[data-namespace='s7classic'].s7fullscreenbutton[selected='true'][state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/fullscreen_over.png);
+ }
+[data-namespace='s7classic'].s7fullscreenbutton[selected='true'][state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/fullscreen_down.png);
+ }
+[data-namespace='s7classic'].s7fullscreenbutton[selected='true'][state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/fullscreen_disabled.png);
+ }
+[data-namespace='s7classic'].s7fullscreenbutton[selected='false'][state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/minscreen_up.png);
+ }
+[data-namespace='s7classic'].s7fullscreenbutton[selected='false'][state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/minscreen_over.png);
+ }
+[data-namespace='s7classic'].s7fullscreenbutton[selected='false'][state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/minscreen_down.png);
+ }
+[data-namespace='s7classic'].s7fullscreenbutton[selected='false'][state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/minscreen_disabled.png);
+ }
+</style><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="PlayPauseButton" data-namespace="s7classic">[data-namespace='s7classic'].s7playpausebutton {
+	width:25px;
+	height:25px;
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+ }
+[data-namespace='s7classic'].s7playpausebutton {
+	position:absolute;
+	width:25px;
+	height:25px;
+ }
+[data-namespace='s7classic'].s7playpausebutton[selected='true'][state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/play_up.png);
+ }
+[data-namespace='s7classic'].s7playpausebutton[selected='true'][state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/play_over.png);
+ }
+[data-namespace='s7classic'].s7playpausebutton[selected='true'][state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/play_down.png);
+ }
+[data-namespace='s7classic'].s7playpausebutton[selected='true'][state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/play_disabled.png);
+ }
+[data-namespace='s7classic'].s7playpausebutton[selected='false'][state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/pause_up.png);
+ }
+[data-namespace='s7classic'].s7playpausebutton[selected='false'][state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/pause_over.png);
+ }
+[data-namespace='s7classic'].s7playpausebutton[selected='false'][state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/pause_down.png);
+ }
+[data-namespace='s7classic'].s7playpausebutton[selected='false'][state='disabled'][state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/pause_disabled.png);
+ }
+[data-namespace='s7classic'].s7playpausebutton[selected='true'][replay='true'][state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/replay_up.png);
+ }
+[data-namespace='s7classic'].s7playpausebutton[selected='true'][replay='true'][state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/replay_over.png);
+ }
+[data-namespace='s7classic'].s7playpausebutton[selected='true'][replay='true'][state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/replay_down.png);
+ }
+[data-namespace='s7classic'].s7playpausebutton[selected='true'][replay='true'][state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/replay_disabled.png);
+ }
+</style><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="ScrollDownButton" data-namespace="s7classic">[data-namespace='s7classic'].s7scrolldownbutton {
+	width:25px;
+	height:25px;
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+ }
+[data-namespace='s7classic'].s7scrolldownbutton[state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_down_up.png);
+ }
+[data-namespace='s7classic'].s7scrolldownbutton[state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_down_over.png);
+ }
+[data-namespace='s7classic'].s7scrolldownbutton[state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_down_down.png);
+ }
+[data-namespace='s7classic'].s7scrolldownbutton[state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_down_disabled.png);
+ }
+[data-namespace='s7classic'].s7scrolldownbutton {
+	width:20px;
+	height:20px;
+ }
+</style><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="ScrollUpButton" data-namespace="s7classic">[data-namespace='s7classic'].s7scrollupbutton {
+	width:25px;
+	height:25px;
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+ }
+[data-namespace='s7classic'].s7scrollupbutton[state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_up_up.png);
+ }
+[data-namespace='s7classic'].s7scrollupbutton[state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_up_over.png);
+ }
+[data-namespace='s7classic'].s7scrollupbutton[state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_up_down.png);
+ }
+[data-namespace='s7classic'].s7scrollupbutton[state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_up_disabled.png);
+ }
+[data-namespace='s7classic'].s7scrollupbutton {
+	width:20px;
+	height:20px;
+ }
+</style><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="ScrollRightButton" data-namespace="s7classic">[data-namespace='s7classic'].s7scrollrightbutton {
+	width:25px;
+	height:25px;
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+ }
+[data-namespace='s7classic'].s7scrollrightbutton[state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_right_up.png);
+ }
+[data-namespace='s7classic'].s7scrollrightbutton[state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_right_over.png);
+ }
+[data-namespace='s7classic'].s7scrollrightbutton[state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_right_down.png);
+ }
+[data-namespace='s7classic'].s7scrollrightbutton[state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_right_disabled.png);
+ }
+[data-namespace='s7classic'].s7scrollrightbutton {
+	width:20px;
+	height:20px;
+ }
+</style><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="ScrollLeftButton" data-namespace="s7classic">[data-namespace='s7classic'].s7scrollleftbutton {
+	width:25px;
+	height:25px;
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+ }
+[data-namespace='s7classic'].s7scrollleftbutton[state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_left_up.png);
+ }
+[data-namespace='s7classic'].s7scrollleftbutton[state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_left_over.png);
+ }
+[data-namespace='s7classic'].s7scrollleftbutton[state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_left_down.png);
+ }
+[data-namespace='s7classic'].s7scrollleftbutton[state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_left_disabled.png);
+ }
+[data-namespace='s7classic'].s7scrollleftbutton {
+	width:20px;
+	height:20px;
+ }
+</style><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="PanRightButton" data-namespace="s7classic">[data-namespace='s7classic'].s7panrightbutton {
+	width:25px;
+	height:25px;
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+ }
+[data-namespace='s7classic'].s7panrightbutton[state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/panright_up.png);
+ }
+[data-namespace='s7classic'].s7panrightbutton[state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/panright_over.png);
+ }
+[data-namespace='s7classic'].s7panrightbutton[state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/panright_down.png);
+ }
+[data-namespace='s7classic'].s7panrightbutton[state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/panright_disabled.png);
+ }
+</style><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="PanLeftButton" data-namespace="s7classic">[data-namespace='s7classic'].s7panleftbutton {
+	width:25px;
+	height:25px;
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+ }
+[data-namespace='s7classic'].s7panleftbutton[state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/panleft_up.png);
+ }
+[data-namespace='s7classic'].s7panleftbutton[state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/panleft_over.png);
+ }
+[data-namespace='s7classic'].s7panleftbutton[state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/panleft_down.png);
+ }
+[data-namespace='s7classic'].s7panleftbutton[state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/panleft_disabled.png);
+ }
+</style><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="PanDownButton" data-namespace="s7classic">[data-namespace='s7classic'].s7pandownbutton {
+	width:25px;
+	height:25px;
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+ }
+[data-namespace='s7classic'].s7pandownbutton[state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/pandown_up.png);
+ }
+[data-namespace='s7classic'].s7pandownbutton[state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/pandown_over.png);
+ }
+[data-namespace='s7classic'].s7pandownbutton[state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/pandown_down.png);
+ }
+[data-namespace='s7classic'].s7pandownbutton[state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/pandown_disabled.png);
+ }
+</style><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="PanUpButton" data-namespace="s7classic">[data-namespace='s7classic'].s7panupbutton {
+	width:25px;
+	height:25px;
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+ }
+[data-namespace='s7classic'].s7panupbutton[state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/panup_up.png);
+ }
+[data-namespace='s7classic'].s7panupbutton[state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/panup_over.png);
+ }
+[data-namespace='s7classic'].s7panupbutton[state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/panup_down.png);
+ }
+[data-namespace='s7classic'].s7panupbutton[state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/panup_disabled.png);
+ }
+</style><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="ZoomOutButton" data-namespace="s7classic">[data-namespace='s7classic'].s7zoomoutbutton {
+	width:25px;
+	height:25px;
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+ }
+[data-namespace='s7classic'].s7zoomoutbutton[state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/zoomout_up.png);
+ }
+[data-namespace='s7classic'].s7zoomoutbutton[state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/zoomout_over.png);
+ }
+[data-namespace='s7classic'].s7zoomoutbutton[state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/zoomout_down.png);
+ }
+[data-namespace='s7classic'].s7zoomoutbutton[state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/zoomout_disabled.png);
+ }
+</style><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="ZoomInButton" data-namespace="s7classic">[data-namespace='s7classic'].s7zoominbutton {
+	width:25px;
+	height:25px;
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+ }
+[data-namespace='s7classic'].s7zoominbutton[state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/zoomin_up.png);
+ }
+[data-namespace='s7classic'].s7zoominbutton[state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/zoomin_over.png);
+ }
+[data-namespace='s7classic'].s7zoominbutton[state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/zoomin_down.png);
+ }
+[data-namespace='s7classic'].s7zoominbutton[state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/zoomin_disabled.png);
+ }
+</style><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="ZoomResetButton" data-namespace="s7classic">[data-namespace='s7classic'].s7zoomresetbutton {
+	width:25px;
+	height:25px;
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+ }
+[data-namespace='s7classic'].s7zoomresetbutton[state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/zoomreset_up.png);
+ }
+[data-namespace='s7classic'].s7zoomresetbutton[state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/zoomreset_over.png);
+ }
+[data-namespace='s7classic'].s7zoomresetbutton[state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/zoomreset_down.png);
+ }
+[data-namespace='s7classic'].s7zoomresetbutton[state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/zoomreset_disabled.png);
+ }
+</style><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="CloseButton" data-namespace="s7classic">[data-namespace='s7classic'].s7closebutton {
+	width:25px;
+	height:25px;
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+ }
+[data-namespace='s7classic'].s7closebutton[state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/close_up.png);
+ }
+[data-namespace='s7classic'].s7closebutton[state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/close_over.png);
+ }
+[data-namespace='s7classic'].s7closebutton[state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/close_down.png);
+ }
+[data-namespace='s7classic'].s7closebutton[state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/close_disabled.png);
+ }
+[data-namespace='s7classic'].s7closebutton {
+	width:32px;
+	height:32px;
+ }
+</style><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="SimpleToolTip" data-namespace="s7classic">[data-namespace='s7classic'].s7tooltip {
+	position:absolute;
+	padding:5px;
+	line-height:100%;
+	text-align:center;
+	background-color:rgb(224, 224, 224);
+	color:rgb(26,26,26);
+	font-family:Helvetica, sans-serif;
+	font-size:11px;
+	z-index:10000;
+	border:1px solid rgb(191,191,191);
+ }
+</style><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="Thumb" data-namespace="s7classic">[data-namespace='s7classic'].s7thumbcell .s7thumb {
+	background-repeat:no-repeat;
+	background-position:center;
+ }
+[data-namespace='s7classic'].s7thumbcell .s7thumboverlay {
+	background-repeat:no-repeat;
+	background-position:center;
+ }
+[data-namespace='s7classic'].s7thumbcell .s7label {
+	text-align:center;
+	word-wrap:break-word;
+ }
+</style><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="Swatches" data-namespace="s7classic">[data-namespace='s7classic'].s7swatches {
+	background-color:rgba(100, 100, 100, 0.2);
+	z-index:0;
+	user-select:none;
+	-ms-user-select:none;
+	-moz-user-select:-moz-none;
+	-webkit-user-select:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	width:500px;
+	height:250px;
+ }
+[data-namespace='s7classic'].s7swatches .s7thumbcell {
+	margin:5px;
+ }
+[data-namespace='s7classic'].s7swatches .s7thumbcell[type='none'] {
+	border:none !important;
+	background-color:transparent !important;
+	pointer-events:none !important;
+ }
+[data-namespace='s7classic'].s7swatches .s7thumb {
+	border:1px solid transparent;
+	width:75px;
+	height:75px;
+ }
+[data-namespace='s7classic'].s7swatches .s7thumb[state='selected'] {
+	border:1px solid #FFFFFF;
+ }
+[data-namespace='s7classic'].s7swatches .s7thumb .s7thumboverlay {
+	width:100%;
+	height:100%;
+ }
+[data-namespace='s7classic'].s7swatches .s7thumb .s7thumboverlay[type='swatchset'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/asset_type_swatches.png);
+ }
+[data-namespace='s7classic'].s7swatches .s7thumb .s7thumboverlay[type='spinset'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/asset_type_spin.png);
+ }
+[data-namespace='s7classic'].s7swatches .s7thumb .s7thumboverlay[type='video'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/asset_type_video.png);
+ }
+[data-namespace='s7classic'].s7swatches .s7label {
+	font-family:Helvetica, sans-serif;
+	font-size:12px;
+ }
+[data-namespace='s7classic'].s7swatches .s7scrollleftbutton {
+	display:block;
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:20px;
+	height:20px;
+ }
+[data-namespace='s7classic'].s7swatches .s7scrollleftbutton[state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_left_up.png);
+ }
+[data-namespace='s7classic'].s7swatches .s7scrollleftbutton[state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_left_over.png);
+ }
+[data-namespace='s7classic'].s7swatches .s7scrollleftbutton[state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_left_down.png);
+ }
+[data-namespace='s7classic'].s7swatches .s7scrollleftbutton[state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_left_disabled.png);
+ }
+[data-namespace='s7classic'].s7swatches .s7scrollrightbutton {
+	display:block;
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:20px;
+	height:20px;
+ }
+[data-namespace='s7classic'].s7swatches .s7scrollrightbutton[state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_right_up.png);
+ }
+[data-namespace='s7classic'].s7swatches .s7scrollrightbutton[state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_right_over.png);
+ }
+[data-namespace='s7classic'].s7swatches .s7scrollrightbutton[state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_right_down.png);
+ }
+[data-namespace='s7classic'].s7swatches .s7scrollrightbutton[state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_right_disabled.png);
+ }
+[data-namespace='s7classic'].s7swatches .s7scrollupbutton {
+	display:block;
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:20px;
+	height:20px;
+ }
+[data-namespace='s7classic'].s7swatches .s7scrollupbutton[state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_up_up.png);
+ }
+[data-namespace='s7classic'].s7swatches .s7scrollupbutton[state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_up_over.png);
+ }
+[data-namespace='s7classic'].s7swatches .s7scrollupbutton[state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_up_down.png);
+ }
+[data-namespace='s7classic'].s7swatches .s7scrollupbutton[state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_up_disabled.png);
+ }
+[data-namespace='s7classic'].s7swatches .s7scrolldownbutton {
+	display:block;
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:20px;
+	height:20px;
+ }
+[data-namespace='s7classic'].s7swatches .s7scrolldownbutton[state='up'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_down_up.png);
+ }
+[data-namespace='s7classic'].s7swatches .s7scrolldownbutton[state='over'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_down_over.png);
+ }
+[data-namespace='s7classic'].s7swatches .s7scrolldownbutton[state='down'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_down_down.png);
+ }
+[data-namespace='s7classic'].s7swatches .s7scrolldownbutton[state='disabled'] {
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/scroll_down_disabled.png);
+ }
+</style><style type="text/css" media="screen" data-description="Scene7DefaultCSS" data-component="FlyoutZoomView" data-namespace="s7classic">[data-namespace='s7classic'].s7flyoutzoomview {
+	position:relative;
+	width:360px;
+	height:480px;
+	border:1px solid #c2c2c2;
+	-moz-user-select:-moz-none;
+	-webkit-user-select:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	-ms-user-select:none;
+	user-select:none;
+	text-align:left;
+ }
+[data-namespace='s7classic'].s7flyoutzoomview img {
+	width:auto;
+	max-width:none !important;
+	max-height:none !important;
+ }
+[data-namespace='s7classic'].s7flyoutzoomview .s7highlight {
+	opacity:0.6;
+	filter:alpha(opacity = 60);
+	background-color:#FFFFFF;
+ }
+[data-namespace='s7classic'].s7flyoutzoomview .s7cursor[input='mouse'] {
+	width:80px;
+	height:80px;
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/zoom-cursor-desktop.png);
+ }
+[data-namespace='s7classic'].s7flyoutzoomview .s7cursor[input='touch'] {
+	width:80px;
+	height:100px;
+	background-image:url(http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/../../../../../../../../s7sdk/3.0/images/sdk/zoom-cursor-tablet-1x.png);
+ }
+[data-namespace='s7classic'].s7flyoutzoomview .s7overlay {
+	opacity:0.6;
+	filter:alpha(opacity = 60);
+	background-color:#FFFFFF;
+ }
+[data-namespace='s7classic'].s7flyoutzoomview .s7flyoutzoom {
+	width:600px;
+	height:480px;
+	left:365px;
+	top:0px;
+	position:absolute;
+	border:1px solid #c2c2c2;
+	-webkit-transform:translateZ(0px);
+ }
+[data-namespace='s7classic'].s7flyoutzoomview .s7tip {
+	position:absolute;
+	bottom:50px;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:12px;
+	padding-bottom:10px;
+	padding-top:10px;
+	padding-left:12px;
+	padding-right:12px;
+	background-color:#000000;
+	border-radius:4px;
+	-webkit-transform:translateZ(0px);
+	opacity:0.5;
+	filter:alpha(opacity = 50);
+ }
+</style><base href="http://www.tiffany.com/collections/tiffany-yellow-diamonds/tiffany-novo-diamond-ring-30399048?trackpdp=pr"><title>Tiffany Novo® ring in platinum and 18k gold with a Tiffany Yellow Diamond. | Tiffany &amp; Co.</title><meta charset="utf-8"><meta charset="utf-8"><iframe src="javascript:false" title="" style="width: 0px; height: 0px; border: 0px; display: none;"></iframe><script src="http://connect.facebook.net/signals/config/400477270137575?v=2.7.18" async=""></script><script async="" src="//connect.facebook.net/en_US/fbevents.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/plugins/ua/linkid.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/plugins/ua/ec.js"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//bat.bing.com/bat.js" async=""></script><script language="javascript">if(navigator.userAgent.match(/iPad/i)!=null){document.write('<meta name="viewport" content="width=1024">');}else if(navigator.userAgent.match(/iPod/i)!=null||navigator.userAgent.match(/iPhone/i)!=null){document.write('<meta name="viewport" content="width=320">');}else{document.write('<meta name="viewport" content="width=device-width, initial-scale=1" />');}</script><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta http-equiv="content-language" content="en-us"><meta name="description" content="Our Tiffany Novo® cut, based on the original Tiffany Diamond, gives a nod to the past as well as a glimpse of the future. The cut enhances the uncommon beauty of a Tiffany Yellow Diamond, which in turn lends warmth to a shank of sparkling white diamonds. Fancy Intense Yellow diamond, carat weight .1.54; round brilliant white diamonds, carat total weight .16."><meta name="keywords" content="Tiffany and Co.,Tiffany,Company,TCO,Gift,Gift Card,Gift Certificate,Gift Registry,Wedding,Wedding Registry,Diamonds,Jewelry,Watches,Bridal Registry,Home,Home Accessories,Accessories,Dinnerware,Drinkware,Flatware,Sterling Silver Flatware,Table,Vase,Wine"><meta name="viewport" content="width=device-width"><meta property="og:type" content="article"><meta itemprop="go:headline" property="og:title" content="Tiffany &amp; Co. -  Tiffany Novo®:Diamond Ring"><meta itemprop="go:description" property="og:description" content="Tiffany Novo® ring in platinum and 18k gold with a Tiffany Yellow Diamond."><meta property="og:url" content="http://www.tiffany.com/collections/tiffany-yellow-diamonds/tiffany-novo-diamond-ring-30399048"><meta property="og:image" content="http://media.tiffany.com/is/image/Tiffany/EcomItemSocialL/tiffany-novodiamond-ring-30831993_930960_ED_M.jpg?defaultImage=NoImageAvailable&amp;op_usm=2.5,1,6"><script>try{var currentProtocol=(("https:"==document.location.protocol)?"https://ssl.":"http://cloud.");document.write(unescape("%3Clink rel='stylesheet' href='"+currentProtocol+"typography.com/703986/706620/css/fonts.css' type='text/css' /%3E"));var version='138';}catch(err){}</script><link rel="stylesheet" href="http://cloud.typography.com/703986/706620/css/fonts.css" type="text/css"><link rel="stylesheet" href="/Shared/css/ecom_merged.css?v=138" media="screen"><script>var rrProdRecs;</script><style>html > body #suppInfoLinks li.bullet{background-position:0 6px}</style><link rel="canonical" href="http://www.tiffany.com/collections/tiffany-yellow-diamonds/tiffany-novo-diamond-ring-30399048"><link rel="alternate" href="http://m.tiffany.com/collections/tiffany-yellow-diamonds/tiffany-novo-diamond-ring-30399048"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Product","name":"Tiffany Novo® Diamond Ring","image":"http://media.tiffany.com/is/image/Tiffany/EcomItemL2/tiffany-novodiamond-ring-30831993_930960_ED_M.jpg?op_usm=2.5,1,6&defaultImage=NoImageAvailable&&","description":"Our Tiffany Novo® cut, based on the original Tiffany Diamond, gives a nod to the past as well as a glimpse of the future. The cut enhances the uncommon beauty of a Tiffany Yellow Diamond, which in turn lends warmth to a shank of sparkling white diamonds. Fancy Intense Yellow diamond, carat weight .1.54; round brilliant white diamonds, carat total weight .16.","url":"http://www.tiffany.com/collections/tiffany-yellow-diamonds/tiffany-novo-diamond-ring-30399048","brand":{"@type":"Brand","name":"Tiffany & Co."
+}}</script><script>var doNotTrack='0';var dataLayer={"analytics":{"aa":{"accounts":["tiffanyrus","tiffanyglobal"]}},"events":{"pageView":true,"viewCart":false,"productView":true,"engravingAdded":false,"shippingInformation":false,"paymentInformation":false,"purchase":false,"removeFromCart":false,"addToCart":false,"updateCart":false,"createAccount":false,"verifyAccount":false,"login":false,"giftMessage":false,"formView":false,"siteInteraction":false,"addSavedItem":false,"deleteSavedItem":false,"dropHint":false,"giftMessageAdded":false,"logout":false,"newsletterSignup":false,"faqSearch":false,"diamondVisit":false,"diamondExpert":false,"ringView":false,"search":false,"statementView":false,"viewStoreEvent":false,"storeLocatorSearch":false,"share":false,"quickView":false,"addSavedRing":false,"dropRingHint":false,"suppressPage":false,"CICSetup":false,"CICStart":false,"CICStep":false,"CICReset":false,"CICComplete":false,"error":false,"addSentHint":false,"addReceivedHint":false,"cartFreeShipping":false,"requestStockNotification":false,"selectStore":false,"cartQuickView":false,"businessInfoRequest":false,"contactUs":false},"page":{"name":"Tiffany \u0026 Co. | item | Tiffany Novo® ring in platinum and 18k gold with a Tiffany Yellow Diamond.","site":{"ID":"us","type":"desktop","environment":"production"},"language":"en","url":"http://www.tiffany.com/collections/tiffany-yellow-diamonds/tiffany-novo-diamond-ring-30399048?trackpdp=pr","hierarchy":["shopping","collections","tiffany yellow diamonds","item"],"template":"Product Detail Page - Refresh","showProdRecommendation":true,"server":"epd29"},"user":{"type":"Not logged in","sessionID":"b978e7882cda4eb2859794a9c7f786e0"},"ecommerce":{"currency":"USD"},"products":[{"sku":"30399048","name":"tiffany novo ring in platinum and 18k gold with a tiffany yellow diamond.","categoryID":"649502","categoryName":"tiffany yellow diamonds","price":"34300.00","findingMethod":"product recommendation","stockStatus":"in stock","breadcrumb":"browse tiffany yellow diamonds","isGroup":false,"localizedName":"tiffany novo ring in platinum and 18k gold with a tiffany yellow diamond.","mips":"PT18Y SADI1.54 FIVS1 NOVO"}],"translated":{"page":{"name":"Tiffany \u0026 Co. | item | Tiffany Novo® ring in platinum and 18k gold with a Tiffany Yellow Diamond.","showProdRecommendation":false}}};try{if(typeof(dataLayer)==="object"&&dataLayer!==null){var pgTitle=window.document.title;if(typeof(dataLayer.page)==="object"&&dataLayer.page!==null){if(typeof(dataLayer.page.name)!=="undefined"&&dataLayer.page.name===""){dataLayer.page.name=pgTitle;}}}}catch(err){}var pageGroup='Product Detail Page';var pageIdentifier='/Shopping/Item.aspx';var secureHeader='false';</script><script src="//assets.adobedtm.com/96cc2b959a063996725d32f4ccd6e658f0fa8a39/satelliteLib-ce1777e1bada4dc140449149df16d3e22d735b3b.js"></script><script src="http://assets.adobedtm.com/96cc2b959a063996725d32f4ccd6e658f0fa8a39/scripts/satellite-57eac64364746d28e2001c0d.js"></script><script src="http://assets.adobedtm.com/96cc2b959a063996725d32f4ccd6e658f0fa8a39/scripts/satellite-56055c7933633000140000c2.js"></script><script src="http://assets.adobedtm.com/96cc2b959a063996725d32f4ccd6e658f0fa8a39/scripts/satellite-56783aaf64746d234a002925.js"></script><script src="http://assets.adobedtm.com/96cc2b959a063996725d32f4ccd6e658f0fa8a39/scripts/satellite-57e99d7464746d3cd4000ae3.js"></script><!-- Primary function library placed before the callback and Primary Code Block. -->
+<script src="//media.richrelevance.com/rrserver/js/1.1/p13n.js"></script>
+<!-- This function will consume the JSON response object -->
+<script charset="utf-8" type="text/javascript">
+  if (typeof dataLayer == "object" && typeof dataLayer.page == "object" &&
+      dataLayer.page.showProdRecommendation &&
+      (pageIdentifier == "/Shopping/Item.aspx"  ||
+       pageIdentifier == "/Mobile/Shopping/Item.aspx")){
+  	RR.jsonCallback = function(){
+			window.createProductRecommendationData(RR.data.JSON.placements);
+  	};
+}
+</script><script language="javascript">var isPageNotFound='False';</script><script src="http://assets.adobedtm.com/96cc2b959a063996725d32f4ccd6e658f0fa8a39/scripts/satellite-5807a3f464746d5fd10068e6.js"></script><script src="http://assets.adobedtm.com/96cc2b959a063996725d32f4ccd6e658f0fa8a39/scripts/satellite-56310df264746d6aa1002f1d.js"></script><script src="http://assets.adobedtm.com/96cc2b959a063996725d32f4ccd6e658f0fa8a39/s-code-contents-7a8fa131fbb9285ec02578bb5ba3cfc97cc963c3.js"></script><script src="http://assets.adobedtm.com/96cc2b959a063996725d32f4ccd6e658f0fa8a39/scripts/satellite-57a4792264746d2e3200111d.js"></script><script language="javascript" type="text/javascript" src="?namespace=s7classic" data-src="http://s7d1.scene7.com/s7viewers/html5/js/3.0/FlyoutViewer/js/s7sdk/utils/Utils.js?namespace=s7classic"></script><script id="s7req_228325315" type="text/javascript" language="javascript" src="//s7d1.scene7.com/is/image/Scene7SharedAssets/Universal_HTML5_Zoom_Inline?req=userdata,json,UTF-8&amp;locale=en&amp;id=228325315&amp;handler=s7classics7sdkJSONResponse"></script><script type="text/javascript" charset="UTF-8" src="http://recs.richrelevance.com/rrserver/p13n_generated.js?a=9fcc91a121441cb2&amp;ts=1499984727413&amp;p=30399048&amp;n=tiffany%20novo%20ring%20in%20platinum%20and%2018k%20gold%20with%20a%20tiffany%20yellow%20diamond.&amp;v=1.1.2.20160904&amp;pt=%7Citem_page.rr1%7Citem_page.rr2&amp;s=b978e7882cda4eb2859794a9c7f786e0&amp;channelId=1f88d8a9478dda98&amp;cts=http%3A%2F%2Fwww.tiffany.com&amp;chi=%7C649502&amp;flv=0.0.0&amp;pref=http%3A%2F%2Fwww.tiffany.com%2Fcollections%2Ftiffany-yellow-diamonds%2Fdaisy-earrings-30828364%3F%26fromGrid%3D1%26search_params%3Dp%2B1-n%2B10000-c%2B649502-s%2B5-r%2B-t%2B-ni%2B1-x%2B-lr%2B-hr%2B-ri%2B-mi%2B-pp%2B2038%2B4%26search%3D0%26origin%3Dbrowse%26searchkeyword%3D%26trackpdp%3Dbg%26fromcid%3D649502%26trackgridpos%3D29&amp;rcs=eF5jYSlN9rA0NjUytjA21E1KtjTVNTE2NtFNNEpK0zUyMDU3SbMwNkoxM-PKLSvJTBEwNLKw1DXUNQQAeWwNfg&amp;l=1" async=""></script><link media="all" href="//s7d2.scene7.com/skins/Scene7SharedAssets/htmlviewerskins/css/html5_inlinezoomviewer.css" rel="stylesheet" type="text/css" pmid="s7classic_3"><script id="s7req_60111219" type="text/javascript" language="javascript" src="//s7d1.scene7.com/is/image/Tiffany/30831993_930960_ED_M?req=set,json,UTF-8&amp;$EcomItemL2$&amp;labelkey=label&amp;id=60111219&amp;handler=s7classics7sdkJSONResponse"></script><style type="text/css" media="screen" data-description=".s7swatches" data-component=".s7swatches" data-instance="s7viewerInlineZoom_swatches">#s7viewerInlineZoom_swatches.s7swatches{
+	visibility:hidden;
+}</style><style type="text/css" media="screen" data-description=".s7flyoutzoomview" data-component=".s7flyoutzoomview" data-instance="s7viewerInlineZoom_flyout">#s7viewerInlineZoom_flyout.s7flyoutzoomview{
+	visibility:inherit;
+}</style></head><body id="itemPage" class="ItemPage en-US macos macos-10.1 chrome chrome-59"><div id="debug" style="position:absolute"></div><div id="toolTipHolderPKB" class="toolTip"></div><div id="toolTipHolder" class="toolTipAdvanced"></div><form name="form1" method="post" action="./tiffany-novo-diamond-ring-30399048?trackpdp=pr" id="form1"><div><input type="hidden" name="isAjaxEnabled" id="isAjaxEnabled" value="False"> <input type="hidden" name="areCookiesEnabled" id="areCookiesEnabled" value="True"> <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET"> <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT"> <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="GmsCMfmLA00n78fI7IjMalu8rtmRwdxGraD0LYMuNHtUe9EdknRmRdMRyxVxYPinYs5MCSr/9qN9GTdmMi3ooO6qedI="></div><script>var theForm=document.forms['form1'];if(!theForm){theForm=document.form1;}function __doPostBack(eventTarget,eventArgument){if(!theForm.onsubmit||(theForm.onsubmit()!=false)){theForm.__EVENTTARGET.value=eventTarget;theForm.__EVENTARGUMENT.value=eventArgument;theForm.submit();}}</script><script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZNa5JEbHuS65ncGAg747lbgFLN1Mmpv1xaDha2CB0G2I35XslQ2&amp;t=635802961220000000"></script><input type="hidden" name="pageOfLabel" value="%1 of %2"> <input type="hidden" name="hdnLoadInitialValuePKB" id="hdnLoadInitialValuePKB" value="0"><div id="container"><script>var emailsignupregex=/^\s*([0-9a-zA-Z]([-!#$%&*+_~'.\w]*[0-9a-zA-Z])*@[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*\.[a-zA-Z]{2,9})\s*$/i;var LABEL_ITEM_NOT_ADDED="Your item could not be added at this time. Please try again later.";var LABEL_ADD_TO_SHOPPING_BAG="Add to Bag";var LABEL_GO_TO_SHOPPING_BAG="Go to Shopping Bag";var LABEL_ADD_TO_SAVED_ITEMS="Save This Item";var LABEL_GO_TO_SAVED_ITEMS="Go to Saved Items";var LABEL_ADDED_TO_SAVED_ITEMS="Added to Saved Items";var LABEL_SHOW_DETAILS="Show Details";var LABEL_HIDE_DETAILS="Hide Details";var LABEL_REMOVE="Remove";var LABEL_REMOVED_FROM_SAVED_ITEMS="This Item has been removed";var LABEL_FIND_STORES="Find Stores";var LABEL_EMAIL_ME="Notify Me";var LABEL_OUT_OF_STOCK="Currently Unavailable";var showInlineBags=true;var previewMinVersion="";var previewDate="";var userIPAddress="";var isPreviewVersion="False";function readHeaderCookie(name){var nameEQ=name+"=";var ca=document.cookie.split(';');for(var i=0;i<ca.length;i++){var c=ca[i];while(c.charAt(0)==' ')c=c.substring(1,c.length);if(c.indexOf(nameEQ)==0)return c.substring(nameEQ.length,c.length);}return null;}function setHeaderCookie(name,value){var futdate=new Date();var expdate=futdate.getTime();expdate+=364*24*60*60*1000;futdate.setTime(expdate);var newCookie=name+"="+value+"; path=/;";newCookie+="expires="+futdate.toGMTString();window.document.cookie=newCookie;}function setHashCookie(){var hash=window.location.hash;if(hash!=null&&hash!=""){setHeaderCookie("LastURLHash",hash);}else{setHeaderCookie("LastURLHash","");}}var locationsShareTokenServiceURL='/Default.aspx/AddPreviewShareLink';</script><style>.highlight{background-color:yellow}.divBusy{width:100%;background-color:white;position:fixed;top:0;left:0;height:100%;z-index:999;opacity:.10;filter:alpha(opacity=10);opacity:0.1}.divBusyImg{z-index:1020;position:fixed;background-image:url('/shared/images/loading.gif');background-repeat:no-repeat;height:28px;width:28px;left:48%;top:48%}</style><style>html{display:none}</style><script lang="javascript">var url=(window.location!=window.parent.location)?document.referrer:document.location;var trustedSiteUrls="";var isTrustedSite=false;if(self==top){isTrustedSite=true;}else{var res=trustedSiteUrls.split(" ");for(var i=0;i<res.length;i++){if(res[i].trim()!=''&&url.indexOf(res[i])>-1){isTrustedSite=true;break;}}}if(isTrustedSite){document.documentElement.style.display='block';}else{top.location=self.location;top.location.href=window.location.href;}</script><script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"Tiffany & Co.","url":"http://www.tiffany.com","sameAs":["http://www.facebook.com/Tiffany","http://instagram.com/tiffanyandco","http://www.pinterest.com/tiffanyandco","http://www.twitter.com/tiffanyandco","http://tiffanyandco.tumblr.com/","http://www.youtube.com/officialtiffanyandco","https://plus.google.com/117880747798344936145/"]}</script><div class="image-overlay" style="height: 903px;"><div class="image-overlay-inner"><a href="#" class="close"> <img src="/shared/images/icons/close.png" width="25" height="25" alt="×"></a><div class="large-image"><div id="control_tiffany-novodiamond-ring-30831993_930960_ED_M" data-rendered="false"><iframe id="viewer-large" src="/Shopping/ZoomViewer.html?v=7&amp;asset=Tiffany/30831993_930960_ED_M&amp;baseServerUrl=http://media.tiffany.com/is/image&amp;baseImageUrl=http://media.tiffany.com/is/image/Tiffany/" alt="Tiffany Novo®:Diamond Ring" frameborder="0" scrolling="no" width="100%" height="100%"></iframe></div><img id="overlay-large" alt="" src="" style="display:none"><div id="overlay-module"></div></div><div class="thumbs" style="display: none;"></div></div></div><div id="shop-tile-overlay"><div class="miniPDP"><img class="loading" src="/shared/images/loading.gif"></div><a href="#" class="close">×<br></a><div class="list"><hr class="small"><h3>Shop</h3><div class="rollbar" style="overflow: hidden; position: relative;"><div class="rollbar-path-vertical" style="z-index: 2; display: none; top: 10px; height: 68px;"><div class="rollbar-handle" style="height: 30%; opacity: 1; top: 0px; left: 0px;"></div></div></div></div></div><div id="grid-popup" style="display: none;"><a href="#" class="close">×<br></a><div class="image"><a href="#" onclick="TrackRecentlyViewedItems();"><img src="" alt=""></a> <a href="#" class="saved-heart-add jq-add-saved" onclick="TrackRecentlyViewedItems();"><i class="icon-font">like</i></a> <a href="#" class="saved-heart-remove jq-remove-saved" onclick="TrackRecentlyViewedItems();"><i class="icon-font">like_solid</i></a></div><div class="info"><h2 class="t3" style="display:none"></h2><div class="grouping"><span class="description t8"><a href="#" id="item_link" class="no_hover_class"></a></span> <span class="price"></span><br><div class="group-options l6"><label>Size</label> <span class="styled-select"> <select class="select--has-value"><option value="6">6</option><option value="8">8</option></select> </span></div></div><div class="out-of-stock" style="display:none">CURRENTLY UNAVAILABLE ONLINE</div><div class="error master"></div><a href="#" class="btn add">Add To Bag</a> <a href="#" class="btn emailMe" style="display:none">Notify When Available</a> <br><div class="item-links l6"><a class="details" href="#" onclick="TrackRecentlyViewedItems();">View Details</a></div></div></div><div class="modal-popup"><a href="#" class="close">×</a><div class="content"><img class="loading" src="http://www.tiffany.com/shared/images/loading.gif"></div></div><div id="gray-overlay"></div><div id="gray-overlay-shop-tile"></div><div class="added-toast"><div class="toast-inner"><a href="#" class="hide-toast jq-hide-toast">×</a><h3><span class="toast-saved">This item has been added to your Saved Items.</span> <span class="toast-bag">This item has been added to your Shopping Bag.</span></h3><div class="toast-info"><img class="product-image" src=""> <a href="/Customer/wishlist/WishList.aspx" class="btn gray-border toast-saved">View Saved Items (<span class="saved-count"></span>)</a> <a href="#" class="btn toast-saved jq-hide-toast">Continue Shopping</a> <a href="/Customer/ShoppingBag.aspx" class="btn gray-border toast-bag">View Bag (<span class="bag-count"></span>)</a> <a href="/Customer/ShoppingBag.aspx?action=checkout" class="btn toast-bag jq-ajax-checkout">Checkout</a><p id="ctlHeader_pSavedToAccountRemider" class="toast-saved"><a href="/Customer/Account/CreateAccount.aspx">Create an account</a> or <a href="/Customer/Account/Signin.aspx">sign in</a> to your Tiffany.com account to permanently save this item to your Saved Items.</p></div></div></div><style>.dropWrapper{top:50px !important}#filters.dropWrapper{top:10px !important}#filters.dropWrapper.fixed{top:50px !important}.ui-datepicker{display:none;background-color:black;color:white;width:300px;height:auto;top:45px !important;left:172px !important;text-align:center}.ui-datepicker-header{margin-top:20px}.ui-datepicker-header a{color:white !important}.ui-datepicker-current-day{background-color:#81d8d0}.ui-datepicker th{color:black;border-bottom:1px solid black !important;text-align:center}#ui-datepicker-div table{border-spacing:0 !important}.ui-datepicker-calendar{background-color:white;width:85%;height:75% !important;margin:20px auto 20px;padding:10px}.ui-datepicker-calendar td{text-align:center}.ui-datepicker-prev{margin-left:50px;float:left;cursor:pointer}.ui-datepicker-next{margin-right:50px;float:right;cursor:pointer}.ui-icon i{font-size:15px !important}.datepicker-text-hide{left:-1000px;border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}#displayVersion,#hashMark,#displayLastModified{line-height:5px}.pmaPreviewBar .type-eb1-i{font-size:12px}</style><div id="wrapper"><hr id="headerBlueBar"><div id="header"><a href="http://www.tiffany.com"><img src="http://www.tiffany.com/local/en-US/images/logo/logo.png" id="ctlHeader_imgTiffanyLogo" alt="Tiffany &amp; Co." height="17" width="138"></a><div id="nav"><span class="stores"> <a href="http://www.tiffany.com/jewelry-stores?isMenu=1" class="l20 searchstores globalnav" onclick="TrackHeaderMenuEvent('Store Locations')"> <i class="icon-font" aria-hidden="true">location</i><span>Stores</span> </a> </span><div class="signout"></div><a id="navMyAccount" href="https://www.tiffany.com/Customer/Account/EditAccount.aspx" class="my-account l20 globalnav" onclick="TrackHeaderMenuEvent('Sign In or Create an Account')"> Sign In or Create an Account </a><div id="myAccountOverlay" class="searchbar"><a href="#" class="close">×</a> <span class="heading l3">Have a Tiffany Account?</span> <a href="https://www.tiffany.com/Customer/Account/Signin.aspx" class="btn" onclick="TrackHeaderMenuItemEvent('Sign In or Create an Account','Sign In')">Sign In</a><hr><span class="heading l3">Register for a Tiffany Account</span> <a href="https://www.tiffany.com/Customer/Account/CreateAccount.aspx" class="btn" onclick="TrackHeaderMenuItemEvent('Sign In or Create an Account','CREATE AN ACCOUNT')">Create an Account</a></div><span class="bag l20"> <a class="open-saved globalnav" href="http://www.tiffany.com/Customer/Wishlist/WishList.aspx?isMenu=1&amp;" onclick="TrackHeaderMenuEvent('Saved Items')"> Saved Items <span id="spanSavedItemCount"></span> </a> / <a class="open-bag globalnav" href="http://www.tiffany.com/Customer/ShoppingBag.aspx?isMenu=1&amp;hdr=1&amp;" onclick="TrackHeaderMenuEvent('Shopping Bag')"> Shopping Bag <span id="spanShoppingBagCount"></span> </a> </span><div class="mainNav"><ul class="mainNav__topLevel"><li><a href="http://www.tiffany.com/engagement" data-menuid="Engagement" aria-expanded="false" onclick="TrackHeaderMenuEvent('Engagement')">Engagement</a></li><li><a href="http://www.tiffany.com/jewelry" data-menuid="Jewelry" aria-expanded="false" onclick="TrackHeaderMenuEvent('Jewelry')">Jewelry</a></li><li><a href="http://www.tiffany.com/collections" data-menuid="Collections" aria-expanded="false" class="navHere" onclick="TrackHeaderMenuEvent('Collections')">Collections</a></li><li><a href="http://www.tiffany.com/high-jewelry" data-menuid="High Jewelry" aria-expanded="false" onclick="TrackHeaderMenuEvent('High Jewelry')">High Jewelry</a></li><li><a href="http://www.tiffany.com/watches" data-menuid="Watches" aria-expanded="false" onclick="TrackHeaderMenuEvent('Watches')">Watches</a></li><li><a href="http://www.tiffany.com/accessories" data-menuid="Accessories" aria-expanded="false" onclick="TrackHeaderMenuEvent('Accessories')">Accessories</a></li><li><a href="http://www.tiffany.com/gifts" data-menuid="Gifts" aria-expanded="false" onclick="TrackHeaderMenuEvent('Gifts')">Gifts</a></li><li><a id="worldOfTiffanyNavLink" data-menuid="WorldOfTiffany" aria-expanded="true" href="http://www.tiffany.com/WorldOfTiffany/Default.aspx" onclick="TrackHeaderMenuEvent('The World Of Tiffany')" class=""> The World of Tiffany </a></li></ul><ul class="mainNav__flyouts"><li rel="Engagement"><div class="flex-block no-gutters"><div class="flex-item col-5 mainNav__flyouts__category"><div class="mainNav__flyouts__category_id sterling-display type-b3">Engagement</div><div class="mainNav__flyouts__category_categoryLink"><a href="http://www.tiffany.com/engagement" onclick="TrackHeaderMenuItemEvent('Engagement','Engagement Rings')">Engagement Rings</a></div><div class="flex-block no-gutters mainNav__flyouts__category__links"><div class="flex-item col-6"><ul><li><a href="http://www.tiffany.com/engagement/rings?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Engagement','ENGAGEMENT RINGS')">ENGAGEMENT RINGS</a></li><li><a href="http://www.tiffany.com/engagement/womens-wedding-bands?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Engagement','Women\'s Wedding Bands')">Women's Wedding Bands</a></li><li><a href="http://www.tiffany.com/engagement/mens-wedding-bands?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Engagement','Men\'s Wedding Bands')">Men's Wedding Bands</a></li><li><a href="http://www.tiffany.com/this-is-tiffany/ss/the_new_romantic.aspx?trackbgfm=nav&amp;engagement=true" onclick="TrackHeaderMenuItemEvent('Engagement','Bridal Jewelry')">Bridal Jewelry</a></li><li><a href="http://www.tiffany.com/gifts/wedding-guide-view-all?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Engagement','WEDDING GIFTS')">WEDDING GIFTS</a></li></ul></div><div class="flex-item col-6"><ul><li><a href="http://www.tiffany.com/engagement/the-tiffany-difference?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Engagement','THE TIFFANY DIFFERENCE')">THE TIFFANY DIFFERENCE</a></li><li><a href="http://www.tiffany.com/engagement/tiffany-heritage?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Engagement','<i>Tiffany Heritage</i>')" style="margin-left: 15px;"><i>Tiffany Heritage</i></a></li><li><a href="http://www.tiffany.com/engagement/the-journey-of-a-tiffany-diamond?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Engagement','<i>Journey of a Tiffany Diamond</i>')" style="margin-left: 15px;"><i>Journey of a Tiffany Diamond</i></a></li><li><a href="http://www.tiffany.com/engagement/the-tiffany-concierge?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Engagement','TIFFANY CONCIERGE')">TIFFANY CONCIERGE</a></li><li><a href="http://www.tiffany.com/engagement/the-tiffany-guide-to-diamonds?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Engagement','OUR GUIDE TO DIAMONDS')">OUR GUIDE TO DIAMONDS</a></li><li><a href="http://www.tiffany.com/Customer/Request/ScheduleAConsultation.aspx?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Engagement','CONSULT A TIFFANY DIAMOND EXPERT')">CONSULT A TIFFANY DIAMOND EXPERT</a></li></ul></div></div></div><div class="flex-item col-7 mainNav__flyouts__image"><a href="/engagement/rings/" onclick="TrackHeaderMenuItemEvent('Engagement','')"> </a> <a href="/engagement/rings/" onclick="TrackHeaderMenuItemEvent('Engagement','Image')"> <img data-src="http://media.tiffany.com/is/image/Tiffany/2X/PMAIMG/mastercats_Menu_9000_148203_659-1_1229308284_menu_1.jpg?v=06272017104152" data-srcset="http://media.tiffany.com/is/image/Tiffany/1X/PMAIMG/mastercats_Menu_9000_148203_659-1_1229308284_menu_1.jpg?v=06272017104152 1x, http://media.tiffany.com/is/image/Tiffany/2X/PMAIMG/mastercats_Menu_9000_148203_659-1_1229308284_menu_1.jpg?v=06272017104152 2x" alt=""></a></div></div></li><li rel="Jewelry"><div class="flex-block no-gutters"><div class="flex-item col-5 mainNav__flyouts__category"><div class="mainNav__flyouts__category_id sterling-display type-b3">Jewelry</div><div class="mainNav__flyouts__category_categoryLink"><a href="http://www.tiffany.com/jewelry" onclick="TrackHeaderMenuItemEvent('Jewelry','Explore Jewelry')">Explore Jewelry</a></div><div class="flex-block no-gutters mainNav__flyouts__category__links"><div class="flex-item col-6"><ul><li><a href="http://www.tiffany.com/jewelry/new-jewelry?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Jewelry','New Jewelry')">New Jewelry</a></li><li><a href="http://www.tiffany.com/this-is-tiffany/ss/2017/default.aspx?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Jewelry','This is Tiffany')">This is Tiffany</a></li><li><a href="http://www.tiffany.com/jewelry/jewelry-1500-under?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Jewelry','Jewelry $1,500 &amp; Under')">Jewelry $1,500 &amp; Under</a></li><li><a href="http://www.tiffany.com/jewelry/jewelry-500-under?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Jewelry','Jewelry $500 &amp; Under')">Jewelry $500 &amp; Under</a></li><li><a href="http://www.tiffany.com/jewelry/jewelry-250-under?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Jewelry','Jewelry $250 &amp; Under')">Jewelry $250 &amp; Under</a></li></ul></div><div class="flex-item col-6"><ul><li><a href="http://www.tiffany.com/jewelry/necklaces-pendants?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Jewelry','Necklaces &amp; Pendants')">Necklaces &amp; Pendants</a></li><li><a href="http://www.tiffany.com/jewelry/bracelets?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Jewelry','Bracelets')">Bracelets</a></li><li><a href="http://www.tiffany.com/jewelry/rings?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Jewelry','Rings')">Rings</a></li><li><a href="http://www.tiffany.com/jewelry/earrings?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Jewelry','Earrings')">Earrings</a></li><li><a href="http://www.tiffany.com/jewelry/wedding-bands?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Jewelry','Wedding Bands')">Wedding Bands</a></li><li><a href="http://www.tiffany.com/jewelry/tiffany-charms?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Jewelry','Charms')">Charms</a></li><li><a href="http://www.tiffany.com/jewelry/pearl-jewelry?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Jewelry','Pearl Jewelry')">Pearl Jewelry</a></li><li><a href="http://www.tiffany.com/jewelry/brooches?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Jewelry','Brooches')">Brooches</a></li><li><a href="http://www.tiffany.com/jewelry/mens-jewelry?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Jewelry','Men\'s Jewelry')">Men's Jewelry</a></li></ul></div></div></div><div class="flex-item col-7 mainNav__flyouts__image"><a href="/jewelry/new-jewelry" onclick="TrackHeaderMenuItemEvent('Jewelry','')"> </a> <a href="/jewelry/new-jewelry" onclick="TrackHeaderMenuItemEvent('Jewelry','Image')"> <img data-src="http://media.tiffany.com/is/image/Tiffany/2X/PMAIMG/mastercats_Menu_101_148204_1061-1_1778739641_menu_1.jpg?v=06292017021700" data-srcset="http://media.tiffany.com/is/image/Tiffany/1X/PMAIMG/mastercats_Menu_101_148204_1061-1_1778739641_menu_1.jpg?v=06292017021700 1x, http://media.tiffany.com/is/image/Tiffany/2X/PMAIMG/mastercats_Menu_101_148204_1061-1_1778739641_menu_1.jpg?v=06292017021700 2x" alt=""></a></div></div></li><li rel="Collections"><div class="flex-block no-gutters"><div class="flex-item col-5 mainNav__flyouts__category"><div class="mainNav__flyouts__category_id sterling-display type-b3">Collections</div><div class="mainNav__flyouts__category_categoryLink"><a href="http://www.tiffany.com/collections" onclick="TrackHeaderMenuItemEvent('Collections','Explore Collections')">Explore Collections</a></div><div class="flex-block no-gutters mainNav__flyouts__category__links"><div class="flex-item col-6"><ul><li><a href="http://www.tiffany.com/collections/tiffany-hardwear/explore?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Collections','Tiffany HardWear (NEW)')">Tiffany HardWear (NEW)</a></li><li><a href="http://www.tiffany.com/collections/tiffany-t?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Collections','Tiffany T')">Tiffany T</a></li><li><a href="http://www.tiffany.com/collections/rtt?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Collections','Return to Tiffany®')">Return to Tiffany®</a></li><li><a href="http://www.tiffany.com/collections/tiffany-1837?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Collections','Tiffany 1837™')">Tiffany 1837™</a></li><li><a href="http://www.tiffany.com/collections/tiffany-infinity?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Collections','Tiffany Infinity')">Tiffany Infinity</a></li><li><a href="http://www.tiffany.com/collections/celebration-rings?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Collections','Tiffany Celebration® Rings')">Tiffany Celebration® Rings</a></li><li><a href="http://www.tiffany.com/collections/the-atlas-collection?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Collections','The Atlas® Collection')">The Atlas® Collection</a></li><li><a href="http://www.tiffany.com/collections/tiffany-keys?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Collections','Tiffany Keys')">Tiffany Keys</a></li><li><a href="http://www.tiffany.com/collections/out-of-retirement?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Collections','Out of Retirement®')">Out of Retirement®</a></li><li><a href="http://www.tiffany.com/collections/ziegfeld-collection?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Collections','Ziegfeld Collection')">Ziegfeld Collection</a></li></ul></div><div class="flex-item col-6"><ul><li><a href="http://www.tiffany.com/collections/tiffany-victoria?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Collections','Tiffany Victoria™')">Tiffany Victoria™</a></li><li><a href="http://www.tiffany.com/collections/tiffany-bow?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Collections','Tiffany Bow')">Tiffany Bow</a></li><li><a href="http://www.tiffany.com/collections/tiffany-soleste?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Collections','Tiffany Soleste®')">Tiffany Soleste®</a></li><li><a href="http://www.tiffany.com/collections/tiffany-yellow-diamonds?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Collections','Tiffany Yellow Diamonds')">Tiffany Yellow Diamonds</a></li><li><a href="http://www.tiffany.com/collections/tiffany-metro?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Collections','Tiffany Metro')">Tiffany Metro</a></li><br><li><a href="http://www.tiffany.com/collections/elsa-peretti?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Collections','Elsa Peretti®')">Elsa Peretti®</a></li><li><a href="http://www.tiffany.com/collections/paloma-picasso?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Collections','Paloma Picasso®')">Paloma Picasso®</a></li><li><a href="http://www.tiffany.com/collections/jean-schlumberger?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Collections','Tiffany &amp; Co. Schlumberger®')">Tiffany &amp; Co. Schlumberger®</a></li></ul></div></div></div><div class="flex-item col-7 mainNav__flyouts__image"><a href="/collections/tiffany-hardwear" onclick="TrackHeaderMenuItemEvent('Collections','')"> </a> <a href="/collections/tiffany-hardwear" onclick="TrackHeaderMenuItemEvent('Collections','Image')"> <img data-src="http://media.tiffany.com/is/image/Tiffany/2X/PMAIMG/mastercats_Menu_101_148206_1021-1_103842280_menu_1.jpg?v=06212017121314" data-srcset="http://media.tiffany.com/is/image/Tiffany/1X/PMAIMG/mastercats_Menu_101_148206_1021-1_103842280_menu_1.jpg?v=06212017121314 1x, http://media.tiffany.com/is/image/Tiffany/2X/PMAIMG/mastercats_Menu_101_148206_1021-1_103842280_menu_1.jpg?v=06212017121314 2x" alt=""></a></div></div></li><li rel="High Jewelry"><div class="flex-block no-gutters"><div class="flex-item col-5 mainNav__flyouts__category"><div class="mainNav__flyouts__category_id sterling-display type-b3">High Jewelry</div><div class="mainNav__flyouts__category_categoryLink"><a href="http://www.tiffany.com/high-jewelry" onclick="TrackHeaderMenuItemEvent('High Jewelry','Explore High Jewelry')">Explore High Jewelry</a></div><div class="flex-block no-gutters mainNav__flyouts__category__links"><div class="flex-item col-6"><ul><li><a href="http://www.tiffany.com/high-jewelry/blue-book-2017/statement?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('High Jewelry','The 2017 Blue Book')">The 2017 Blue Book</a></li><li><a href="http://www.tiffany.com/high-jewelry/blue-book-2016/statement" onclick="TrackHeaderMenuItemEvent('High Jewelry','The 2016 Blue Book')">The 2016 Blue Book</a></li><li><a href="http://www.tiffany.com/high-jewelry/blue-book/statement?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('High Jewelry','The 2015 Blue Book')">The 2015 Blue Book</a></li><li><a href="http://www.tiffany.com/high-jewelry/jean-schlumberger-high-jewelry/statement?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('High Jewelry','Jean Schlumberger')">Jean Schlumberger</a></li><li><a href="http://www.tiffany.com/high-jewelry/tiffany-masterpieces/statement?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('High Jewelry','Tiffany Masterpieces')">Tiffany Masterpieces</a></li></ul></div></div></div><div class="flex-item col-7 mainNav__flyouts__image"><a href="/high-jewelry/blue-book-2017/statement" onclick="TrackHeaderMenuItemEvent('High Jewelry','')"> </a> <a href="/high-jewelry/blue-book-2017/statement" onclick="TrackHeaderMenuItemEvent('High Jewelry','Image')"> <img data-src="http://media.tiffany.com/is/image/Tiffany/2X/PMAIMG/mastercats_Menu_101_148214_813-1_1383991407_menu_1.jpg?v=04252017100422" data-srcset="http://media.tiffany.com/is/image/Tiffany/1X/PMAIMG/mastercats_Menu_101_148214_813-1_1383991407_menu_1.jpg?v=04252017100422 1x, http://media.tiffany.com/is/image/Tiffany/2X/PMAIMG/mastercats_Menu_101_148214_813-1_1383991407_menu_1.jpg?v=04252017100422 2x" alt=""></a></div></div></li><li rel="Watches"><div class="flex-block no-gutters"><div class="flex-item col-5 mainNav__flyouts__category"><div class="mainNav__flyouts__category_id sterling-display type-b3">Watches</div><div class="mainNav__flyouts__category_categoryLink"><a href="http://www.tiffany.com/watches" onclick="TrackHeaderMenuItemEvent('Watches','Explore Watches')">Explore Watches</a></div><div class="flex-block no-gutters mainNav__flyouts__category__links"><div class="flex-item col-6"><ul><li><a href="http://www.tiffany.com/watches?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Watches','Explore Watches')">Explore Watches</a></li><li><a href="http://www.tiffany.com/watches/watches-tiffany-ct60/explore" onclick="TrackHeaderMenuItemEvent('Watches','Tiffany CT60® Watches')">Tiffany CT60® Watches</a></li><li><a href="http://www.tiffany.com/watches/watches-tiffany-east-west/explore" onclick="TrackHeaderMenuItemEvent('Watches','Tiffany East West® Watches')">Tiffany East West® Watches</a></li><li><a href="http://www.tiffany.com/watches/atlas-watches/explore" onclick="TrackHeaderMenuItemEvent('Watches','Atlas® Watches Collection')">Atlas® Watches Collection</a></li><li><a href="http://www.tiffany.com/watches/cocktail-watches/explore" onclick="TrackHeaderMenuItemEvent('Watches','Tiffany Cocktail Watches')">Tiffany Cocktail Watches</a></li><li><a href="http://www.tiffany.com/watches/patek-philippe-tiffany/explore" onclick="TrackHeaderMenuItemEvent('Watches','Patek Philippe &amp; Tiffany')">Patek Philippe &amp; Tiffany</a></li></ul></div><div class="flex-item col-6"><ul><li><a href="http://www.tiffany.com/watches/mens-watches?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Watches','Men\'s Watches')">Men's Watches</a></li><li><a href="http://www.tiffany.com/watches/womens-watches?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Watches','Women\'s Watches')">Women's Watches</a></li><li><a href="http://www.tiffany.com/watches/diamond-watches?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Watches','Diamond Watches')">Diamond Watches</a></li><li><a href="http://www.tiffany.com/watches/all-watches?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Watches','All Watches')">All Watches</a></li><br><li><a href="http://www.tiffany.com/service/watch.aspx?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Watches','Watch Service')">Watch Service</a></li><li><a href="http://www.tiffany.com/worldoftiffany/watch/heritage.aspx?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Watches','Watchmaking Legacy')">Watchmaking Legacy</a></li></ul></div></div></div><div class="flex-item col-7 mainNav__flyouts__image"><a href="/watches/watches-tiffany-ct60" onclick="TrackHeaderMenuItemEvent('Watches','')"> </a> <a href="/watches/watches-tiffany-ct60" onclick="TrackHeaderMenuItemEvent('Watches','Image')"> <img data-src="http://media.tiffany.com/is/image/Tiffany/2X/PMAIMG/mastercats_Menu_101_148205_563_1637064386_menu_3.jpg?v=06142017050433" data-srcset="http://media.tiffany.com/is/image/Tiffany/1X/PMAIMG/mastercats_Menu_101_148205_563_1637064386_menu_3.jpg?v=06142017050433 1x, http://media.tiffany.com/is/image/Tiffany/2X/PMAIMG/mastercats_Menu_101_148205_563_1637064386_menu_3.jpg?v=06142017050433 2x" alt=""></a></div></div></li><li rel="Accessories"><div class="flex-block no-gutters"><div class="flex-item col-5 mainNav__flyouts__category"><div class="mainNav__flyouts__category_id sterling-display type-b3">Accessories</div><div class="mainNav__flyouts__category_categoryLink"><a href="http://www.tiffany.com/accessories" onclick="TrackHeaderMenuItemEvent('Accessories','Explore Accessories')">Explore Accessories</a></div><div class="flex-block no-gutters mainNav__flyouts__category__links"><div class="flex-item col-6"><ul><li><a href="http://www.tiffany.com/accessories/tiffany-leather-collection/explore" onclick="TrackHeaderMenuItemEvent('Accessories','Tiffany Leather Collection')">Tiffany Leather Collection</a></li><li><a href="http://www.tiffany.com/accessories/cuff-links?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Accessories','Cuff Links')">Cuff Links</a></li><li><a href="http://www.tiffany.com/accessories/sunglasses?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Accessories','Sunglasses')">Sunglasses</a></li><li><a href="http://www.tiffany.com/accessories/key-rings?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Accessories','Key Rings')">Key Rings</a></li><li><a href="http://www.tiffany.com/accessories/frames?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Accessories','Frames')">Frames</a></li><li><a href="http://www.tiffany.com/accessories/writing-instruments?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Accessories','Writing Instruments')">Writing Instruments</a></li><li><a href="http://www.tiffany.com/accessories/money-clips-card-holders?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Accessories','Money Clips')">Money Clips</a></li></ul></div><div class="flex-item col-6"><ul><li><a href="http://www.tiffany.com/accessories/mens-accessories?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Accessories','Men\'s Accessories')">Men's Accessories</a></li><li><a href="http://www.tiffany.com/accessories/womens-accessories?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Accessories','Women\'s Accessories')">Women's Accessories</a></li><li><a href="http://www.tiffany.com/accessories/other-desk-accessories?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Accessories','Desk Accessories')">Desk Accessories</a></li><li><a href="http://www.tiffany.com/accessories/silver-accessories?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Accessories','Silver Accessories')">Silver Accessories</a></li><li><a href="http://www.tiffany.com/accessories/elsa-peretti-accessories?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Accessories','Elsa Peretti® Accessories')">Elsa Peretti® Accessories</a></li></ul></div></div></div><div class="flex-item col-7 mainNav__flyouts__image"><a href="/accessories/sunglasses" onclick="TrackHeaderMenuItemEvent('Accessories','')"> </a> <a href="/accessories/sunglasses" onclick="TrackHeaderMenuItemEvent('Accessories','Image')"> <img data-src="http://media.tiffany.com/is/image/Tiffany/2X/PMAIMG/mastercats_Menu_101_148212_378-773463247_menu_21.jpg?v=07132017104740" data-srcset="http://media.tiffany.com/is/image/Tiffany/1X/PMAIMG/mastercats_Menu_101_148212_378-773463247_menu_21.jpg?v=07132017104740 1x, http://media.tiffany.com/is/image/Tiffany/2X/PMAIMG/mastercats_Menu_101_148212_378-773463247_menu_21.jpg?v=07132017104740 2x" alt=""></a></div></div></li><li rel="Gifts"><div class="flex-block no-gutters"><div class="flex-item col-5 mainNav__flyouts__category"><div class="mainNav__flyouts__category_id sterling-display type-b3">Gifts</div><div class="mainNav__flyouts__category_categoryLink"><a href="http://www.tiffany.com/gifts" onclick="TrackHeaderMenuItemEvent('Gifts','Explore Gifts')">Explore Gifts</a></div><div class="flex-block no-gutters mainNav__flyouts__category__links"><div class="flex-item col-6"><ul><li><a href="http://www.tiffany.com/spring-gift-guide?trackbgfm=nav#grad" onclick="TrackHeaderMenuItemEvent('Gifts','Gifts for the Grad')">Gifts for the Grad</a></li><li><a href="http://www.tiffany.com/gifts/gifts-for-her?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Gifts','Gifts For Her')">Gifts For Her</a></li><li><a href="http://www.tiffany.com/gifts/gifts-for-him?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Gifts','Gifts for Him')">Gifts for Him</a></li><li><a href="http://www.tiffany.com/gifts/baby-gifts?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Gifts','Baby Gifts')">Baby Gifts</a></li><li><a href="http://www.tiffany.com/gifts/gifts-for-the-home/explore" onclick="TrackHeaderMenuItemEvent('Gifts','Gifts for the Home')">Gifts for the Home</a></li><li><a href="http://www.tiffany.com/gifts/wedding-gifts?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Gifts','Wedding Gifts')">Wedding Gifts</a></li><li><a href="http://www.tiffany.com/gifts/gifts-1500-under?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Gifts','Gifts $1,500 &amp; Under')">Gifts $1,500 &amp; Under</a></li><li><a href="http://www.tiffany.com/gifts/gifts-500-under?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Gifts','Gifts $500 &amp; Under')">Gifts $500 &amp; Under</a></li><li><a href="http://www.tiffany.com/gifts/gifts-250-under?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Gifts','Gifts $250 &amp; Under')">Gifts $250 &amp; Under</a></li></ul></div><div class="flex-item col-6"><ul><li><a href="http://www.tiffany.com/gifts/wedding-guide-view-all?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Gifts','Our Guide to Wedding  Jewelry and Gifts')">Our Guide to Wedding<br> Jewelry and Gifts</a></li><li><a href="http://www.tiffany.com/gifts/business-gifts/explore" onclick="TrackHeaderMenuItemEvent('Gifts','Business Gifts')">Business Gifts</a></li><li><a href="http://www.tiffany.com/gifts/product-care-items?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Gifts','Product Care Items')">Product Care Items</a></li><li><a href="http://www.tiffany.com/gifts/engraving-customization?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Gifts','Engraving &amp; Customization')">Engraving &amp; Customization</a></li><li><a href="http://www.tiffany.com/gifts/the-tiffany-gift-card/the-tiffany-gift-card-GRP07063?trackbgfm=nav" onclick="TrackHeaderMenuItemEvent('Gifts','Gift Cards')">Gift Cards</a></li></ul></div></div></div><div class="flex-item col-7 mainNav__flyouts__image"><a href="/spring-gift-guide#grad" onclick="TrackHeaderMenuItemEvent('Gifts','')"> </a> <a href="/spring-gift-guide#grad" onclick="TrackHeaderMenuItemEvent('Gifts','Image')"> <img data-src="http://media.tiffany.com/is/image/Tiffany/2X/PMAIMG/mastercats_Menu_101_148207_959-1_1130875794_menu_1.jpg?v=06192017111904" data-srcset="http://media.tiffany.com/is/image/Tiffany/1X/PMAIMG/mastercats_Menu_101_148207_959-1_1130875794_menu_1.jpg?v=06192017111904 1x, http://media.tiffany.com/is/image/Tiffany/2X/PMAIMG/mastercats_Menu_101_148207_959-1_1130875794_menu_1.jpg?v=06192017111904 2x" alt=""></a></div></div></li><li rel="WorldOfTiffany" class=""><div class="flex-block no-gutters"><div class="flex-item col-5 mainNav__flyouts__category"><div class="mainNav__flyouts__category_id sterling-display type-b3">The World of Tiffany</div><div class="mainNav__flyouts__category_categoryLink"><a href="http://www.tiffany.com/WorldOfTiffany/Default.aspx" onclick="TrackHeaderMenuItemEvent('The World Of Tiffany','Explore The World of Tiffany')" onfocus="this.blur()"><span> Explore The World of Tiffany</span> </a></div><div class="flex-block no-gutters mainNav__flyouts__category__links"><div class="flex-item col-6"><ul><li><a href="http://www.tiffany.com/the-latest" onclick="TrackHeaderMenuItemEvent('The World Of Tiffany','The Latest')"> The Latest</a></li><li><a href="http://www.tiffany.com/WorldOfTiffany/TiffanyStory/Default.aspx" onclick="TrackHeaderMenuItemEvent('The World Of Tiffany','The Tiffany Story')"> The Tiffany Story</a></li><li><a href="http://www.tiffany.com/Locations/FlagshipStore/NewYork.aspx" onclick="TrackHeaderMenuItemEvent('The World Of Tiffany','New York Flagship Store ')"> The Fifth Avenue Flagship Store</a></li><li><a href="http://www.tiffany.com/sustainability" onclick="TrackHeaderMenuItemEvent('The World Of Tiffany','CSR')"> Sustainability</a></li></ul></div></div></div><div class="flex-item col-7 mainNav__flyouts__image"><div class="desc"><a href="http://www.tiffany.com/WorldOfTiffany/TiffanyStory/Default.aspx" onclick="TrackHeaderMenuItemEvent('The World Of Tiffany','HeaderLine')"> <span class="t4"> Explore the Legendary Legacy of Tiffany </span> </a></div><a href="http://www.tiffany.com/WorldOfTiffany/TiffanyStory/Default.aspx" onclick="TrackHeaderMenuItemEvent('The World Of Tiffany','Image')"> <img src="http://www.tiffany.com/shared/images/wot/WorldOfTiffany1.jpg" alt=""> </a></div></div></li></ul></div><script>var msgInlineBagNoItems="You currently have no items in your shopping bag";var msgInlineSavedNoItems="You currently have no saved items.";var inlineItemHTML='<img src="$imgSrc$" /><div class="itemHover"><a class="type-cta avenir" href="http://www.tiffany.com$friendlyUrl$$searchParams$$bagType$">$viewdetails$</a>$removeItem$</div>';var inlineItemEmailHTML='<span class="l4">$email$</span><br />';var inlineItemTitlePrice='<span class="l4">$title$</span><br /><div class="price">$price$</div>';var inlineItemRingHTML='<div class="l6">$sizelabel$ &nbsp;$ringsize$</div>';var inlineItemEngravingHTML='<div class="inline-engraving"><span class="l6 engraving-type">$engravingType$ &nbsp;$engravingInitials$</span><br/><span class="l6 engraving-style">$engravingStyle$</span><br/><span class="l6">$engravingPrice$</span></div>';var inlineItemNoEngravingHTML='<div class="inline-engraving"><span class="l6">No Engraving Added</span></div>';var inlineQtyHTML='<div class="l6">Quantity&nbsp;&nbsp;$qtyAmt$</div>';var inlineAddToBag='<a class="l6 add" data-sku="$sku$" data-selectedSku = "$selectedSku$" data-itemID="$itemID$" data-itemDesc="$itemDesc$" data-groupSku="$groupSku$" data-bag-type="$bagtype$" onclick="moveSavedItemToShoppingBag(this);" href="#">Add to Bag</a> / ';var inlineEmailMe='<a class="l6 emailMe" data-sku="$sku$" data-selectedSku = "$selectedSku$" data-groupSku="$groupSku$" onclick="openEmailMeOverlay(this); return false;" href="#">'+LABEL_EMAIL_ME+'</a> / ';var inlineOutOfStock='<div class="outOfStock">'+LABEL_OUT_OF_STOCK+'</div>';var inlineRemoveItem='<a href="#" data-bag-type="$bagtype$" data-sku="$sku$" data-itemID="$itemID$" class="type-cta avenir remove">Remove</a>';var inlineBagNoItems='<div class="direction-row-reverse flex-item flex-block no-gutters no-item-sb"><div class="flex-item info-box-sb col-3"><span>'+msgInlineBagNoItems+'</span></div></div>';var inlineSavedNoItems='<div class="direction-row-reverse flex-item flex-block no-gutters no-item-sb"><div class="flex-item info-box-sb col-3"><div>'+msgInlineSavedNoItems+'</div> <div style="padding-top:15px;">To view items you saved to your account, please <a class="l2" onclick="TrackInlineSavedItemsLinkClick(&apos;Inline Saved Items&apos;,&apos;Sign In&apos;)" href="https://www.tiffany.com/Customer/Account/SignIn.aspx?destYA=true">sign in</a>.</div></div></div>';var ringSizeLabel="Ring Size";var chainLengthLabel="Chain Length";var genericSizeLabel="Size";var contentForInlineMainContainer='<div class="itemCarousel flex-item apply-touch-carousel" data-arrow-type="minimal" data-scroll="noScroll" style="height:100%;"><div class="container" style="height:100%"></div></div>';var infoBoxContent="<div><div style='$hiddenShipping$'>$shippingType$</div><div class='type-eb1-i' style='$hiddenDate$'>$deliveryDate$</div><div style='$hiddenNeed$ padding-bottom:10px; padding-top:3px;'><a href='/Customer/ShoppingBag.aspx?isMenu=1&hdr=1&needItSooner=1' class='type-cta avenir'>Need it Sooner? </a></div><div style='position:absolute; bottom:10px;'>Estimated Total: $price$</div></div>";var veiwDetailsText="View Details";</script><div id="saved" aria-hidden="true" style="display: none;"><div id="saved-content"><div id="inlineLoading"><img class="loading" src="http://www.tiffany.com/shared/images/loading.gif"></div><div id="inlineContent"><div class="direction-row-reverse flex-block no-gutters"><div class="saved-header flex-item"><a href="#" class="close">×</a><div id="open-bag-link-wrapper"><a href="#" class="l1 open-bag"> Shopping Bag <span class="numShoppingBagItemsWrapper"> (<span id="numShoppingBagItems">0</span>) </span> </a> <span class="addedToShoppingBag" style="display:none" aria-hidden="true"> This item has been added to your shopping bag. </span> <span class="removedFromShoppingBag" style="display:none" aria-hidden="true"> This Item has been removed </span></div><div id="open-saved-link-wrapper"><span class="savedItemsHeaders"> <a href="#" class="l1 open-saved" onclick="TrackInlineSavedItemsLinkClick('Inline Saved Items','Saved Items link click')"> Saved Items <span class="numSavedItemsWrapper">(<span id="numSavedItems">0</span>)</span> </a> <span class="open-rings-wrapper">/ <a href="#" class="l1 open-rings" onclick="TrackInlineSavedItemsLinkClick('Inline Saved Items','Saved Engagement Rings link click')"> Saved Engagement Rings (<span id="numSavedRings">0</span>)</a> </span> <span class="open-sentHints-wrapper">/ <a href="http://www.tiffany.com/Customer/Wishlist/WishList.aspx?section=dropahintsenthintlist" class="l1 open-sentHints" onclick="TrackInlineSavedItemsLinkClick('Inline Saved Items','Saved Sent Hints link click')"> Sent Hints (<span id="numSentHints">0</span>)</a> </span> <span class="open-receivedHints-wrapper">/ <a href="http://www.tiffany.com/Customer/Wishlist/WishList.aspx?section=dropahintreceivedhintlist" class="l1 open-receivedHints" onclick="TrackInlineSavedItemsLinkClick('Inline Saved Items','Saved Received Hints link click')"> Received Hints (<span id="numReceivedHints">0</span>)</a> </span> </span> <span class="addedToSavedItems" style="display:none" aria-hidden="true"> This item has been added to your saved items. </span> <span class="removedFromSavedItems" style="display:none" aria-hidden="true"> This Item has been removed </span></div></div></div><div class="wrapper"><div id="inlineMainContainer" class="flex-block justify-right no-gutters container" style="height:125px"></div></div><div id="inlineCheckoutBtn"><a href="#" onclick="ajaxCheckout();return false" class="btn"> Checkout </a></div><div id="inlineGoToSBBtn"><a href="http://www.tiffany.com/Customer/ShoppingBag.aspx" class="btn secondary" onclick="TrackInlineShoppingBagLinksClick('Inline Shopping Bag','Go To Shopping Bag')"> View Bag <span class="shopping-bag-item-count"></span> </a></div><div id="inlineGoToSavedBtn"><a href="http://www.tiffany.com/Customer/Wishlist/WishList.aspx" class="btn" onclick="TrackInlineSavedItemsLinkClick('Inline Saved Items','Go To Saved Items')"> VIEW SAVED ITEMS  </a></div><div id="inlineGoToSavedRingsBtn"><a href="http://www.tiffany.com/Customer/Wishlist/WishList.aspx?section=engagement" class="btn" onclick="TrackInlineSavedItemsLinkClick('Inline Saved Engagement Items','Go To Saved Engagement Items')"> View Saved Engagement Rings  </a></div><div id="inlineGoToSentHintsBtn"><a href="http://www.tiffany.com/Customer/Wishlist/WishList.aspx?section=dropahintsenthintlist" class="btn" onclick="TrackInlineSavedItemsLinkClick('Inline Saved Sent Hints','Go To Saved Sent Hints Items')"> View Sent Hints  </a></div><div id="inlineGoToReceivedHintsBtn"><a href="http://www.tiffany.com/Customer/Wishlist/WishList.aspx?section=dropahintreceivedhintlist" class="btn" onclick="TrackInlineSavedItemsLinkClick('Inline Saved Sent Hints','Go To Saved Received Hints Items')"> View Received Hints  </a></div><div id="inlineContinueShoppingBtn"><a href="#" class="btn secondary" onclick="TrackInlineSavedItemsLinkClick('Inline Saved Items','Continue Shopping');javascript:$('#saved').fadeOut();return false"> Continue Shopping  </a></div></div></div></div><script>var didYouMeanLiteral='Did you mean {0} ?';var storeSearchFriendlyURL='/jewelry-stores/search';var itemSearchFriendlyURL='/search';function TrackViewMoreStoreEvents(){TrackEvent('Menus','Header','View More Stores and Events','');s.eVar8="View More Stores and Events - Header";void(s.t());}function TrackViewAllStoresInCountry(countryandLoc){TrackEvent('Menus','Header','View ALL Stores in'+countryandLoc,'');s.eVar8='View ALL Stores in'+countryandLoc;void(s.t());}</script><style>#searchSg .active{color:#41c1ca}div#searchSg-warp{max-height:400px;background-color:#EFEFEF;border-top:solid 1px #ffffff}ul#searchSg{display:block;padding:5px 0}ul#searchSg li{list-style:none;padding:2px 15px;cursor:pointer;word-wrap:break-word;width:220px;line-height:15px;margin:8px 0 10px}</style><div id="ctlHeader_ctlSearch_pnlSimpleSearch"><div id="sitesearch" class="searchbar"><a href="#" class="cleartext">×</a> <label for="searchInput" style="display:none">Search</label> <input id="searchInput" class="placeholder" autocomplete="off" name="search" type="text" data-placeholder="Search" runat="server"> <img src="http://www.tiffany.com/shared/images/header/magnify-glass-retina.png" width="12" height="12" alt="Search"> <a id="topSearchBtn" class="btn" href="javascript:SearchManager.getInstance().searchSite()"><img src="http://www.tiffany.com/shared/images/header/magnify-glass-retina.png" width="12" height="12" alt="Search"></a><div id="searchSg-warp"><ul id="searchSg" style="display:none"></ul></div></div><div id="ctlHeader_ctlSearch_searchError" class="errorText"></div></div><div id="storesearch" class="searchbar"><label for="locationSearchInput" style="display:none"> Enter a city, state or zip code... </label> <a href="#" class="close">×</a> <input type="text" class="placeholder" id="locationSearchInput" data-placeholder="Enter a city, state or zip code..." runat="server"> <a href="javascript:SearchManager.getInstance().searchLocations()" class="btn">Search</a> <br><div id="ctlHeader_ctlSearch_divStoreLinks" class="more-links l2"><a href="http://www.tiffany.com/jewelry-stores?isMenu=1" onclick="TrackViewMoreStoreEvents()">Explore stores and events</a><div id="ctlHeader_ctlSearch_divStoreMoreLinks" class="more-links l2"><a href="http://www.tiffany.com/jewelry-stores/store-list/united-states?source=Header&amp;source=Header" onclick="TrackViewAllStoresInCountry(' United States | Header')"><span>View all stores in United States</span></a></div></div></div></div></div><div class="banner"><a href="#" class="jq-banner__close" title="Close Banner"><i class="icon-font">delete_large</i></a> <span class="banner__banner-text type-eb1-i"></span><div class="banner__learn-more-container">— <a href="#" class="avenir type-cta jq-open-modal" data-type="static" data-size="small">Learn More</a><div class="modal-static-content banner__learn-more-text" aria-hidden="true"></div></div></div><script>var pageType="CategoryBrowse";var PageURL="/collections/tiffany-yellow-diamonds/tiffany-novo-diamond-ring-30399048?trackpdp=pr";var showBanner=false;</script><script>var cycJSONArray={"JSONCYCOverlay":[{"locale":"en-US","SiteID":"1","ISO":"US","messages":[{"Key":"txtCYCButton","Value":"Continue"},{"Key":"txtCYCConfirmLocation","Value":"Please confirm your location"},{"Key":"txtCYCPurchaseInfo","Value":"Purchases made on this site will ship to U.S. addresses only."},{"Key":"txtCYCWelcome","Value":"Welcome to Tiffany.com"}]},{"locale":"en-GB","SiteID":"2","ISO":"GB","messages":[{"Key":"txtCYCButton","Value":"Continue"},{"Key":"txtCYCConfirmLocation","Value":"Please confirm your location"},{"Key":"txtCYCPurchaseInfo","Value":"Purchases made on this site will ship to U.K. addresses only."},{"Key":"txtCYCWelcome","Value":"Welcome to Tiffany.com"}]},{"locale":"Intl","SiteID":"3","ISO":"","messages":[{"Key":"txtCYCButton","Value":"Continue"},{"Key":"txtCYCConfirmLocation","Value":"Welcome to Tiffany.com"},{"Key":"txtCYCPurchaseInfo","Value":"Purchases can only be made in stores in your location."},{"Key":"txtCYCWelcome","Value":"Welcome to Tiffany.com"}]},{"locale":"ja-JP","SiteID":"4","ISO":"JP","messages":[{"Key":"txtCYCButton","Value":"次へ進む"},{"Key":"txtCYCConfirmLocation","Value":"お住いの地域をご確認ください"},{"Key":"txtCYCPurchaseInfo","Value":"このサイトでご購入いただいた商品の発送は日本国内に限ります。"},{"Key":"txtCYCWelcome","Value":"Tiffany.com へようこそ"},{"Key":"txtPageCouldNotBeFound","Value":"申し訳ありませんが、ページが見つかりませんでした。"}]},{"locale":"en-CA","SiteID":"5","ISO":"CA","messages":[{"Key":"txtCYCButton","Value":"Continue"},{"Key":"txtCYCConfirmLocation","Value":"Please confirm your location"},{"Key":"txtCYCPurchaseInfo","Value":"Purchases made on this site will ship to Canadian addresses only."},{"Key":"txtCYCWelcome","Value":"Welcome to Tiffany.com"}]},{"locale":"en-AU","SiteID":"6","ISO":"AU","messages":[{"Key":"txtCYCButton","Value":"Continue"},{"Key":"txtCYCConfirmLocation","Value":"Please confirm your location"},{"Key":"txtCYCPurchaseInfo","Value":"Purchases made on this site will ship to Australian addresses only."},{"Key":"txtCYCWelcome","Value":"Welcome to Tiffany.com"}]},{"locale":"zh-CN","SiteID":"7","ISO":"CN","messages":[{"Key":"txtCYCButton","Value":"继续"},{"Key":"txtCYCConfirmLocation","Value":"请确认您所在位置"},{"Key":"txtCYCPurchaseInfo","Value":"txtCYCPurchaseInfo"},{"Key":"txtCYCWelcome","Value":"欢迎来到 Tiffany.com"},{"Key":"txtPageCouldNotBeFound","Value":"很抱歉，无法找到该网页。"}]},{"locale":"fr-FR","SiteID":"8","ISO":"FR","messages":[{"Key":"txtCYCButton","Value":"Continuer"},{"Key":"txtCYCConfirmLocation","Value":"Veuillez confirmer votre emplacement"},{"Key":"txtCYCPurchaseInfo","Value":"Les achats réalisés sur ce site seront expédiés vers des adresses françaises uniquement."},{"Key":"txtCYCWelcome","Value":"Bienvenue sur le site Tiffany.com"},{"Key":"txtPageCouldNotBeFound","Value":"Désolé, la page demandée est introuvable."}]},{"locale":"es-MX","SiteID":"14","ISO":"MX","messages":[{"Key":"txtCYCButton","Value":"Continuar"},{"Key":"txtCYCConfirmLocation","Value":"Confirme su ubicación"},{"Key":"txtCYCPurchaseInfo","Value":"txtCYCPurchaseInfo"},{"Key":"txtCYCWelcome","Value":"Bienvenido a Tiffany.com"},{"Key":"txtPageCouldNotBeFound","Value":"Lo sentimos, no pudimos encontrar esta página."}]},{"locale":"de-DE","SiteID":"17","ISO":"DE","messages":[{"Key":"txtCYCButton","Value":"Fortfahren"},{"Key":"txtCYCConfirmLocation","Value":"Bitte bestätigen Sie Ihren Standort"},{"Key":"txtCYCPurchaseInfo","Value":"Über diese Website getätigte Käufe werden nur an Adressen in Deutschland geliefert."},{"Key":"txtCYCWelcome","Value":"Herzlich willkommen bei Tiffany.com"},{"Key":"txtPageCouldNotBeFound","Value":"Diese Seite wurde leider nicht gefunden."}]},{"locale":"it-IT","SiteID":"18","ISO":"IT","messages":[{"Key":"txtCYCButton","Value":"Continua"},{"Key":"txtCYCConfirmLocation","Value":"La preghiamo di confermare la sua posizione"},{"Key":"txtCYCPurchaseInfo","Value":"Gli acquisti effettuati su questo sito saranno spediti solo a indirizzi italiani."},{"Key":"txtCYCWelcome","Value":"Benvenuto in Tiffany.com!"},{"Key":"txtPageCouldNotBeFound","Value":"Impossibile trovare questa pagina."}]},{"locale":"de-AT","SiteID":"22","ISO":"AT","messages":[{"Key":"txtCYCButton","Value":"Continue"},{"Key":"txtCYCConfirmLocation","Value":"Please confirm your location"},{"Key":"txtCYCPurchaseInfo","Value":"Purchases made on this site will ship to Austrian addresses only."},{"Key":"txtCYCWelcome","Value":"Welcome to Tiffany.com"}]},{"locale":"en-BE","SiteID":"23","ISO":"BE","messages":[{"Key":"txtCYCButton","Value":"Continue"},{"Key":"txtCYCConfirmLocation","Value":"Please confirm your location"},{"Key":"txtCYCPurchaseInfo","Value":"Purchases made on this site will ship to Belgian addresses only."},{"Key":"txtCYCWelcome","Value":"Welcome to Tiffany.com"}]},{"locale":"es-ES","SiteID":"24","ISO":"ES","messages":[{"Key":"txtCYCButton","Value":"Continuar"},{"Key":"txtCYCConfirmLocation","Value":"Por favor, confirme su ubicación"},{"Key":"txtCYCPurchaseInfo","Value":"Las compras realizadas en este sitio web solamente se enviarán a direcciones en España."},{"Key":"txtCYCWelcome","Value":"Bienvenido a Tiffany.com"}]},{"locale":"en-IE","SiteID":"25","ISO":"IE","messages":[{"Key":"txtCYCButton","Value":"Continue"},{"Key":"txtCYCConfirmLocation","Value":"Please confirm your location"},{"Key":"txtCYCPurchaseInfo","Value":"Purchases made on this site will ship to Ireland addresses only."},{"Key":"txtCYCWelcome","Value":"Welcome to Tiffany.com"}]},{"locale":"en-NL","SiteID":"26","ISO":"NL","messages":[{"Key":"txtCYCButton","Value":"Continue"},{"Key":"txtCYCConfirmLocation","Value":"Please confirm your location"},{"Key":"txtCYCPurchaseInfo","Value":"Purchases made on this site will ship to Netherlands addresses only."},{"Key":"txtCYCWelcome","Value":"Welcome to Tiffany.com"}]},{"locale":"zh-Hant","SiteID":"27","ISO":"TW","messages":[{"Key":"txtCYCButton","Value":"繼續"},{"Key":"txtCYCConfirmLocation","Value":"請先選擇您身處的國家/地區"},{"Key":"txtCYCPurchaseInfo","Value":"txtCYCPurchaseInfo"},{"Key":"txtCYCWelcome","Value":"歡迎光臨 Tiffany.com"},{"Key":"txtPageCouldNotBeFound","Value":"很抱歉，找不到這個網頁。"}]},{"locale":"zh-Hant","SiteID":"27","ISO":"HK","messages":[{"Key":"txtCYCButton","Value":"繼續"},{"Key":"txtCYCConfirmLocation","Value":"請先選擇您身處的國家/地區"},{"Key":"txtCYCPurchaseInfo","Value":"txtCYCPurchaseInfo"},{"Key":"txtCYCWelcome","Value":"歡迎光臨 Tiffany.com"},{"Key":"txtPageCouldNotBeFound","Value":"很抱歉，找不到這個網頁。"}]},{"locale":"zh-Hant","SiteID":"27","ISO":"MO","messages":[{"Key":"txtCYCButton","Value":"繼續"},{"Key":"txtCYCConfirmLocation","Value":"請先選擇您身處的國家/地區"},{"Key":"txtCYCPurchaseInfo","Value":"txtCYCPurchaseInfo"},{"Key":"txtCYCWelcome","Value":"歡迎光臨 Tiffany.com"},{"Key":"txtPageCouldNotBeFound","Value":"很抱歉，找不到這個網頁。"}]},{"locale":"ko-KR","SiteID":"29","ISO":"KR","messages":[{"Key":"txtCYCButton","Value":"계속"},{"Key":"txtCYCConfirmLocation","Value":"위치를 확인해주십시오"},{"Key":"txtCYCPurchaseInfo","Value":"txtCYCPurchaseInfo"},{"Key":"txtCYCWelcome","Value":"Tiffany.com에 오신 것을 환영합니다."},{"Key":"txtPageCouldNotBeFound","Value":"죄송합니다, 다음 페이지를 찾을 수 없습니다."}]},{"locale":"fr-CA","SiteID":"85","ISO":"CA","messages":[{"Key":"txtCYCButton","Value":"Continuer"},{"Key":"txtCYCConfirmLocation","Value":"Veuillez confirmer votre emplacement"},{"Key":"txtCYCPurchaseInfo","Value":"Les achats effectués sur ce site ne seront expédiés qu’à des adresses canadiennes."},{"Key":"txtCYCWelcome","Value":"Bienvenue sur Tiffany.com"},{"Key":"txtPageCouldNotBeFound","Value":"Nous sommes désolés. Cette page est introuvable."}]},{"locale":"pt-BR","SiteID":"11","ISO":"BR","messages":[{"Key":"txtCYCButton","Value":"Continuar"},{"Key":"txtCYCConfirmLocation","Value":"Confirme sua localização"},{"Key":"txtCYCPurchaseInfo","Value":"txtCYCPurchaseInfo"},{"Key":"txtCYCWelcome","Value":"Seja bem-vindo(a) a Tiffany.com"},{"Key":"txtPageCouldNotBeFound","Value":"Infelizmente esta página não pôde ser encontrada."}]},{"locale":"ru-RU","SiteID":"53","ISO":"RU","messages":[{"Key":"txtCYCButton","Value":"Продолжить"},{"Key":"txtCYCConfirmLocation","Value":"Подтвердите Ваше местонахождение"},{"Key":"txtCYCPurchaseInfo","Value":"txtCYCPurchaseInfo"},{"Key":"txtCYCWelcome","Value":"Добро пожаловать на сайт Tiffany.com"},{"Key":"txtPageCouldNotBeFound","Value":"К сожалению, страница не найдена."}]}]};</script><style>p.ja-JP,a.ja-JP{font-family:'Sterling SSm A','Sterling SSm B'," Hiragino Mincho ProN","ヒラギノ明朝 Pro W3","MS PMincho","MS PMing",serif}p.ko-KR,a.ko-KR{font-family:'Sterling SSm A','Sterling SSm B',"AppleMyungjo","Batang","바탕",serif}p.ru-RU,a.ru-RU{font-family:Palatino,'Palatino Linotype','Times New Roman','Times CY',Georgia,Times,serif}p.zh-CN,a.zh-CN{font-family:'Sterling Display A','Sterling Display B','NSimSun','STSong',serif}p.zh-Hant,a.zh-Hant{font-family:'Sterling SSm A','Sterling SSm B','PMingLiU','Apple LiSung Light',serif}p.ja-JP .sterling-display,a.ja-JP .sterling-display{font-family:'Sterling Display A','Sterling Display B',"Hiragino Mincho ProN","ヒラギノ明朝 Pro W3","MS PMincho","MS PMing",serif}p.ko-KR .sterling-display,a.ko-KR .sterling-display{font-family:'Sterling Display A','Sterling Display B',"AppleMyungjo","Batang","바탕",serif}p.ru-RU .sterling-display,a.ru-RU .sterling-display{font-family:Palatino,'Palatino Linotype','Times New Roman','Times CY',Georgia,Times,serif}p.zh-CN .sterling-display,a.zh-CN .sterling-display{font-family:'Sterling SSm A','Sterling SSm B','NSimSun','STSong',serif}p.zh-Hant .sterling-display,a.zh-Hant .sterling-display{font-family:'Sterling Display A','Sterling Display B','PMingLiU','Apple LiSung Light',serif}</style><div id="CYC--Header" class="cycHeader"><a href="#" class="cycHeader__closeButton"><i class="icon-font" aria-hidden="true">delete_large</i></a><p class="sterling-display cycHeader__confirmLocation type-h3">Please Confirm your Location</p><p class="sterling-display type-eb1-i cycHeader__info">Purchases made on this site will ship to U.S. addresses only.</p><div><select class="cycHeader__select select--has-value"><option value="" disabled="">AMERICAS</option><option class="en-US" value="http://www.tiffany.com" data-siteid="1">United States</option><option class="en-CA" value="http://www.tiffany.ca?siteid=5" data-siteid="5">Canada (English)</option><option class="fr-CA" value="http://fr.tiffany.ca" data-siteid="85">Canada (Français)</option><option class="es-MX" value="http://www.tiffany.com.mx" data-siteid="14">México</option><option class="pt-BR" value="http://www.tiffany.com.br" data-siteid="11">Brazil</option><option value="" disabled=""></option><option value="" disabled="">EUROPE</option><option class="en-GB" value="http://www.tiffany.co.uk" data-siteid="2">United Kingdom</option><option class="de-AT" value="http://www.tiffany.at" data-siteid="22">Austria</option><option class="en-BE" value="http://be.tiffany.com" data-siteid="23">Belgium</option><option class="fr-FR" value="http://www.tiffany.fr" data-siteid="8">France</option><option class="de-DE" value="http://www.tiffany.de" data-siteid="17">Deutschland</option><option class="en-IE" value="http://www.tiffany.ie" data-siteid="25">Ireland</option><option class="it-IT" value="http://www.tiffany.it" data-siteid="18">Italia</option><option class="en-NL" value="http://nl.tiffany.com" data-siteid="26">Netherlands</option><option class="es-ES" value="http://www.tiffany.es" data-siteid="24">España</option><option class="ru-RU" value="http://www.tiffany.ru" data-siteid="53">Россия</option><option value="" disabled=""></option><option value="" disabled="">ASIA/PACIFIC</option><option class="ja-JP" value="http://www.tiffany.co.jp" data-siteid="4">日本</option><option class="zh-CN" value="http://www.tiffany.cn" data-siteid="7">中国</option><option class="zh-Hant" value="http://zh.tiffany.com" data-siteid="27">香港/澳門</option><option class="zh-Hant" value="http://zh.tiffany.com" data-siteid="27">台灣</option><option class="ko-KR" value="http://www.tiffany.kr" data-siteid="29">한국</option><option class="en-AU" value="http://www.tiffany.com.au" data-siteid="6">Australia</option><option value="" disabled=""></option><option value="" disabled="">ALL OTHER COUNTRIES</option><option class="Intl" value="http://international.tiffany.com" data-siteid="3">International</option></select> <a href="#" class="btn cycHeader__continueButton">Continue</a></div></div><div id="CYC--404" class="cycHeader" style="display:none"><a href="#" class="cycHeader__closeButton"><i class="icon-font" aria-hidden="true">delete_large</i></a><p class="sterling-display type-h3">Page Not Found</p><p class="sterling-display type-eb1-i header404__info">We’re sorry, this page could not be found. Please check the URL to ensure it is correct.</p><a href="#" class="btn cycHeader__continueButton button404">Continue</a></div><div id="maincontent"><div id="divPageContent"><div id="divItemPage"><div class="item-container"><div><div id="image-holder"><a class="backlink l20" href="/collections/tiffany-yellow-diamonds?trackpdp=pr&amp;trackbgfm=pdp">&lt;&nbsp;Browse Tiffany Yellow Diamonds</a><div class="more-images"><div class="large-image"><div id="s7viewerInlineZoom" data-src="http://media.tiffany.com/is/image/Tiffany/EcomItemL2/tiffany-novodiamond-ring-30831993_930960_ED_M.jpg?&amp;op_usm=2.5,1.00,6.00&amp;$cropN=0.1,0.1,0.8,0.8&amp;defaultImage=NoImageAvailable&amp;&amp;" class="s7flyoutviewer s7mouseinput s7size_medium s7device_landscape" style="display: block; height: 100%;"><div id="s7viewerInlineZoom_container" class="s7container" data-description="Scene7ComponentHolder" data-component="Container" data-namespace="s7classic" lang="en" mode="normal" style="position: relative; width: 100%; height: 654px; overflow: visible;"><div mode="normal" class="s7container s7innercontainer" id="s7viewerInlineZoom_container_inner"><div id="s7viewerInlineZoom_flyout" class="s7flyoutzoomview" data-description="Scene7ComponentHolder" data-component="FlyoutZoomView" data-namespace="s7classic" lang="en" style="width: 504px; height: 654px;"><div class="s7staticimage" style="position: absolute; overflow: hidden; left: 0px; top: 75px; width: 504px; height: 504px;"><img style="pointer-events: none; position: absolute; width: 654px; height: 654px; visibility: hidden;" alt="Tiffany Novo®:Diamond Ring" src="http://s7d1.scene7.com/is/image/Tiffany/30831993_930960_ED_M?$EcomItemL2$&amp;id=_KQqV1&amp;fmt=jpg&amp;fit=constrain,1&amp;wid=1308&amp;hei=1308"><img style="pointer-events: none; position: absolute; width: 504px; height: 504px;" alt="Tiffany Novo®:Diamond Ring" src="http://s7d1.scene7.com/is/image/Tiffany/30831993_930960_ED_M?$EcomItemL2$&amp;id=_KQqV1&amp;fmt=jpg&amp;fit=constrain,1&amp;wid=1308&amp;hei=1308"></div><div class="s7flyoutzoom" style="overflow: hidden; pointer-events: none; display: none; width: 504px; height: 654px; position: absolute; left: 0px; top: 0px; opacity: 0; zoom: 1;"><div style="position: relative; width: 504px; height: 654px;"><img style="position: absolute; left: 0px; top: 0px; width: 1408px; height: 1408px;" src="http://s7d1.scene7.com/is/image/Tiffany/30831993_930960_ED_M?$EcomItemL2$&amp;id=_KQqV1&amp;fmt=jpg&amp;fit=constrain,1&amp;wid=1308&amp;hei=1308"><img src="//s7d1.scene7.com/is/image/Tiffany/30831993_930960_ED_M?$EcomItemL2$&amp;id=_KQqV1&amp;scl=1.9673295&amp;req=tile&amp;rect=0,0,256,256&amp;fmt=jpg" style="display: block; position: absolute; zoom: 1; left: 0px; top: 0px;"><img src="//s7d1.scene7.com/is/image/Tiffany/30831993_930960_ED_M?$EcomItemL2$&amp;id=_KQqV1&amp;scl=1.9673295&amp;req=tile&amp;rect=256,0,256,256&amp;fmt=jpg" style="display: block; position: absolute; zoom: 1; left: 256px; top: 0px;"><img src="//s7d1.scene7.com/is/image/Tiffany/30831993_930960_ED_M?$EcomItemL2$&amp;id=_KQqV1&amp;scl=1.9673295&amp;req=tile&amp;rect=512,0,256,256&amp;fmt=jpg" style="display: block; position: absolute; zoom: 1; left: 512px; top: 0px;"><img src="//s7d1.scene7.com/is/image/Tiffany/30831993_930960_ED_M?$EcomItemL2$&amp;id=_KQqV1&amp;scl=1.9673295&amp;req=tile&amp;rect=0,256,256,256&amp;fmt=jpg" style="display: block; position: absolute; zoom: 1; left: 0px; top: 256px;"><img src="//s7d1.scene7.com/is/image/Tiffany/30831993_930960_ED_M?$EcomItemL2$&amp;id=_KQqV1&amp;scl=1.9673295&amp;req=tile&amp;rect=256,256,256,256&amp;fmt=jpg" style="display: block; position: absolute; zoom: 1; left: 256px; top: 256px;"><img src="//s7d1.scene7.com/is/image/Tiffany/30831993_930960_ED_M?$EcomItemL2$&amp;id=_KQqV1&amp;scl=1.9673295&amp;req=tile&amp;rect=512,256,256,256&amp;fmt=jpg" style="display: block; position: absolute; zoom: 1; left: 512px; top: 256px;"><img src="//s7d1.scene7.com/is/image/Tiffany/30831993_930960_ED_M?$EcomItemL2$&amp;id=_KQqV1&amp;scl=1.9673295&amp;req=tile&amp;rect=0,512,256,256&amp;fmt=jpg" style="display: block; position: absolute; zoom: 1; left: 0px; top: 512px;"><img src="//s7d1.scene7.com/is/image/Tiffany/30831993_930960_ED_M?$EcomItemL2$&amp;id=_KQqV1&amp;scl=1.9673295&amp;req=tile&amp;rect=256,512,256,256&amp;fmt=jpg" style="display: block; position: absolute; zoom: 1; left: 256px; top: 512px;"><img src="//s7d1.scene7.com/is/image/Tiffany/30831993_930960_ED_M?$EcomItemL2$&amp;id=_KQqV1&amp;scl=1.9673295&amp;req=tile&amp;rect=512,512,256,256&amp;fmt=jpg" style="display: block; position: absolute; zoom: 1; left: 512px; top: 512px;"></div></div><div id="InfoMessage_s7classic_5" class="s7tip" data-description="Scene7ComponentHolder" data-component="undefined" data-namespace="s7classic" style="display: none; left: 327px; opacity: 0;">Mouse over image for a closer look.</div></div><div id="s7viewerInlineZoom_swatches" class="s7swatches" data-description="Scene7ComponentHolder" data-component="Swatches" data-namespace="s7classic" lang="en" style="width: 260px; height: 100px; position: absolute;"></div></div></div></div></div><div class="thumbs" style="display: none;"></div></div></div><div id="divAlterNateImg" style="display:none"><a href="/Shopping/ViewAlternateImages.aspx?sku={0}" id="lnkAlterNateImage" class="open-modal" data-iframe="true" data-position="top" onclick="hideErrorMessage()"> View Reference Images </a></div></div><div id="itemInformation"><input name="selectedSKU" type="hidden" id="selectedSKU"><div id="itemHeader"><div class="l1 eyebrow"><a href="/search?search=1&amp;searchkeyword=Tiffany%20Novo%C2%AE&amp;trackbgfm=el" id="lnkEyeBrowLink">Tiffany Novo®</a></div><h1 class="t1">Diamond Ring</h1><div id="itemPrice"><div style="float:left">$34,300</div><div class="showForPKB"><div id="divPriceSelection"><span id="currencyDropdown" class="styled-select" style="display: none;"> </span></div></div><div style="clear:both"></div></div></div><div id="skuGroups"><div id="ctlSkuIndividual_divQuantity" class="l1" style="text-transform:uppercase"><div style="width:25%;height:38px;float:left;line-height:38px"><span> Quantity </span></div><div style="width:48%;float:left"><label id="ctlSkuIndividual_txtQuantityLable2" for="ctlSkuIndividual_txtQuantity" style="display:none">Quantity</label> <input name="ctlSkuIndividual$txtQuantity" value="1" maxlength="3" size="3" id="ctlSkuIndividual_txtQuantity" type="tel"></div><div style="clear:both"></div></div><span id="ajaxError" class="error-text"></span></div><div id="addToShoppingBagButton"><a id="btnPurchase" class="btn large" href='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("btnPurchase","",true,"","",false,true))'>Add to Shopping Bag</a> <a id="btnGoToSB" class="btn large" href='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("btnGoToSB","",true,"","http://www.tiffany.com/Customer/ShoppingBag.aspx",false,true))' style="display:none">Go to Shopping Bag</a><div id="divComplimentaryShippingNote">Enjoy complimentary shipping and returns on your order.</div></div><div id="otherInfo"></div><div id="mediaLinks" class="l1" style="text-transform:uppercase;min-height:20px"><div class="saveItem" style="float:left"><a href="/Customer/WishList/WishList.aspx?cid=649502&amp;mcat=148206&amp;sku=30399048" id="ancSaveForLater" class="save"> <i class="icon-font">like</i> Save </a><a href="/Customer/WishList/{0}" id="ancSaveRemove" style="display: none;"> <i class="icon-font">like_solid</i> Saved </a></div><div id="dropAHint" style="padding-left:5%;float:left"><a href="/Customer/Request/EmailDropAHint.aspx?tracksource=pdp&amp;type=Gen&amp;url=EmailRequest.aspx?trackpdp=pr%26name=%26selectedsku=%26sku=30399048%26cid=649502%26source=item%26lstsku=30399048%26ImgPath=http%3a%2f%2fmedia.tiffany.com%2fis%2fimage%2fTiffany%2fEcomEmailL%2ftiffany-novodiamond-ring-30831993_930960_ED_M.jpg%3fdefaultImage%3dNoImageAvailable%26op_usm%3d2.5%2c1%2c6" id="ancDropAHintGen" class="open-modal" data-size="wide" data-iframe="true" data-position="top" data-bgstyle=""> <img id="dropAHintIcon" src="/shared/images/icons/drop_a_hint_filled.svg"> <span> Drop A Hint </span> </a></div><div class="item-print-email-share" style="float:right"><span id="EMailPrintShare"> <a href="#" class="share"> Share </a> <span>/ </span> <a href="javascript:openReportWindow(rootUrl+'/Common/Services/Print.aspx?sku=30399048&amp;selectedSku=&amp;isStmt=0&amp;pkbPriceMarketid=');if(typeof(TrackItemPageShareType)!='undefined');TrackItemPageShareType('Print Item Information')" id="ancPrintItemInfo" class="print"> Print </a> <img src="/shared/images/icons/share-arrow.png" id="share-arrow-image" class="hidden"> </span></div></div><div class="share-menu-wide hidden"><a href="/Customer/Request/EmailRequest.aspx?trackpdp=pr&amp;name=&amp;selectedsku=&amp;sku=30399048&amp;cid=649502&amp;source=item&amp;ImgPath=http%3a%2f%2fmedia.tiffany.com%2fis%2fimage%2fTiffany%2fEcomEmailL%2ftiffany-novodiamond-ring-30831993_930960_ED_M.jpg%3fdefaultImage%3dNoImageAvailable%26op_usm%3d2.5%2c1%2c6" id="ancEmailLink" class="email open-modal" data-size="skinny" data-iframe="true" data-bgstyle="" onclick="if(typeof(TrackItemPageShareType)!='undefined'){TrackItemPageShareType('Email This Item');}"></a> <a class="facebook" href="#"></a> <a class="twitter" href="#"></a> <a class="pinterest" href="#"></a> <a class="tumblr" id="sphShareTumblr" href="#"></a> <a class="google" href="#"></a></div><div class="l1" id="infoDrawers"><div id="drawerDescription"><span>Description &amp; Details <i class="icon-font minus">minus</i><i class="icon-font plus">plus</i></span><div><div>Our Tiffany Novo® cut, based on the original Tiffany Diamond, gives a nod to the past as well as a glimpse of the future. The cut enhances the uncommon beauty of a Tiffany Yellow Diamond, which in turn lends warmth to a shank of sparkling white diamonds. Fancy Intense Yellow diamond, carat weight .1.54; round brilliant white diamonds, carat total weight .16.</div><br></div></div><div id="drawerShippingReturn"><span>Free Shipping &amp; Returns<i class="icon-font minus">minus</i><i class="icon-font plus">plus</i></span><div><p><b>Shipping</b> <br> Enjoy complimentary shipping and returns on your order. <br> <a id="linkShippingRates" href="/Service/FaqOverlay.aspx?faqCode=linkshippingratestimes&amp;showBnr=true&amp;redesign=true" class="jq-open-modal l2" data-size="" data-position="" data-bgstyle=""> Learn more about our Shipping Options &amp; Rates </a></p><p><b>The Tiffany Blue Box®</b><br> All purchases arrive in the renowned Tiffany Blue Box®, tied with a white satin ribbon.<br></p><div><b>Returns</b><ul><li>Purchases made online may be returned or exchanged within 30 days.</li><li>We offer free return shipping on all items. You may also return purchases at one of our retail stores.</li></ul><a id="linkReturnPolicy" href="/Service/FaqOverlay.aspx?faqCode=linkshippingratestimes&amp;showBnr=true&amp;redesign=true&amp;jumpto=returnPolicy" class="jq-open-modal l2" data-size="" data-position="" data-bgstyle=""> Learn more about our Return Policy </a></div></div></div></div><div id="otherItems" class="l2">Customer Service: <a href="tel:800 843 3269">800 843 3269</a><div style="position:absolute;bottom:20px"><a href="#" id="story-scroll"> Discover more <img class="down-arrow" src="/shared/images/icons/down-arrow-noline.png"> </a></div></div></div><div id="itemTitleAndText" class="iteminfo2" style="display:none !important"><div id="itemInfo2" class="item-info-container"><div><div id="contentText" class="item-desc t8"></div><div id="itemOptions"></div><div id="divItemTotalAndButton"><div class="t8"></div><div class="item-actions l6"><div class="dropAHint"></div><div class="itemlinks l2"><ul id="contentLinkList"></ul></div><br></div></div><div id="addMessage" style="display:none">This item has been added to your shopping bag.</div><div id="divBackToModule"></div></div></div><div style="display:block;height:1px;width:auto;margin-bottom:50px"></div></div></div></div><div id="categoryMenuOpen" style="display:none"><div id="categoryMenuHolder"><div class="filterMenuTitle" id="filterMenuOpenTitle"></div><div id="close"><a href="javascript:closeFilterMenu()" class="closeLink">Close</a></div><div id="divFilters"><div id="filterRow1"><div id="divDesignersCollectionsSub" class="filterSelect"><select id="DesignersCollectionsSub" name="DesignersCollectionsSub" class="ddlReset 159px" onchange="handleDropdownChange('DesignersCollectionsSub')"><option value="" selected="">Collections</option><option value="---">---</option></select></div><div id="divGender" class="filterSelect"><select id="Gender" name="Gender" class="ddlReset 159px" onchange="handleDropdownChange('Gender')"><option value="" selected="">Gender</option><option value="---">---</option></select></div><div id="divCase" class="filterSelect"><select id="Case" name="Case" class="ddlReset 159px" onchange="handleDropdownChange('Case')"><option value="" selected="">Case</option><option value="---">---</option></select></div><div id="divDial" class="filterSelect"><select id="Dial" name="Dial" class="ddlReset 159px" onchange="handleDropdownChange('Dial')"><option value="" selected="">Dial</option><option value="---">---</option></select></div></div><div id="filterRow2"><div id="divStrap" class="filterSelect"><select id="Strap" name="Strap" class="ddlReset 159px" onchange="handleDropdownChange('Strap')"><option value="" selected="">Strap</option><option value="---">---</option></select></div><div id="divMovement" class="filterSelect"><select id="Movement" name="Movement" class="ddlReset 159px" onchange="handleDropdownChange('Movement')"><option value="" selected="">Movement</option><option value="---">---</option></select></div><div id="divGemstones" class="filterSelect"><select id="Gemstones" name="Gemstones" class="ddlReset 159px" onchange="handleDropdownChange('Gemstones')"><option value="" selected="">Gemstones</option><option value="---">---</option></select></div></div></div></div></div><div id="categoryMenuClosed" style="display:none"><span class="filterMenuTitle" id="filterMenuClosedTitle"> </span> <span class="forwardToLink"> <a href="javascript:openFilterMenu()" class="filterMenuLink"> Filter Watches </a></span></div><style>#divStatementMessage{background:#bfebe7;overflow:hidden}#divStatementMessage h4{margin-left:30%;margin-right:0}</style></div><div id="idItemExtrasDiv" class="item-extras"><h4 class="l1" style="display:none"><a class="selected" rel="extras-story" href="#"> </a> <span>/ </span> <span class="extras-additional-link"> <a rel="extras-additional" href="#"> Additional Items </a> </span></h4><div id="rr1" class="extra-info" style=""><div id="rrTitle" class="t5">You May Also Like</div><div id="rr1Grid"><div class="rrItemCarousel touch-carousel minimal-arrows" data-arrow-offset="-20px" data-scroll="noScroll" data-arrow-type="minimal" id="touchCarousel-0" role="complimentary" aria-describedby="touchCarousel-0-desc" aria-labelledby="touchCarousel-0-title"><h2 id="touchCarousel-0-title" class="visually-hidden">Carousel content with 2 slides.</h2><p id="touchCarousel-0-desc" class="visually-hidden">A carousel is a rotatable set of images and/or content. Use the tabs or the previous and next buttons to change the displayed slide.</p><div class="container"><div class="current" data-role="tabpanel" id="touchCarousel-0-tabpanel-0" aria-labelledby="touchCarousel-0-tab-0" style="width: 100%; margin-left: 0%;"><div class="rrItem"><a href="/collections/tiffany-soleste/tiffany-soleste-yellow-diamond-ring-32673333?trackpdp=pr" data-itemurl="/collections/tiffany-soleste/tiffany-soleste-yellow-diamond-ring-32673333?trackpdp=pr" data-rranalytics="http://recs.richrelevance.com/rrserver/click?a=9fcc91a121441cb2&amp;vg=3681921f-48f4-49b4-7521-25574f833c82&amp;pti=1&amp;pa=rr1&amp;hpi=8842&amp;stn=ClickCP&amp;stid=4&amp;rti=2&amp;sgs=&amp;mvtId=27839&amp;mvtTs=1499984747215&amp;uguid=93523831-bc95-4334-a2bf-20574f832d66&amp;channelId=1f88d8a9478dda98&amp;s=b978e7882cda4eb2859794a9c7f786e0&amp;pg=3315&amp;p=32673333&amp;ind=0&amp;ct=http%3A%2F%2Fwww.tiffany.com%2Fcollections%2Ftiffany-soleste%2Ftiffany-soleste-yellow-diamond-ring-32673333"><img src="//s7d1.scene7.com/is/image/Tiffany/EcomBrowseL/tiffany-solesteyellow-diamond-ring-26885361_924048_ED_M.jpg"><div>Tiffany Soleste® ring in platinum and 18k gold with a yellow diamond. </div><div>$41,700</div></a></div><div class="rrItem"><a href="/jewelry/anniversary-gifts/tiffany-soleste-yellow-diamond-pendant-GRP06666?trackpdp=pr" data-itemurl="/jewelry/anniversary-gifts/tiffany-soleste-yellow-diamond-pendant-GRP06666?trackpdp=pr" data-rranalytics="http://recs.richrelevance.com/rrserver/click?a=9fcc91a121441cb2&amp;vg=3681921f-48f4-49b4-7521-25574f833c82&amp;pti=1&amp;pa=rr1&amp;hpi=8842&amp;stn=ClickCP&amp;stid=4&amp;rti=2&amp;sgs=&amp;mvtId=27839&amp;mvtTs=1499984747215&amp;uguid=93523831-bc95-4334-a2bf-20574f832d66&amp;channelId=1f88d8a9478dda98&amp;s=b978e7882cda4eb2859794a9c7f786e0&amp;pg=3315&amp;p=GRP06666&amp;ind=1&amp;ct=http%3A%2F%2Fwww.tiffany.com%2Fexplore%2Fanniversary-gifts%2Ftiffany-soleste-yellow-diamond-pendant-GRP06666"><img src="//s7d1.scene7.com/is/image/Tiffany/EcomBrowseL/tiffany-solesteyellow-diamond-pendant-26118212_924047_ED_M.jpg"><div>Tiffany Soleste® yellow and white diamond pendant in platinum and 18k gold. </div><div>$28,500</div></a></div><div class="rrItem"><a href="/collections/tiffany-yellow-diamonds/pear-shaped-yellow-diamond-pendant-GRP07056?trackpdp=pr" data-itemurl="/collections/tiffany-yellow-diamonds/pear-shaped-yellow-diamond-pendant-GRP07056?trackpdp=pr" data-rranalytics="http://recs.richrelevance.com/rrserver/click?a=9fcc91a121441cb2&amp;vg=3681921f-48f4-49b4-7521-25574f833c82&amp;pti=1&amp;pa=rr1&amp;hpi=8842&amp;stn=ClickCP&amp;stid=4&amp;rti=2&amp;sgs=&amp;mvtId=27839&amp;mvtTs=1499984747215&amp;uguid=93523831-bc95-4334-a2bf-20574f832d66&amp;channelId=1f88d8a9478dda98&amp;s=b978e7882cda4eb2859794a9c7f786e0&amp;pg=3315&amp;p=GRP07056&amp;ind=2&amp;ct=http%3A%2F%2Fwww.tiffany.com%2Fcollections%2Ftiffany-yellow-diamonds%2Fpear-shaped-yellow-diamond-pendant-GRP07056"><img src="//s7d1.scene7.com/is/image/Tiffany/EcomBrowseL/pear-shaped-yellow-diamond-pendant-29761329_921125_ED_M.jpg"><div>Pear-shaped Tiffany Yellow Diamond pendant in 18k gold.</div><div>$57,500</div></a></div></div><div data-role="tabpanel" id="touchCarousel-0-tabpanel-1" aria-labelledby="touchCarousel-0-tab-1" style="width: 100%;"><div class="rrItem"><a href="/collections/tiffany-yellow-diamonds/tiffany-soleste-yellow-diamond-pendant-GRP07735?trackpdp=pr" data-itemurl="/collections/tiffany-yellow-diamonds/tiffany-soleste-yellow-diamond-pendant-GRP07735?trackpdp=pr" data-rranalytics="http://recs.richrelevance.com/rrserver/click?a=9fcc91a121441cb2&amp;vg=3681921f-48f4-49b4-7521-25574f833c82&amp;pti=1&amp;pa=rr1&amp;hpi=8842&amp;stn=ClickCP&amp;stid=4&amp;rti=2&amp;sgs=&amp;mvtId=27839&amp;mvtTs=1499984747215&amp;uguid=93523831-bc95-4334-a2bf-20574f832d66&amp;channelId=1f88d8a9478dda98&amp;s=b978e7882cda4eb2859794a9c7f786e0&amp;pg=3315&amp;p=GRP07735&amp;ind=3&amp;ct=http%3A%2F%2Fwww.tiffany.com%2Fcollections%2Ftiffany-yellow-diamonds%2Ftiffany-soleste-yellow-diamond-pendant-GRP07735"><img src="//s7d1.scene7.com/is/image/Tiffany/EcomBrowseL/tiffany-solesteyellow-diamond-pendant-29852979_923619_ED_M.jpg"><div>Tiffany Soleste® yellow diamond pendant in platinum and 18k gold.</div><div>$29,600</div></a></div><div class="rrItem"><a href="/collections/tiffany-yellow-diamonds/item-GRP07734?trackpdp=pr" data-itemurl="/collections/tiffany-yellow-diamonds/item-GRP07734?trackpdp=pr" data-rranalytics="http://recs.richrelevance.com/rrserver/click?a=9fcc91a121441cb2&amp;vg=3681921f-48f4-49b4-7521-25574f833c82&amp;pti=1&amp;pa=rr1&amp;hpi=8842&amp;stn=ClickCP&amp;stid=4&amp;rti=2&amp;sgs=&amp;mvtId=27839&amp;mvtTs=1499984747215&amp;uguid=93523831-bc95-4334-a2bf-20574f832d66&amp;channelId=1f88d8a9478dda98&amp;s=b978e7882cda4eb2859794a9c7f786e0&amp;pg=3315&amp;p=GRP07734&amp;ind=4&amp;ct=http%3A%2F%2Fwww.tiffany.com%2Fcollections%2Ftiffany-yellow-diamonds%2Fitem-GRP07734"><img src="//s7d1.scene7.com/is/image/Tiffany/EcomBrowseL/tiffany-enchantoval-yellow-diamond-pendant-29361665_930563_ED_M.jpg"><div>Tiffany Enchant® oval yellow diamond pendant in platinum and 18k gold.</div><div>$36,400</div></a></div><div class="rrItem"></div></div></div><div class="thumbs" style="display: none;" role="tablist"><span id="touchCarousel-0-tab-0" class="thumb active" role="tab" aria-selected="true" tabindex="0" data-target="#touchCarousel-0" aria-controls="touchCarousel-0-tabpanel-0"><span class="visually-hidden">Tab 0</span></span><span id="touchCarousel-0-tab-1" class="thumb" role="tab" aria-selected="false" tabindex="-1" data-target="#touchCarousel-0" aria-controls="touchCarousel-0-tabpanel-1"><span class="visually-hidden">Tab 1</span></span></div><a href="#touchCarousel-0" class="touchcarousel-prev endArrows" role="button" aria-label="Previous Slide" style="margin-top: -20px;"><i class="icon-font" aria-hidden="true">directional_left</i></a><a href="#touchCarousel-0" class="touchcarousel-next" role="button" aria-label="Next Slide" style="margin-top: -20px;"><i class="icon-font" aria-hidden="true">directional_right</i></a></div></div></div><div id="theStory" class="extra-info"><div id="theStoryTitle" class="t5">The Story of This Collection</div></div><div id="extras-story"><div class="tile-container flexible-height" style="height: 993.84px; display: block;"><div id="tile1" class="text-container textrow3 imgleft no-center cursor-pointer col5" data-height="3" data-mplacement="center" onclick="window.location='/collections/tiffany-yellow-diamonds?lppromo=RPT50'" onmouseover="this.style.cursor='pointer'" style="width: 984px; height: 586.464px; top: 0px; left: 0px;"><img srcset="http://media.tiffany.com/is/image/Tiffany/1X/20160913_I1_Pure_As_Sunlight_5x3Promo_US_UK_CA_AU_EU_INTL_PURE_AS_SUNLIGHT1.jpg 1x, http://media.tiffany.com/is/image/Tiffany/2X/20160913_I1_Pure_As_Sunlight_5x3Promo_US_UK_CA_AU_EU_INTL_PURE_AS_SUNLIGHT1.jpg 2x" data-src="http://media.tiffany.com/is/image/Tiffany/1X/20160913_I1_Pure_As_Sunlight_5x3Promo_US_UK_CA_AU_EU_INTL_PURE_AS_SUNLIGHT1.jpg" style="height: 586px;"><style>.PDP_p_f42{font-size:42px;line-height:38px;text-transform:uppercase}@media (max-width:1250px){.PDP_p_f42{font-size:32px;line-height:28px;text-transform:uppercase}}</style><div style="width:32%;padding-top:7%;left:9%"><h2 class="t16 PDP_p_f42">Pure As Sunlight</h2><p>Tiffany Yellow Diamonds possess a glorious hue rivaled <br> only by the rays of the sun. These rare stones are meticulously <br> selected by our master gemologists, cut by hand and set to <br> perfection to maximize their sublime beauty.</p><hr style="width:60px"><a href="/collections/tiffany-yellow-diamonds?lppromo=RPT50" class="l6">VIEW THE COLLECTION</a></div></div><div id="tile2" class="text-container textrow2 no-center dark nobg col3" style="width: 586.464px; height: 387.696px; top: 596.304px; left: 397.536px;"><img data-src="http://media.tiffany.com/is/image/Tiffany/2X/20131020_I1_Gemstones_3x2Promo_US_INTL_v2_Gemstones3x2.jpg" style="height: 388px;"><div style="padding-left:1%;padding-top:4%;width:50%"><h2 class="t4">Tiffany Colored <br>Gemstones</h2><p>Since the 19th century, Tiffany gemologists <br>have journeyed to remote corners of <br>the globe in search of exquisite gemstones. <br>Their lustrous hues are showcased in <br>Tiffany designs which celebrate nature’s <br>precious bounty.</p></div></div><div id="tile3" class="text-container textrow2 imgtop no-center whitebg cursor-pointer col2" onmouseover="this.style.cursor='pointer'" style="width: 387.696px; height: 387.696px; top: 596.304px; left: 0px;"><img srcset="http://media.tiffany.com/is/image/Tiffany/1X/20131020_I1_Legend_2x2Promo_US_UK_CA_AU_EU_INTL_v2_Legend2x2_v1.jpg 1x, http://media.tiffany.com/is/image/Tiffany/2X/20131020_I1_Legend_2x2Promo_US_UK_CA_AU_EU_INTL_v2_Legend2x2_v1.jpg 2x" alt="The Tiffany &amp; Co. Story" data-src="http://media.tiffany.com/is/image/Tiffany/1X/20131020_I1_Legend_2x2Promo_US_UK_CA_AU_EU_INTL_v2_Legend2x2_v1.jpg" style="height: 388px;"><div style="padding:5% 0;top:0;bottom:51%"><h2 class="t4">A Legend Is Born</h2><p>In 1837, Charles Lewis Tiffany arrived in New York City and <br> established Tiffany &amp; Co., redefining glamour, elegance<br> and legendary style worldwide.</p><hr style="margin:2% auto 10px"><span class="l6"><a href="/WorldOfTiffany/TiffanyStory/Design/JeanSchlumberger.aspx">Visit the Tiffany Story to Learn More</a></span></div></div></div></div><img class="loader" src="/shared/images/icons/loading.gif" alt="Loading..." style="margin: 8% 0px 10% 49%; display: none;"><div id="extras-additional" class="touchpager" style="display: none; visibility: visible;"><div class="paging" style="display: block;"><span class="currentPage">1</span> / <span class="totalPages">1</span></div><a href="#" class="page-left-box"><span style="display: none;"> <img src="/shared/images/icons/arrow-left.png"></span></a> <a href="#" class="page-right-box"><span style="display: none;"> <img src="/shared/images/icons/arrow-right.png"></span></a><div class="wrapper" style="height: 0px;"><div class="container" style="width: 100%;"><div class="grid-container browse-grid current" style="width: 100%;"></div></div></div></div><div id="rr2" class="extra-info" style="display:none"><div id="rrTitle" class="t5">You may also like</div><div id="rr2Grid"><div class="apply-touch-carousel rrItemCarousel" data-arrow-offset="-20px" data-scroll="noScroll" data-arrow-type="minimal"><div class="container"></div><div class="thumbs" style="display: none;"></div></div></div></div><div id="ctlDropDowns_idLandingDropDownsDiv" class="grid-container catlinks"><div class="col2" style="padding-top: 37px; visibility: visible;"><div class="text-container textrow1 whitebg"><div style="padding-top: 51.9336px; visibility: visible;"><span class="l3">Shop</span><h2 class="t16">Collections</h2><hr><span class="l1">Select A Category</span></div></div></div><div class="col3 l6 uppercase" style="padding-top: 2.5px; visibility: visible;"><div class="title"><h4></h4></div><div class="title"><h4></h4></div><br style="clear:both"> <br style="clear:both"><div><a onclick="TrackMasterCategoryShopLinksClick('Collections','Tiffany HardWear (NEW)')" href="http://www.tiffany.com/collections/tiffany-hardwear/explore">Tiffany HardWear (NEW)</a> <a onclick="TrackMasterCategoryShopLinksClick('Collections','Tiffany T')" href="http://www.tiffany.com/collections/tiffany-t">Tiffany T</a> <a onclick="TrackMasterCategoryShopLinksClick('Collections','Return to Tiffany®')" href="http://www.tiffany.com/collections/rtt">Return to Tiffany®</a> <a onclick="TrackMasterCategoryShopLinksClick('Collections','Tiffany 1837™')" href="http://www.tiffany.com/collections/tiffany-1837">Tiffany 1837™</a> <a onclick="TrackMasterCategoryShopLinksClick('Collections','Tiffany Infinity')" href="http://www.tiffany.com/collections/tiffany-infinity">Tiffany Infinity</a> <a onclick="TrackMasterCategoryShopLinksClick('Collections','Tiffany Celebration® Rings')" href="http://www.tiffany.com/collections/celebration-rings">Tiffany Celebration® Rings</a> <a onclick="TrackMasterCategoryShopLinksClick('Collections','The Atlas® Collection')" href="http://www.tiffany.com/collections/the-atlas-collection">The Atlas® Collection</a> <a onclick="TrackMasterCategoryShopLinksClick('Collections','Tiffany Keys')" href="http://www.tiffany.com/collections/tiffany-keys">Tiffany Keys</a></div><div><a onclick="TrackMasterCategoryShopLinksClick('Collections','Out of Retirement®')" href="http://www.tiffany.com/collections/out-of-retirement">Out of Retirement®</a> <a onclick="TrackMasterCategoryShopLinksClick('Collections','Ziegfeld Collection')" href="http://www.tiffany.com/collections/ziegfeld-collection">Ziegfeld Collection</a></div><div><a onclick="TrackMasterCategoryShopLinksClick('Collections','Tiffany Victoria™')" href="http://www.tiffany.com/collections/tiffany-victoria">Tiffany Victoria™</a> <a onclick="TrackMasterCategoryShopLinksClick('Collections','Tiffany Bow')" href="http://www.tiffany.com/collections/tiffany-bow">Tiffany Bow</a> <a onclick="TrackMasterCategoryShopLinksClick('Collections','Tiffany Soleste®')" href="http://www.tiffany.com/collections/tiffany-soleste">Tiffany Soleste®</a> <a onclick="TrackMasterCategoryShopLinksClick('Collections','Tiffany Yellow Diamonds')" href="http://www.tiffany.com/collections/tiffany-yellow-diamonds">Tiffany Yellow Diamonds</a> <a onclick="TrackMasterCategoryShopLinksClick('Collections','Tiffany Metro')" href="http://www.tiffany.com/collections/tiffany-metro">Tiffany Metro</a> &nbsp;<a onclick="TrackMasterCategoryShopLinksClick('Collections','Elsa Peretti®')" href="http://www.tiffany.com/collections/elsa-peretti">Elsa Peretti®</a> <a onclick="TrackMasterCategoryShopLinksClick('Collections','Paloma Picasso®')" href="http://www.tiffany.com/collections/paloma-picasso">Paloma Picasso®</a></div><div><a onclick="TrackMasterCategoryShopLinksClick('Collections','Tiffany &amp; Co. Schlumberger®')" href="http://www.tiffany.com/collections/jean-schlumberger">Tiffany &amp; Co. Schlumberger®</a></div></div></div></div></div><script>var isChooseYourCountry='False';var selectedSite='US';var cycURL='http://www.tiffany.com/chooseyourcountry.aspx';var sitePrefURL='http://www.tiffany.com/setsitepreference.aspx?mode=cycfooter&cyctoken=7521DB24AB15485181964AF6731093FB';var previewQueryParam='';</script><footer><hr><div id="ecom-footer"><div class="flex-block dont-stack flex-shrink justify-space-between"><div class="flex-item"><span class="footer_header">Customer Service</span><ul><li><span class="footerNumber"> <a href="tel:US 800 843 3269"> 800 843 3269 </a> </span></li><li><a href="http://www.tiffany.com/Customer/Request/EmailCustSvr.aspx" id="linkEmailCustomerService" class="open-modal" data-size="skinny" data-iframe="true" onclick="TrackFooterClickEvent('Email Customer Service')"> Email Customer Service </a></li><li><a href="http://www.tiffany.com/service/faq.aspx?" onclick="TrackFooterClickEvent('Frequently Asked Questions')"> Frequently Asked Questions </a></li><li><a href="http://www.tiffany.com/Service/FaqOverlay.aspx?faqCode=linkshippingratestimes&amp;showBnr=true&amp;redesign=true" id="linkShippingAndReturns" class="jq-open-modal" onclick="TrackFooterClickEvent('Shipping and Returns')"> Shipping &amp; Returns </a></li><li><a href="http://www.tiffany.com/Service/FAQOverlay.aspx?FAQCode=linktiffanyselectfinancing&amp;redesign=true" class="jq-open-modal" id="linkSelectFinancing"> Tiffany Select Financing </a></li><li><a href="http://www.tiffany.com/Service/Care/AboutDefault.aspx" id="linkProductCare" class="jq-open-modal" data-size="large" onclick="TrackFooterClickEvent('Product Care')"> Product Care </a></li><li class="list__spacer"><br></li><li><a href="http://www.tiffany.com/gifts/the-tiffany-gift-card/the-tiffany-gift-card-GRP07063" onclick="TrackFooterClickEvent('Gift Cards')"> Gift Cards </a></li><li><a id="footerlink5" href="http://www.tiffany.com/Catalogues/Default.aspx?isMenu=1&amp;" onclick="TrackFooterClickEvent('Catalogues')"> Catalogues </a></li></ul></div><div class="flex-item"><span class="footer_header">Our Company</span><ul><li><a href="http://www.tiffany.com/Sustainability" onclick="TrackFooterClickEvent('Sustainability')"> Sustainability </a></li><li><a href="http://www.tiffany.com/Sustainability/default.aspx#p+1-n+1000-c+-s+-r+-t+-ni+1-x+-pu+californiaTransparencyAct-f+-lr+-hr+-ri+-mi+-pp+" onclick="TrackFooterClickEvent('Sustainability')"> CA Supply Chains Act </a></li><li><a id="footerlinkInvestors" href="http://investor.tiffany.com/" target="_blank" onclick="TrackFooterClickEvent('Investors')">Investors</a></li><li><a href="http://www.tiffanycareers.com" target="_blank" onclick="TrackFooterClickEvent('Tiffany Careers')"> Tiffany Careers </a></li><li><a href="http://www.tiffany.com/Service/Accessibility.aspx?isMenu=1&amp;" onclick="TrackFooterClickEvent('Accessibility')"> Accessibility </a></li></ul></div><div class="flex-item"><span class="footer_header">Related Tiffany Sites</span><ul><li><a id="footerlink4" href="http://www.tiffany.com/Registry/Default.aspx?isMenu=1&amp;" onclick="TrackFooterClickEvent('Wedding &amp; Gift Registry')"> Wedding &amp; Gift Registry </a></li><li><a id="A1" href="http://www.tiffany.com/gifts/business-gifts/explore" onclick="TrackFooterClickEvent('Business Accounts')"> Business Accounts </a></li><li><a href="http://www.tiffany.com/Press" target="_blank" onclick="TrackFooterClickEvent('Tiffany For The Press')"> Tiffany for the Press </a></li><li><a id="footerlinkTiffanyFoundation" href="http://www.tiffanyandcofoundation.org/" target="_blank" onclick="TrackFooterClickEvent('Foundation')"> The Tiffany &amp; Co. Foundation </a></li><li><a href="http://m.tiffany.com/Mobile/Default.aspx" target="_blank" onclick="TrackFooterClickEvent('Mobile Site')"> Mobile Site </a></li><li class="list__spacer"><br></li><li><a onclick="TrackExitLinkClick(this,'Download Engagement Ring App for iPhone or ipad from footer links')" href="https://itunes.apple.com/us/app/tiffany-co-engagement-ring/id375427126?mt=8" target="_blank"> Engagement Ring Finder App for iPhone® </a></li><li><a onclick="TrackExitLinkClick(this,'Download Engagement Ring App for Android from footer links')" href="https://play.google.com/store/apps/details?id=com.tiffany.engagement" target="_blank"> Engagement Ring Finder App for Android™ </a></li></ul></div><div class="flex-item footer__social"><span class="footer_header">Latest From Tiffany</span><p>Be the first to know about exciting new designs, special events, store openings and much more.</p><input name="ctlFooter$txtEmail" id="ctlFooter_txtEmail" placeholder="Email" type="email"> <a href="#" class="btn btn--thin jq-email-sign-up">Sign Up</a> <br><div class="flex-block dont-stack flex-shrink no-gutters justify-space-between"><a class="flex-item" href="http://instagram.com/tiffanyandco" target="_blank" rel="publisher" onclick="TrackFooterClickEvent('Instagram')"> <i class="icon-font" aria-hidden="true">social_instagram</i> <span class="visually-hidden">Instagram</span> </a> <a class="flex-item" href="http://www.facebook.com/Tiffany" target="_blank" rel="publisher" onclick="TrackFooterClickEvent('Facebook')"> <i class="icon-font" aria-hidden="true">social_facebook</i> <span class="visually-hidden">Facebook</span> </a> <a class="flex-item" href="http://www.youtube.com/OfficialTiffanyAndCo" target="_blank" rel="publisher" onclick="TrackFooterClickEvent('YouTube')"> <i class="icon-font" aria-hidden="true">social_youtube</i> <span class="visually-hidden">YouTube</span> </a> <a class="flex-item" href="http://twitter.com/TiffanyAndCo" target="_blank" rel="publisher" onclick="TrackFooterClickEvent('Twitter')"> <i class="icon-font" aria-hidden="true">social_twitter</i> <span class="visually-hidden">Twitter</span> </a> <a class="flex-item" href="http://pinterest.com/TiffanyAndCo" target="_blank" rel="publisher" onclick="TrackFooterClickEvent('Pinterest')"> <i class="icon-font" aria-hidden="true">social_pinterest</i> <span class="visually-hidden">Pinterest</span> </a> <a class="flex-item" href="https://plus.google.com/117880747798344936145/" target="_blank" rel="publisher" onclick="TrackFooterClickEvent('Google+')"> <i class="icon-font" aria-hidden="true">social_google</i> <span class="visually-hidden">Google+</span> </a> <a class="flex-item" href="https://www.snapchat.com/add/tiffanyofficial" target="_blank" rel="publisher"> <i class="icon-font" aria-hidden="true">social_snapchat</i> <span class="visually-hidden">Snapchat</span> </a></div></div></div><div class="footer__below"><div class="flex-block no-gutters flex-wrap"><div class="flex-item col-4"><a href="#" class="jq-open-modal cyc" data-type="static" data-size="full" data-class="cyc-footer-modal" onclick="TrackFooterClickEvent('Choose Your Country')">Choose Your Country - United States <i class="icon-font">directional_up</i></a><div class="modal-static-content" aria-hidden="true"><div id="modalDescription" class="visually-hidden">Beginning of dialog window. It begins with a heading called "Choose Your Country". Escape will close the window.</div><h2 id="modalTitle" class="type-h5 visually-hidden">Choose Your Country</h2><div class="modal-body"><div class="flex-block no-gutters dont-stack justify-shrink cyc-footer"><div class="flex-item cyc-footer__countries"><div class="cyc-footer__countries-headings"><p>Americas</p></div><div class="cyc-footer__countries-list"><ul><li><a href="http://www.tiffany.com" data-siteid="1">United States</a></li><li><a href="http://www.tiffany.ca?siteid=5" data-siteid="5">Canada (English)</a></li><li><a href="http://fr.tiffany.ca" data-siteid="85">Canada (Français)</a></li><li><a href="http://www.tiffany.com.mx" data-siteid="14">México</a></li><li><a href="http://www.tiffany.com.br" data-siteid="11">Brazil</a></li></ul></div></div><div class="flex-item cyc-footer__countries cyc-footer__countries--EU"><div class="cyc-footer__countries-headings"><p>Europe</p></div><div class="cyc-footer__countries-list"><ul><li><a href="http://www.tiffany.co.uk" data-siteid="2">United Kingdom</a></li><li><a href="http://www.tiffany.at" data-siteid="22">Austria</a></li><li><a href="http://be.tiffany.com" data-siteid="23">Belgium</a></li><li><a href="http://www.tiffany.fr" data-siteid="8">France</a></li><li><a href="http://www.tiffany.de" data-siteid="17">Deutschland</a></li></ul></div><div class="cyc-footer__countries-list"><ul><li><a href="http://www.tiffany.ie" data-siteid="25">Ireland</a></li><li><a href="http://www.tiffany.it" data-siteid="18">Italia</a></li><li><a href="http://nl.tiffany.com" data-siteid="26">Netherlands</a></li><li><a href="http://www.tiffany.es" data-siteid="24">España</a></li><li><a href="http://www.tiffany.ru" data-siteid="53">Россия</a></li></ul></div></div><div class="flex-item cyc-footer__countries"><div class="cyc-footer__countries-headings"><p>Asia/Pacific</p></div><div class="cyc-footer__countries-list"><ul><li><a href="http://www.tiffany.co.jp" data-siteid="4">日本</a></li><li><a href="http://www.tiffany.cn" data-siteid="7">中国</a></li><li><a href="http://zh.tiffany.com" data-siteid="27">香港/澳門</a></li><li><a href="http://zh.tiffany.com" data-siteid="27">台灣</a></li><li><a href="http://www.tiffany.kr" data-siteid="29">한국</a></li><li><a href="http://www.tiffany.com.au" data-siteid="6">Australia</a></li></ul></div></div><div class="flex-item cyc-footer__countries"><div class="cyc-footer__countries-headings"><p>All Other Countries</p></div><div class="cyc-footer__countries-list"><ul><li><a href="http://international.tiffany.com" data-siteid="3">International</a></li></ul></div></div></div></div></div></div><div class="flex-item col-8"><ul><li><a href="http://www.tiffany.com/Service/policy_vis.aspx?isMenu=1&amp;" onclick="TrackFooterClickEvent('Privacy Policy')"> Privacy Policy </a></li><li><a href="http://www.tiffany.com/Service/policy_coo.aspx?isMenu=1&amp;" onclick="TrackFooterClickEvent('Cookies Policy')"> Cookie Policy </a></li><li><a href="http://www.tiffany.com/service/policy_ter.aspx?isMenu=1&amp;" onclick="TrackFooterClickEvent('Terms Of Use')"> Terms Of Use </a></li><li><a href="http://www.tiffany.com/SiteIndex.aspx" onclick="TrackFooterClickEvent('Site Index')"> Site Index </a></li><li>© T&amp;CO. 2017</li></ul></div><div class="flex-item footer-secondLine site-sign-outs"></div></div></div></div></footer><script>var dropAHintText='Drop A Hint';var shopNowText='Shop Now';var tileTitle='DROP A HINT';var dropTileText='Send a little nudge to the ones you love and get just what you’re wishing for.';</script><div id="copyright" class="l7" style="display:none">© 2017 Tiffany &amp; Co. All Rights Reserved</div></div></div><input type="hidden" name="proLookUpSearchAdd" id="proLookUpSearchAdd"> <input type="hidden" name="proLookUpSearchWN" id="proLookUpSearchWN"> <input type="hidden" name="proLookUpSearchRadio" id="proLookUpSearchRadio"> <input type="hidden" name="proLookUpSearchCheck" id="proLookUpSearchCheck"><script>var templateStrings={};var isRetail="False";var locale='en-US';var qString='';var rootUrl='http://www.tiffany.com';var isStmtInternal="False";var originalPageTitle=document.title;var configExpTime=30;var contextRootUrl='http://www.tiffany.com';var contextSecureRootUrl='https://www.tiffany.com';var version='138';var isInformational='False';var isBannerDisplayNotAllowed='False';var isMobileSite=false;templateStrings.baseScene7ImageURL="http://media.tiffany.com/is/image/Tiffany/";templateStrings.baseScene7Server="http://media.tiffany.com";templateStrings.defaultScene7Crop="0.1,0.1,0.8,0.8";templateStrings.defaultScene7NoImageName="NoImageAvailable";templateStrings.baseScene7VideoURL="";templateStrings.IsScene7SEOFriendlyImageNameEnabled="True";templateStrings.scene7SEONoImageTerms="undefined,hidden";</script><script src="/shared/scripts/libraries/library.js?v=138"></script><meta name="google-site-verification" content="l2bctznVdNFQr1ejZqbqwiJt5RYenlnQBJHfSZRGb2k"><script src="/Shared/Scripts/ecom/shopping/item.js?v=138"></script><script class="test" src="//s7d1.scene7.com/s7viewers/html5/js/FlyoutViewer.js"></script><script>var viewAllLimiter=0;var postURL='http://www.tiffany.com';var GROUP_TYPE="Individual";var CATEGORY_ID=649502;var MASTER_CATEGORY_ID=148206;var SELECTED_SKU="";var SELECTED_SKU_INVENTORY="30399048";var SKU_ARRAY=null;var ORDER_ORIGINATION=1;var SKU="30399048";var PKB_PRICMARKETID="";var SKU_ENGRAVABLE=false;var ERROR_MAX_LIMIT="* The number of items you have entered exceeds our limit.  If you wish to place this order, please call 800 843 3269.";var ERROR_INVALID_QUANTITY="Please enter a valid quantity.";var ERROR_NEW_QUANTITY="The quantity you entered exceeds the available limit for this item. Please enter a quantity less than or equal to 5. If you wish to place a larger order, please call 800 843 3269.";var ERROR_COMBINED_QUANTITY="";var IR_SKU_QTY_ERROR="";var ERROR_MAX_ITEM_ORDER_LIMIT='* The total dollar amount of Tiffany Gift Cards in your shopping bag cannot exceed $10,000. For additional assistance, please call 800 843 3269.';var LABEL_TO_PURCHASE="To add to shopping bag or save for later:";var LABEL_TO_SAVE_FOR_LATER="To add to save for later:";var LABEL_VIEW_DETAILS="View Item Details";var LABEL_ADD_TO_BAG="Add to Shopping Bag";var LABEL_SAVE_FOR_LATER="Save for Later";var LABEL_ADD_SUCCESS="This item has been added to your shopping bag.";var LABEL_RELATED_ITEMS="Related Items";var LABEL_SHARE_SHORTDESC="Tiffany Novo®:Diamond Ring";var LABEL_CLOSE_OVERLAY="Close";var LABEL_US_RETAIL="US RETAIL";var LABEL_WHOLE_SALE="WHOLESALE";var DISPLAY_LABEL_WHOLE_SALE="true";var LABEL_URL='/collections/tiffany-yellow-diamonds/tiffany-novo-diamond-ring-30399048';var isgTrade="False";if(isgTrade){LABEL_US_RETAIL="";}var isStatementExternalMode="False";var showProdRecommendation='True';templateStrings.moreViewsLabel='More Views';templateStrings.seeItOnLabel='See it On';templateStrings.videoLabel='Video';templateStrings.productTemplate='<img id="$imageId$" src="" data-src="$img$" alt="$alt$" data-sku="$sku$" data-rollover-image="$tooltipImage$" onload="revealImage(\'$imageId$\')" style="visibility:hidden;" />';templateStrings.imageCroppedTemplate='$src$&layer=1&cropN=$crop$';templateStrings.viewRemainingLabel='View Remaining $num$ Items';templateStrings.sortMenuStartingHTML='<span class="l30">Sort By</span> &nbsp; <img src="/shared/images/icons/select-arrow.png" />';templateStrings.viewRemainingLabel='View Remaining $num$ Items';templateStrings.currencyTemplate='$$price$';templateStrings.gtradeRetailLabel='US Retail';templateStrings.gtradeWholesaleLabel='Wholesae'
+templateStrings.tooltipGroupTemplate='<div class="grouping">'+'<div class="group-options l6">'+'<label>$label$</label>'+'<span id="tooltipGroupSelect" class="styled-select apply-custom-drop $isColorSwatch$">$select$</span>'+'</div>'+'</div>';templateStrings.tooltipGroupType2Template='<div class="grouping">'+'<span class="description t8">$description$</span><br />'+'<span class="price">$price$</span><br />'+'<div class="group-options l6">'+'<label>$label$</label>'+'<span id="tooltipGroupSelect" class="styled-select apply-custom-drop $isColorSwatch$">$select$</span>'+'</div>'+'<div class="error" id="error_$id$"></div>'+'</div>';templateStrings.tooltipGroupItemTemplate='<div class="grouping">'+'<span class="description t8">$description$</span><br />'+'<span class="price">$price$</span><br />'+'<span class="l6 sets">$setsLabel$</span>'+'<div class="error" id="error_$id$"></div>'+'</div>';templateStrings.soldInSetsLabel='Sold in sets of $n$.';templateStrings.baseCompassServer="compass.tiffany.com";</script><script language="JavaScript">var Is_Omniture_Enabled="true";var omie='';sendOmnitureItemEmailClicks(omie);function TrackDesktopToMobileRedirect(){}</script><script language="JavaScript">TrackDesktopToMobileRedirect();</script><script language="javascript">var isMobileSiteForMM='false';var isSecureForMM="https:"==document.location.protocol?true:false;</script><script>if(doNotTrack=="0"){var versaTag={};versaTag.id="1000";versaTag.sync=0;versaTag.dispType="js";versaTag.ptcl=isSecureForMM?"HTTPS":"HTTP";versaTag.bsUrl="bs.serving-sys.com/BurstingPipe";versaTag.mobile=(isMobileSiteForMM=='true'?1:0);versaTag.activityParams={"OrderID":"","Session":"","Value":"","ProductID":"","ProductInfo":"","Quantity":"","SKU_Number":"30399048"};versaTag.retargetParams={};versaTag.dynamicRetargetParams={};versaTag.conditionalParams={};}</script><script>try{if(doNotTrack=="0"){if(isSecureForMM){document.write(unescape("%3Cscript id='ebOneTagUrlId' src='https://secure-ds.serving-sys.com/SemiCachedScripts/ebOneTag.js' %3E%3C/script%3E"));}else{document.write(unescape("%3Cscript id='ebOneTagUrlId' src='http://ds.serving-sys.com/SemiCachedScripts/ebOneTag.js' %3E%3C/script%3E"));}}}catch(err){}</script><script id="ebOneTagUrlId" src="http://ds.serving-sys.com/SemiCachedScripts/ebOneTag.js"></script><noscript>&lt;iframe src="http://bs.serving-sys.com/BurstingPipe?cn=ot&amp;amp;onetagid=1000&amp;amp;ns=1&amp;amp;activityValues=$$Value=&amp;amp;OrderID=&amp;amp;SKU_Number=30399048&amp;amp;ProductID=&amp;amp;ProductInfo=&amp;amp;Quantity=&amp;amp;$$&amp;amp;retargetingValues=$$&amp;amp;dynamicRetargetingValues=$$&amp;amp;acp=$$$$&amp;amp;" style=display:none;width:0;height:0&gt;&lt;/iframe&gt;</noscript><script language="javascript">try{_satellite.pageBottom();}catch(err){}</script><script>templateStrings.videoPlayerTemplate='<div id="videoHolder">'+'<div class="video-poster"></div>'+'<div class="video">'+'<div class="progress"></div>'+'</div>'+'<div class="controls" style="display:none;">'+'<a href="javascript:;" class="video-back" title="Back"><img src="/shared/images/icons/video-rewind.gif" width="8" height="8" alt="Back" /></a>'+'<div class="divider one">&nbsp;</div>'+'<a href="javascript:;" class="video-play" title="Play"><img src="/shared/images/icons/video-play.gif" width="8" height="8" alt="Play" /></a>'+'<a href="javascript:;" class="video-pause" title="Pause"><img src="/shared/images/icons/video-pause.gif" width="8" height="8" alt="Pause" /></a>'+'<div class="divider two">&nbsp;</div>'+'<a href="javascript:;" class="video-forward" title="Forward"><img src="/shared/images/icons/video-fastforward.gif" width="8" height="8" alt="Fast Forward" /></a>'+'<div class="video-seek">'+'<div class="video-load-progress"> </div>'+'<div class="video-play-progress"> </div>'+'<img class="video-playhead" src="/shared/images/icons/video-playhead.gif" width="10" height="5" alt="" />'+'</div>'+'<div class="video-timer">0:00</div>'+'<a href="javascript:;" class="video-mute" title="Mute"><img src="/shared/images/icons/video-mute.gif" width="13" height="11" alt="Mute" /></a>'+'<a href="javascript:;" class="video-unmute" title="Unmute"><img src="/shared/images/icons/video-unmute.gif" width="13" height="11" alt="Unmute" /></a>'+'</div>'+'</div>'+'<div class="error">'+'<div id="errorMessage"></div>'+'</div>';templateStrings.configValidationError='* There was a problem loading this video. Please try again later.';templateStrings.configLoadError='* This video is no longer available.';function Scene7Video(){}Scene7Video.apiReady=false;Scene7Video.containerId="";Scene7Video.videoId="";Scene7Video.companyOverride="";Scene7Video.suffixOverride="";Scene7Video.overrideCompany=function(company){Scene7Video.companyOverride=company;};Scene7Video.overrideSuffix=function(suffix){Scene7Video.suffixOverride=suffix;};Scene7Video.embedInit=function(containerId,videoId,width,height,description,captionURL,autoPlayVideo){var splitBaseUrl=templateStrings.baseScene7ImageURL.split("/");var company=(splitBaseUrl[splitBaseUrl.length-1]=="")?splitBaseUrl[splitBaseUrl.length-2]:splitBaseUrl[splitBaseUrl.length-1];var caption=(typeof(captionURL)=="undefined"||captionURL==null||captionURL=="")?"":captionURL;var baseVideoId=videoId.split("-AVS").join("");var suffix="_1024x576_1500K";if(Scene7Video.companyOverride!=""){company=Scene7Video.companyOverride;}if(Scene7Video.suffixOverride!=""){suffix=Scene7Video.suffixOverride;}description=(typeof(description)=="undefined")?"":description;var videoConfig={locale:"default",playerWidth:width,playerHeight:height,videoURL:templateStrings.baseScene7Server+"/is/content/"+company+"/"+baseVideoId+suffix,videoURLMobile:templateStrings.baseScene7Server+"/is/content/"+company+"/"+videoId+".m3u8",videoURLOgg:templateStrings.baseScene7Server+"/is/content/"+company+"/"+baseVideoId+"_OGG"+suffix,captionURL:caption,videoPosterURL:templateStrings.baseScene7Server+"/is/image/"+company+"/"+baseVideoId+"_poster?wid="+width+"&hei="+height,title:description,autoPlay:(typeof autoPlayVideo!="undefined"&&autoPlayVideo!=null&&autoPlayVideo==true)?true:false,showReplay:true,showTime:true,mobilePoster:"",audio:true};$("#"+containerId).html(templateStrings.videoPlayerTemplate);var playerHandle=new VideoPlayer(containerId);$(playerHandle).bind("embedComplete",function(e,data){$("#videoWrapper").css("width",data.properties.playerWidth);$(".controls").css("width",data.properties.playerWidth).show();$("#videoWrapper .progress").hide();$(".captions").css("width",data.properties.playerWidth);$("#title").html(data.properties.title);});playerHandle.embedVideo(videoConfig);};</script><div><input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="DD8AB974"> <input type="hidden" name="__PREVIOUSPAGE" id="__PREVIOUSPAGE" value="fxu9LWYnwirPr9y0t1rqb8aVADTug1iUBmD0sRGk2XEjkvs3JP1gYpTmw9ScJvVd01GAYkrBkLelYr8cn4RCvWMIJLZnq6PUg_M7vkq_8hrPKmxCXNBwNt90bDhSRJhaTuy_6ntITswItUfXGGHU1wT5_xA1"></div><script>var isPaperCatalogItem=false;var imageData={"Images":[{"Type":"SkuStraightOn","BaseImg":"tiffany-novodiamond-ring-30831993_930960_ED_M","ModuleUrl":"","ThumbnailPreset":"EcomItemS","LargePreset":"EcomItemL2","FullScreenPreset":"EcomItemXL","Crop":"0.1,0.1,0.8,0.8","ThumbnailPresetSharpenValue":"1.5,1,6","LargePresetSharpenValue":"2.5,1,6","FullScreenPresetSharpenValue":"2.75,1,6","ThumbnailUrl":"","AltText":"Tiffany Novo\u0026#174;:Diamond Ring"}]};var ItemPageMarketingTilesJSON={"tiles":[{"Left":0,"Top":0,"Width":5,"Height":1,"Id":"tile1","SectionTitle":null},{"Left":2,"Top":3,"Width":3,"Height":2,"Id":"tile2","SectionTitle":null},{"Left":0,"Top":3,"Width":2,"Height":2,"Id":"tile3","SectionTitle":null}]};</script></form><div style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.07908452433012081"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.6196612736012139" width="0" height="0" alt="" src="http://bat.bing.com/action/0?ti=5437440&amp;Ver=2&amp;mid=6accb46f-e7d2-1ef7-c2e9-dc77ca6afe81&amp;evt=pageLoad&amp;sid=c14dc1d1-0&amp;pi=-1898162245&amp;lg=en-US&amp;sw=1680&amp;sh=1050&amp;sc=24&amp;r=http%3A%2F%2Fwww.tiffany.com%2Fcollections%2Ftiffany-yellow-diamonds%2Fdaisy-earrings-30828364&amp;tl=Tiffany Novo® ring in platinum and 18k gold with a Tiffany Yellow Diamond. | Tiffany &amp; Co.&amp;kw=Tiffany and Co.,Tiffany,Company,TCO,Gift,Gift Card,Gift Certificate,Gift Registry,Wedding,Wedding Registry,Diamonds,Jewelry,Watches,Bridal Registry,Home,Home Accessories,Accessories,Dinnerware,Drinkware,Flatware,Sterling Silver Flatware,Table,Vase,Wine&amp;p=http%3A%2F%2Fwww.tiffany.com%2Fcollections%2Ftiffany-yellow-diamonds%2Ftiffany-novo-diamond-ring-30399048%3Ftrackpdp%3Dpr&amp;rn=782087"></div><script type="text/javascript" src="http://bs.serving-sys.com/Serving?cn=ot&amp;onetagid=1000&amp;dispType=js&amp;sync=0&amp;sessionid=4969203447079081749&amp;pageurl=$$http%3A//www.tiffany.com/collections/tiffany-yellow-diamonds/tiffany-novo-diamond-ring-30399048%3Ftrackpdp%3Dpr$$&amp;activityValues=$$SKU_Number=30399048$$&amp;ns=0&amp;rnd=5556303282432691&amp;referrer=$$http://www.tiffany.com/collections/tiffany-yellow-diamonds/daisy-earrings-30828364?&amp;fromGrid=1&amp;search_params=p+1-n+10000-c+649502-s+5-r+-t+-ni+1-x+-lr+-hr+-ri+-mi+-pp+2038+4&amp;search=0&amp;origin=browse&amp;searchkeyword=&amp;trackpdp=bg&amp;fromcid=649502&amp;trackgridpos=29$$" async=""></script><iframe scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="display: none; width: 0px; height: 0px;"></iframe><iframe scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="display: none; width: 0px; height: 0px;"></iframe><iframe scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="display: none; width: 0px; height: 0px;"></iframe><iframe scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="display: none; width: 0px; height: 0px;"></iframe><span id="s7classic_0" class="" data-description="Scene7ComponentHolder" data-component="ParameterManager" data-namespace="s7classic" style="display: none;"></span><span id="s7classic_3" class="" data-description="Scene7ComponentHolder" data-component="ParameterManager" data-namespace="s7classic" style="display: none;"></span></body></html>

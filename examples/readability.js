@@ -15,7 +15,7 @@
  *   over, loosening constraints each time, if it fails
  * * Happily finds body text in things other than divs and p tags.
  */
-const {readFileSync} = require('fs');
+var fs = require('fs');
 const {dirname, join} = require('path');
 
 const leven = require('leven');
@@ -126,7 +126,7 @@ function tunedContentFnodes(coeffLinkDensity = 1.5, coeffParagraphTag = 4.5, coe
 function textContent(dom) {
     // dom.textContent crashes. dom.firstChild is always an HTML element in
     // jsdom, even if you didn't include one.
-    return dom.firstChild.textContent;
+    return dom.documentElement.textContent;
 }
 
 /** Remove leading and trailing whitespace from each line of a string. */
@@ -202,16 +202,26 @@ function deviationScore(docPairs, coeffs = []) {
 
 /** Return (expected DOM, source DOM) for all the readbaility test docs. */
 function readabilityDocPairs() {
-    return ['basic-tags-cleaning',
-            '001',
-            //'002', // hellish number of candidate tags. Takes 14s.
-            'daringfireball-1',
-            'buzzfeed-1',
-            'clean-links',
-            'ehow-1',
-            'embedded-videos',
-            'heise',
-            'herald-sun-1'].map(expectedAndSourceDocs);
+    return [ [staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/basic-tags-cleaning/expected.html', 'utf-8')),
+              staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/basic-tags-cleaning/source.html', 'utf-8'))],
+             [staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/001/expected.html', 'utf-8')),
+              staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/001/source.html', 'utf-8'))],
+             [staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/daringfireball-1/expected.html', 'utf-8')),
+              staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/daringfireball-1/source.html', 'utf-8'))],
+             [staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/buzzfeed-1/expected.html', 'utf-8')),
+              staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/buzzfeed-1/source.html', 'utf-8'))],
+             [staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/clean-links/expected.html', 'utf-8')),
+              staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/clean-links/source.html', 'utf-8'))],
+             [staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/ehow-1/expected.html', 'utf-8')),
+              staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/ehow-1/source.html', 'utf-8'))],
+             [staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/embedded-videos/expected.html', 'utf-8')),
+              staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/embedded-videos/source.html', 'utf-8'))],
+             [staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/heise/expected.html', 'utf-8')),
+              staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/heise/source.html', 'utf-8'))],
+             [staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/herald-sun-1/expected.html', 'utf-8')),
+              staticDom(fs.readFileSync(__dirname + '/../test/readability_test_data/herald-sun-1/source.html', 'utf-8'))]
+    ];
+
 }
 
 if (require.main === module) {

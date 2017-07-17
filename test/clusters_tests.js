@@ -21,15 +21,13 @@ describe('Cluster tests', function () {
         // If we keep these tests unbrittle enough, we can use them as a
         // fitness function to search for optimal values of cost coefficients.
 
-        it.only('considers a node 0 distance from itself', function () {
-            const doc = window.document;
-            doc.write(`
+        it('considers a node 0 distance from itself', function () {
+            const doc = staticDom(`
                 <body>
                     <div id="a">
                     </div>
                 </body>
             `);
-            console.log('blah');
             assert.equal(distance(doc.getElementById('a'),
                                   doc.getElementById('a')),
                          0);
