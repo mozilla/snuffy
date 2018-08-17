@@ -2,11 +2,15 @@ env:
   es6: true
   node: true
 
+parserOptions:
+  sourceType: module
+
 extends:
   - eslint:recommended
   - plugin:node/recommended
 
 plugins:
+  - import
   - node
 
 root: true
@@ -37,3 +41,9 @@ rules:
   semi: [error, always]
   space-before-blocks: [error, always]
   space-before-function-paren: [error, {anonymous: always, named: never}]
+  import/extensions: [error, always, {js: never, mjs: never}]
+
+settings:
+  import/resolver:
+    node:
+      extensions: ['.js', '.mjs']

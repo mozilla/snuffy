@@ -2,6 +2,13 @@
 Version History
 ===============
 
+2.4
+===
+* Fathom is now a `dual-mode <https://medium.com/@giltayar/native-es-modules-in-nodejs-status-and-future-directions-part-i-ee5ea3001f71>`_ package, exposing both ES6 modules and equivalent CommonJS ones. This lets us ``import`` Fathom into modern ES6 projects and enjoy rollup's dead-code elimination while still remaining ``require()``-able by old CommonJS code.
+
+.. warning::
+   Backward-incompatible change: There is no longer a ``utils`` property exported by Fathom's top level. Instead, add imports like ``import {ancestors} from 'fathom-web/utilsForFrontend';`` or ``import {staticDom} from 'fathom-web/utilsForBackend';`` or the equivalent ``require()`` calls. There still exists a combined ``utils`` module importable from ``fathom-web/utils`` as well, though rollup's dead-code elimination has trouble with it.
+
 2.3
 ===
 * Add Corpus Framework to further assist you in doing ruleset :doc:`optimization`.

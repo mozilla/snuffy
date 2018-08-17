@@ -1,4 +1,4 @@
-import {type} from './side.js';
+import {type} from './side';
 import {getDefault, setDefault} from './utilsForFrontend';
 
 

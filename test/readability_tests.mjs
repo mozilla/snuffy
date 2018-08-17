@@ -1,4 +1,4 @@
-import assert from 'chai';
+import {assert} from 'chai';
 
 import {deviationScore, readabilityDocPairs, tunedContentFnodes} from '../examples/readability';
 import {staticDom} from '../utils';

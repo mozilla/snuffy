@@ -3,3 +3,5 @@
 /coverage
 /docs/_build
 /dist
+**/*.js
+!/rollup.config.js

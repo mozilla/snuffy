@@ -1,4 +1,4 @@
-import {forEach, map} from 'wu';
+import wu from 'wu';
 
 import {CycleError} from './exceptions';
 
@@ -21,7 +21,7 @@ export function identity(x) {
 export function best(iterable, by, isBetter) {
     let bestSoFar, bestKeySoFar;
     let isFirst = true;
-    forEach(
+    wu.forEach(
         function (item) {
             const key = by(item);
             if (isBetter(key, bestKeySoFar) || isFirst) {
@@ -59,7 +59,7 @@ export function maxes(iterable, by = identity) {
     let bests = [];
     let bestKeySoFar;
     let isFirst = true;
-    forEach(
+    wu.forEach(
         function (item) {
             const key = by(item);
             if (key > bestKeySoFar || isFirst) {
@@ -90,7 +90,7 @@ export function min(iterable, by = identity) {
 export function sum(iterable) {
     let total;
     let isFirst = true;
-    forEach(
+    wu.forEach(
         function assignOrAdd(addend) {
             if (isFirst) {
                 total = addend;
@@ -180,8 +180,8 @@ export function *inlineTexts(element, shouldTraverse = element => true) {
  *     returning false
  */
 export function inlineTextLength(element, shouldTraverse = element => true) {
-    return sum(map(text => collapseWhitespace(text).length,
-                   inlineTexts(element, shouldTraverse)));
+    return sum(wu.map(text => collapseWhitespace(text).length,
+                      inlineTexts(element, shouldTraverse)));
 }
 
 /**

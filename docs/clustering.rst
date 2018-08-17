@@ -10,7 +10,7 @@ One of Fathom's most powerful features is its flexible clustering algorithm, whi
 
    .. code-block:: js
 
-      const {clusters} = require('fathom-web/clusters.js');
+      const {clusters} = require('fathom-web/clusters');
       theClusters = clusters(anArrayOfNodes, 4);
 
    In the above, 4 is the distance beyond which Fathom will decide nodes belong in separate clusters. Turn it up to more aggressively invite nearby nodes into a cluster. Turn it down to keep clusters smaller. The output looks like a list of lists, with each list representing a cluster:

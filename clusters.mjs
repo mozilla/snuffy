@@ -1,4 +1,4 @@
-import {flatten} from 'wu';
+import wu from 'wu';
 import {isDomElement, isWhitespace, min} from './utilsForFrontend';
 
 
@@ -283,7 +283,7 @@ class DistanceMatrix {
     // Return an Array of nodes for each cluster in me.
     clusters() {
         // TODO: Can't get wu.map to work here. Don't know why.
-        return Array.from(this._matrix.keys()).map(e => Array.from(flatten(false, e)));
+        return Array.from(this._matrix.keys()).map(e => Array.from(wu.flatten(false, e)));
     }
 }
 
