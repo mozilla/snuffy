@@ -49,7 +49,7 @@ This simple ruleset finds DOM nodes that could contain a useful page title and s
            // Add a rule for title length, intuiting that very long titles may not
            // be titles at all. Again, limit the range to 0..1 using a sigmoid. The
            // resulting score means "the probability that the title is 'long'", for
-           // some definition of "long" that the optimizer will later determine by
+           // some definition of "long" that the trainer will later determine by
            // adding a scaling coefficient.
            rule(type('titley'), score(fnode => sigmoid(fnode.element.innerText.length)), {name: 'length'}),
 

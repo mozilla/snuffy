@@ -14,7 +14,6 @@ Import them from ``fathom-web/utils``. For example...
 .. autofunction:: attributesMatch
 .. autofunction:: best
 .. autofunction:: collapseWhitespace
-.. autofunction:: dirsIn
 .. autofunction:: domSort
 .. autofunction:: first
 .. autofunction:: getDefault
