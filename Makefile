@@ -15,7 +15,7 @@ all: $(JS)
 
 lint: js_lint py_lint
 
-js_lint:
+js_lint: .npm_installed
 	@node_modules/.bin/eslint --ext mjs .
 	@node_modules/.bin/eslint test/browser
 
@@ -24,16 +24,16 @@ py_lint: $(VIRTUAL_ENV)/pyvenv.cfg
 
 test: js_test py_test
 
-js_test: $(JS)
+js_test: $(JS) .npm_installed
 	@node_modules/.bin/nyc --reporter=text-summary node_modules/mocha/bin/_mocha --recursive
 
 py_test: $(VIRTUAL_ENV)/pyvenv.cfg
 	@pytest cli/fathom_web/test
 
-coveralls:
+coveralls: .npm_installed
 	node_modules/.bin/nyc report --reporter=text-lcov | coveralls
 
-debugtest: $(JS)
+debugtest: $(JS) .npm_installed
 	# This is known to work on node 7.6.0.
 	@node_modules/.bin/mocha --inspect-brk
 
