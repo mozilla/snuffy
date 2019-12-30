@@ -18,6 +18,7 @@ setup(
     ],
     entry_points={'console_scripts': [
         'fathom-extract = fathom_web.commands.extract:main',
+        'fathom-histogram = fathom_web.commands.histogram:main',
         'fathom-label = fathom_web.commands.label:main',
         'fathom-list = fathom_web.commands.list:main',
         'fathom-pick = fathom_web.commands.pick:main',
