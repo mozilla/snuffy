@@ -7,21 +7,21 @@ from plotly.subplots import make_subplots
 
 @command()
 @argument('vector_file', type=File('r'))
-@option('--feature', '-f',
+@option('--feature_name', '-f',
         default='',
         help='The name of the feature to graph. Omit to graph all features.')
 @option('--show_zeros', '-z',
         is_flag=True,
         default=False,
         help='Show zero counts in the graphs. These tend to be large and dominate the scale of the graph, making it harder to see other bars.')
-def main(vector_file, feature, show_zeros):
+def main(vector_file, feature_name, show_zeros):
     """Print a histogram of one or more features."""
     data = load(vector_file)
     feature_names = data['header']['featureNames']
-    if feature:
-        feature_index = feature_names.index(feature)
+    if feature_name:
+        feature_index = feature_names.index(feature_name)
         vectors = [yes_and_no_vectors(data['pages'], feature_index, show_zeros)]
-        feature_names = [feature_names[feature_index]]
+        feature_names = [feature_name]
     else:
         vectors = [yes_and_no_vectors(data['pages'], feature_index, show_zeros)
                    for feature_index in range(len(feature_names))]
