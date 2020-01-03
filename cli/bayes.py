@@ -34,11 +34,11 @@ def belongs_in_corpus(text, corpus, uncorpus, both):
     words = text.split()
     # Compute (∏ P(eachWord | memberOfCorpus)) * P(memberOfCorpus) / P(eachWord | anyCorpus)
     # ∏ P(eachWord | memberOfCorpus):
-    prob = product(corpus.count(word) / corpus.total for word in words)  # TODO: Factor out division.
+    prob = product(corpus.count(word) for word in words) / corpus.total
     # * P(memberOfCorpus):
     prob *= corpus.total / both.total
     # / P(eachWord | anyCorpus):
-    prob /= product(both.count(word) / both.total for word in words)
+    prob /= product(both.count(word) for word in words) / both.total
     return prob
 
 
