@@ -1,10 +1,5 @@
 from collections import Counter
-from functools import reduce
-from operator import mul
-
-
-def product(iterable):
-    return reduce(mul, iterable, 1)
+from math import exp, log
 
 
 class Corpus:
@@ -29,14 +24,13 @@ class Corpus:
 
 def belongs_in_corpus(text, corpus, uncorpus, both):
     """Return the probability that the given text should be considered a member of the corpus."""
-    # TODO: Add logs instead of multiplying small floats.
     # TODO: Consider Laplace smoothing instead of epsilons.
     words = text.split()
     # Compute (∏ P(eachWord | memberOfCorpus)) * P(memberOfCorpus) / P(eachWord | anyCorpus)
-    prob = product(corpus.count(word) for word in words) / both.total
+    prob = sum(log(corpus.count(word)) for word in words) - log(both.total)
     # / P(eachWord | anyCorpus):
-    prob /= product(both.count(word) for word in words) / both.total
-    return prob
+    prob -= sum(log(both.count(word)) for word in words) - log(both.total)
+    return exp(prob)
 
 
 def main():
