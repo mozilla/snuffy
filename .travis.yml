@@ -14,13 +14,6 @@ jobs:
       after_success:
         - make coveralls
     - stage: test
-      name: "Python 3.6 tests"
-      language: python
-      python:
-        - "3.6"
-      script:
-        - make py_test
-    - stage: test
       name: "Python 3.7 tests"
       dist: bionic
       language: python
