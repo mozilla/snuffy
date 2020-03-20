@@ -65,8 +65,7 @@ def main(testing_file, confidence_threshold, weights):
 
     """
     testing_data = load(testing_file)
-    pages = testing_data['pages']
-    x, y, num_yes = tensors_from(pages)
+    x, y, num_yes = tensors_from(testing_data)
     model = model_from_json(weights, len(y[0]), testing_data['header']['featureNames'])
 
     accuracy, false_positives, false_negatives = accuracy_per_tag(y, model(x), confidence_threshold)

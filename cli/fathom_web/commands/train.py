@@ -112,7 +112,11 @@ def pretty_coeffs(model, feature_names):
         type=int,
         multiple=True,
         help='Add a hidden layer of the given size. You can specify more than one, and they will be connected in the given order. EXPERIMENTAL.')
-def main(training_file, validation_file, stop_early, learning_rate, iterations, pos_weight, comment, quiet, confidence_threshold, layers):
+@option('--exclude', '-x',
+        type=str,
+        multiple=True,
+        help='Exclude a rule while training. This helps with before-and-after tests to see if a rule is effective.')
+def main(training_file, validation_file, stop_early, learning_rate, iterations, pos_weight, comment, quiet, confidence_threshold, layers, exclude):
     """Compute optimal coefficients for a Fathom ruleset, based on a set of
     labeled pages exported by the FathomFox Vectorizer.
 
@@ -136,10 +140,10 @@ def main(training_file, validation_file, stop_early, learning_rate, iterations, 
         i=iterations,
         c=(',' + comment) if comment else '')
     training_data = load(training_file)
-    x, y, num_yes = tensors_from(training_data['pages'], shuffle=True)
+    x, y, num_yes = tensors_from(training_data, shuffle=True, exclude=exclude)
     if validation_file:
         validation_data = load(validation_file)
-        validation_ins, validation_outs, validation_yes = tensors_from(validation_data['pages'])
+        validation_ins, validation_outs, validation_yes = tensors_from(validation_data, exclude=exclude)
         validation_arg = validation_ins, validation_outs
     else:
         validation_arg = None
