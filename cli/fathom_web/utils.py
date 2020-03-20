@@ -17,43 +17,24 @@ def tensor(some_list):
     return torch.tensor(some_list, dtype=torch.float)
 
 
-def tensors_from(vector_data, shuffle=False, exclude=None):
+def tensors_from(pages, shuffle=False):
     """Return (inputs, correct outputs, number of tags that are recognition
     targets) tuple.
 
     Can also shuffle to improve training performance.
 
-    :arg exclude: List of rules to omit
-
     """
-    if exclude is None:
-        exclude = []
-    excluded_indices = [vector_data['header']['featureNames'].index(e) for e in exclude]
-
     xs = []
     ys = []
     num_targets = 0
-    pages = vector_data['pages']
     maybe_shuffled_pages = sample(pages, len(pages)) if shuffle else pages
     for page in maybe_shuffled_pages:
         for tag in page['nodes']:
-            xs.append(without_indices(excluded_indices, tag['features']))
+            xs.append(tag['features'])
             ys.append([1 if tag['isTarget'] else 0])  # Tried 0.1 and 0.9 instead. Was much worse.
             if tag['isTarget']:
                 num_targets += 1
     return tensor(xs), tensor(ys), num_targets
-
-
-def without_indices(excluded_indices, list):
-    """Remove the elements at the given indices from the list, and return
-    it."""
-    # I benched this, and del turns out to be over twice as fast as
-    # concatenating a bunch of slices on a list of 32 items.
-    vacuum = 0
-    for i in excluded_indices:
-        del list[i - vacuum]
-        vacuum += 1
-    return list
 
 
 def classifier(num_inputs, num_outputs, hidden_layer_sizes=[]):

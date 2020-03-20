@@ -65,14 +65,15 @@ def main(testing_file, confidence_threshold, weights):
 
     """
     testing_data = load(testing_file)
-    x, y, num_yes = tensors_from(testing_data)
+    testing_pages = testing_data['pages']
+    x, y, num_yes = tensors_from(testing_pages)
     model = model_from_json(weights, len(y[0]), testing_data['header']['featureNames'])
 
     accuracy, false_positives, false_negatives = accuracy_per_tag(y, model(x), confidence_threshold)
     print(pretty_accuracy('\n   Testing accuracy per tag: ', accuracy, len(x), false_positives, false_negatives, num_yes))
 
-    if testing_data['pages'] and 'time' in testing_data['pages'][0]:
-        print(speed_readout(testing_data['pages']))
+    if testing_pages and 'time' in testing_pages[0]:
+        print(speed_readout(testing_pages))
 
     print('\nTesting per-tag results:')
-    print_per_tag_report([per_tag_metrics(page, model, confidence_threshold) for page in testing_data['pages']])
+    print_per_tag_report([per_tag_metrics(page, model, confidence_threshold) for page in testing_pages])

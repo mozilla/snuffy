@@ -74,6 +74,30 @@ def pretty_coeffs(model, feature_names):
      "bias": {bias}}}""".format(coeffs=pretty, bias=dict_params['0.bias'][0]))
 
 
+def exclude_indices(excluded_indices, list):
+    """Remove the elements at the given indices from the list, and return
+    it."""
+    # I benched this, and del turns out to be over twice as fast as
+    # concatenating a bunch of slices on a list of 32 items.
+    vacuum = 0
+    for i in excluded_indices:
+        del list[i - vacuum]
+        vacuum += 1
+    return list
+
+
+def exclude_features(exclude, vector_data):
+    """Given a JSON-decoded vector file, remove any excluded features, and
+    return the modified object."""
+    feature_names = vector_data['header']['featureNames']
+    excluded_indices = [feature_names.index(e) for e in exclude]
+    exclude_indices(excluded_indices, feature_names)
+    for page in vector_data['pages']:
+        for tag in page['nodes']:
+            exclude_indices(excluded_indices, tag['features'])
+    return vector_data
+
+
 @command()
 @argument('training_file',
           type=File('r'))
@@ -139,11 +163,12 @@ def main(training_file, validation_file, stop_early, learning_rate, iterations, 
         l=learning_rate,
         i=iterations,
         c=(',' + comment) if comment else '')
-    training_data = load(training_file)
-    x, y, num_yes = tensors_from(training_data, shuffle=True, exclude=exclude)
+    training_data = exclude_features(exclude, load(training_file))
+    training_pages = training_data['pages']
+    x, y, num_yes = tensors_from(training_pages, shuffle=True)
     if validation_file:
-        validation_data = load(validation_file)
-        validation_ins, validation_outs, validation_yes = tensors_from(validation_data, exclude=exclude)
+        validation_pages = exclude_features(exclude, load(validation_file))['pages']
+        validation_ins, validation_outs, validation_yes = tensors_from(validation_pages)
         validation_arg = validation_ins, validation_outs
     else:
         validation_arg = None
@@ -175,16 +200,16 @@ def main(training_file, validation_file, stop_early, learning_rate, iterations, 
                               validation_yes))
 
     # Print timing information:
-    if training_data['pages'] and 'time' in training_data['pages'][0]:
-        if validation_file and validation_data['pages'] and 'time' in validation_data['pages'][0]:
-            print(speed_readout(training_data['pages'] + validation_data['pages']))
+    if training_pages and 'time' in training_pages[0]:
+        if validation_file and validation_pages and 'time' in validation_pages[0]:
+            print(speed_readout(training_pages + validation_pages))
         else:
-            print(speed_readout(training_data['pages']))
+            print(speed_readout(training_pages))
 
     if not quiet:
         print('\nTraining per-tag results:')
-        print_per_tag_report([per_tag_metrics(page, model, confidence_threshold) for page in training_data['pages']])
+        print_per_tag_report([per_tag_metrics(page, model, confidence_threshold) for page in training_pages])
         if validation_file:
             print('\nValidation per-tag results:')
-            print_per_tag_report([per_tag_metrics(page, model, confidence_threshold) for page in validation_data['pages']])
+            print_per_tag_report([per_tag_metrics(page, model, confidence_threshold) for page in validation_pages])
     # TODO: Print "8000 elements. 7900 successes. 50 false positive. 50 false negatives."
