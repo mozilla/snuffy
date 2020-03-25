@@ -66,9 +66,15 @@ help:
 	@echo "  coverage   to run coverage check of the documentation (if enabled)"
 	@echo "  dummy      to check syntax errors of document sources"
 
-.PHONY: clean
-clean:
+# Delete just the built docs, not the whole venv, which is expensive to
+# reconstitute:
+.PHONY: docs_clean
+docs_clean:
 	rm -rf $(BUILDDIR)/*
+
+.PHONY: clean
+clean: docs_clean
+	rm -rf venv  # Don't delete a venv outside our folder.
 
 .PHONY: html
 html: js venv

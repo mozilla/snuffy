@@ -1,7 +1,7 @@
 # Convenience targets for executing common actions from the root of the repo
 
 docs:
-	$(MAKE) -C docs clean html
+	$(MAKE) -C docs docs_clean html
 
 lint:
 	$(MAKE) -C cli lint
