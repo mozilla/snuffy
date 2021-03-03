@@ -55,7 +55,7 @@ def learn(learning_rate, iterations, x, y, confidence_threshold, num_prunes, num
     if stopped_early:
         print(f'Stopping early at iteration {t}, just before validation error rose.')
 
-    print(f'Successfully trained model, determining optimal threshold')
+    print('Successfully trained model, determining optimal threshold')
     optimal_thresholds = find_optimal_threshold(y, y_pred, num_prunes, num_samples, positives,
                                                 confidence_threshold, threshold_incr=0.05)
     if confidence_threshold not in optimal_thresholds:
@@ -71,7 +71,7 @@ def learn(learning_rate, iterations, x, y, confidence_threshold, num_prunes, num
 
 
 def find_optimal_threshold(y, y_pred, num_prunes, num_samples, positives, configured_threshold, threshold_incr=0.05):
-    max_range = int(1.0/threshold_incr) + 1
+    max_range = int(1.0 / threshold_incr) + 1
     min_distance = 1.4143
     optimal_thresholds = []
 
@@ -85,6 +85,7 @@ def find_optimal_threshold(y, y_pred, num_prunes, num_samples, positives, config
             min_distance = distance
 
     return optimal_thresholds
+
 
 def calculate_precision_recall_distance(y, y_pred, confidence_threshold, num_prunes, num_samples, positives):
     accuracy, false_positives, false_negatives = accuracy_per_tag(y, y_pred, confidence_threshold, num_prunes)
