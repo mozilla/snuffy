@@ -15,12 +15,12 @@ setup(
     install_requires=[
         'click>=7.0,<8.0',
         'more-itertools>=8.2,<9.0',
-        'numpy>=1.18.1,<2.0',
+        'numpy==1.19.4',
         'filelock>=3.0.12',
         'scikit-learn>=0.22.2',
         'selenium>=3.141.0',
         'tensorboardX>=1.6,<2.0',
-        'torch==1.8.0'
+        'torch==1.7.1',
     ],
     dependency_links=[
         'https://download.pytorch.org/whl/torch_stable.html'
