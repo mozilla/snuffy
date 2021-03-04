@@ -39,7 +39,7 @@ describe('isVisible', () => {
         `);
 
         await driver.get(TEST_PAGE_URL);
-
+        console.log(` elementIds: ${elementIds}`)
         for (const id of elementIds) {
             await checkElementVisibility(id, isVisible);
         }
@@ -48,11 +48,13 @@ describe('isVisible', () => {
     it('should return false when an element is hidden', async function () {
         this.timeout(WAIT_MS);
         await checkElementsVisibility('not-visible-', false);
+        console.log(`completed is hidden test`)
     });
 
     it('should return true when an element is visible', async function () {
         this.timeout(WAIT_MS);
         await checkElementsVisibility('visible-', true);
+        console.log(`completed is visible test`)
     });
 
     after(async function () {
