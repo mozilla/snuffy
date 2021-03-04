@@ -36,7 +36,7 @@ bundle: dist/fathom.js
 # .npm_installed is an empty file we touch whenever we run npm install. This
 # target redoes the install if package.json is newer than that file:
 .npm_installed: package.json
-	npm install 7.6.0
+	npm install 7.0.14
 	touch $@
 
 clean:
