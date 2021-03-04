@@ -24,7 +24,8 @@ describe('isVisible', () => {
             ${windowForElement}
             return ${isVisible}(document.getElementById('${id}'));
         `);
-        console.log('id: ' + id + ' expected: ' + expected + ' result: ' + isElementVisible);
+        console.log(`Verifying...`);
+        console.log(`id: ${id} expected: ${expected} result: ${isElementVisible}``);
         assert.equal(
             isElementVisible,
             expected,
