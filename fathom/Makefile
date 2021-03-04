@@ -14,7 +14,7 @@ lint: .npm_installed
 	@node_modules/.bin/eslint test/browser
 
 test: $(JS) .npm_installed
-	@node_modules/.bin/nyc --reporter=text-summary node_modules/mocha/bin/_mocha --allow-uncaught --recursive
+	@node_modules/.bin/nyc --reporter=text-summary node_modules/mocha/bin/_mocha  --full-trace --recursive
 
 coverage: .npm_installed test
 	@node_modules/.bin/nyc report --reporter=html
