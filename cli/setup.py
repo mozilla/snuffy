@@ -20,7 +20,7 @@ setup(
         'scikit-learn>=0.22.2',
         'selenium>=3.141.0',
         'tensorboardX>=1.6,<2.0',
-        'torch>=1.0,<2.0'
+        'torch==1.8.0'
     ],
     dependency_links=[
         'https://download.pytorch.org/whl/torch_stable.html'
