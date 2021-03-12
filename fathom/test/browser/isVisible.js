@@ -1,6 +1,6 @@
 const {assert} = require('chai');
 const firefox = require('selenium-webdriver/firefox');
-const {Builder, until, By, Capabilities} = require('selenium-webdriver');
+const {Builder, until, By} = require('selenium-webdriver');
 const {ancestors, isDomElement, isVisible, toDomElement, windowForElement} = require('../../utilsForFrontend'); // eslint-disable-line node/no-missing-require
 
 const WAIT_MS = 10000;  //increasing from 10000 to 20000 did not allow first test to run.
@@ -76,6 +76,6 @@ describe('isVisible', () => {
 
     after(async function () {
         this.timeout(WAIT_MS);
-        return driver.quit();
+        return await driver.quit();
     });
 });
