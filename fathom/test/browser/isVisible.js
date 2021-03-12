@@ -19,7 +19,9 @@ describe('isVisible', () => {
     driver.get(TEST_PAGE_URL);
 
     async function checkElementVisibility(id, expected) {
+        console.log('11111111');
         await driver.wait(until.elementLocated(By.id(id)), WAIT_MS);
+        console.log('22222222');
         const isElementVisible = await driver.executeScript(`
             ${ancestors}
             ${isDomElement}
@@ -33,17 +35,22 @@ describe('isVisible', () => {
             expected,
             `isVisible should return ${expected} for element with id '${id}'.`
         );
+        console.log('33333333');
     }
 
     async function checkElementsVisibility(idStub, isVisible) {
+        console.log('1111');
         const elementIds = await driver.executeScript(`
             return Array.prototype.map.call(document.querySelectorAll('[id^="${idStub}"]'), (element) => element.id);
         `);
 
+        console.log('2222');
         await driver.get(TEST_PAGE_URL);
+        console.log('3333');
         for (const id of elementIds) {
             await checkElementVisibility(id, isVisible);
         }
+        console.log('4444');
     }
 
     it('should return false when an element is hidden', async function () {
