@@ -3,7 +3,7 @@ const firefox = require('selenium-webdriver/firefox');
 const {Builder, until, By} = require('selenium-webdriver');
 const {ancestors, isDomElement, isVisible, toDomElement, windowForElement} = require('../../utilsForFrontend'); // eslint-disable-line node/no-missing-require
 
-const WAIT_MS = 10000;
+const WAIT_MS = 10000;  //increasing from 10000 to 20000 did not allow first test to run.
 const TEST_PAGE_URL = 'http://localhost:8000/isVisible.html';
 
 describe('isVisible', () => {
@@ -15,6 +15,9 @@ describe('isVisible', () => {
         .setFirefoxOptions(options)
         .build();
 
+    //Need to kick the page before doing any tests.
+    driver.get(TEST_PAGE_URL);
+
     async function checkElementVisibility(id, expected) {
         await driver.wait(until.elementLocated(By.id(id)), WAIT_MS);
         const isElementVisible = await driver.executeScript(`
@@ -24,7 +27,6 @@ describe('isVisible', () => {
             ${windowForElement}
             return ${isVisible}(document.getElementById('${id}'));
         `);
-        console.log(`Verifying...`);
         console.log(`id: ${id} expected: ${expected} result: ${isElementVisible}`);
         assert.equal(
             isElementVisible,
@@ -39,22 +41,23 @@ describe('isVisible', () => {
         `);
 
         await driver.get(TEST_PAGE_URL);
-        console.log(` elementIds: ${elementIds}`);
         for (const id of elementIds) {
             await checkElementVisibility(id, isVisible);
         }
     }
 
     it('should return false when an element is hidden', async function () {
+        console.log('>>> Started IS HIDDEN');
         this.timeout(WAIT_MS);
         await checkElementsVisibility('not-visible-', false);
-        console.log(`completed is hidden test`);
+        console.log('<<< Finished IS HIDDEN');
     });
 
     it('should return true when an element is visible', async function () {
+        console.log('>>> Started IS VISIBLE');
         this.timeout(WAIT_MS);
         await checkElementsVisibility('visible-', true);
-        console.log(`completed is visible test`);
+        console.log('<<< Finished IS VISIBLE');
     });
 
     after(async function () {
