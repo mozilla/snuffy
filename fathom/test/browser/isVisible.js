@@ -52,7 +52,7 @@ describe('isVisible', () => {
                 await checkElementVisibility(id, isVisible);
             }
         } catch (err) {
-            console.log('Received error:  ${err.message}');
+            console.log(`Received error:  ${err.name} ---- ${err.message}`);
         }
         console.log('4444');
     }
