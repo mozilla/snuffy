@@ -4,7 +4,7 @@ const {Builder, until, By} = require('selenium-webdriver');
 const {ancestors, isDomElement, isVisible, toDomElement, windowForElement} = require('../../utilsForFrontend'); // eslint-disable-line node/no-missing-require
 
 const WAIT_MS = 10000;  //increasing from 10000 to 20000 did not allow first test to run.
-const TEST_PAGE_URL = 'http://localhost123:8000/isVisible.html';
+const TEST_PAGE_URL = 'http://127.0.0.1:8000/isVisible.html';
 
 describe('isVisible', () => {
     const options = new firefox.Options();
