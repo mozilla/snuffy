@@ -89,11 +89,13 @@ describe('isVisible', () => {
             console.log('aaaa');
             driver.get(TEST_PAGE_URL);
             console.log('bbbb');
-            const elementIds = driver.executeScript(`
-                return Array.prototype.map.call(document.querySelectorAll('[id^="not-visible-"]'), (element) => element.id);
-            `);
+            const start = new Date().getTime();
+            driver.executeAsyncScript(
+                'window.setTimeout(arguments[arguments.length - 1], 500);').
+                then(function () {
+                    console.log('Elapsed time: ' + (new Date().getTime() - start) + ' ms');
+                });
             console.log('cccc');
-            console.log(`elementIds: ${elementIds} `);
 
         } catch (err) {
             console.log(`Received error:  ${err.name} ---- ${err.message} ---- ${err.stack}`);
