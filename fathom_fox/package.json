@@ -1,6 +1,6 @@
 {
   "name": "fathom-fox",
-  "version": "3.7.2",
+  "version": "3.7.3",
   "description": "Tools for collecting a Fathom training corpus and developing rulesets",
   "scripts": {
     "build": "yarn install --ignore-engines && rollup -c",

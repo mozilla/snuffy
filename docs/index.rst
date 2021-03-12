@@ -31,10 +31,11 @@ Find meaning in the web.
    :caption: API Reference
    :maxdepth: 2
 
-   ruleset
-   fnodes
-   utilities
    clustering
+   exceptions
+   fnodes
+   ruleset
+   utilities
 
 .. _command-reference:
 

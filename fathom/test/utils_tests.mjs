@@ -1,6 +1,7 @@
 import {assert} from 'chai';
+import {NoWindowError} from '../exceptions';
 import {dom, rule, ruleset, score, type} from '../index';
-import {NiceSet, toposort, staticDom, attributesMatch} from '../utils';
+import {NiceSet, toposort, staticDom, attributesMatch, windowForElement} from '../utils';
 
 
 describe('Utils', function () {
@@ -158,6 +159,16 @@ describe('Utils', function () {
             assert.equal(best.length, 2);
             assert.equal(best[0].element.id, 'foo');
             assert.equal(best[1].element.id, 'cat');
+        });
+    });
+
+    describe('windowForElement', function () {
+        it('raises NoWindowError when run outside a window', function () {
+            // We mock out the element because jsdom actually provides a window
+            // object:
+            const element = {ownerDocument: {defaultView: null}};
+            assert.throws(() => windowForElement(element),
+                          NoWindowError);
         });
     });
 });

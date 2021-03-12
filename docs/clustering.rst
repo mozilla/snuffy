@@ -4,6 +4,16 @@ Clustering
 
 Fathom provides a flexible clustering algorithm, useful for finding nodes that are bunched together spatially or according to some other metric. By default, it groups nodes based on their proximity and ancestry. It is documented here as top-level functions but is also available directly within rulesets as :func:`bestCluster`, which has the advantage of letting you direct its results to further rules.
 
+The clustering routines hang off a ``clusters`` object in the top-level Fathom module. To import them, do something like this:
+
+.. code-block:: js
+
+   const {
+     clusters: { distance },
+   } = require('fathom-web');
+
+This will result in a top-level ``distance`` symbol.
+
 .. note::
 
    Clustering is computationally expensive (at least O(n^2)). It is powerful, but it should be used only when more efficient alternatives are exhausted.

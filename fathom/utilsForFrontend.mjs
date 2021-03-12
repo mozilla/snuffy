@@ -1,4 +1,4 @@
-import {CycleError} from './exceptions';
+import {CycleError, NoWindowError} from './exceptions';
 
 
 /**
@@ -621,7 +621,7 @@ export function *reversed(array) {
 /*
  * Return the window an element is in.
  *
- * @throws {Error} There isn't such a window.
+ * @throws {NoWindowError} There isn't such a window.
  */
 export function windowForElement(element) {
     let doc = element.ownerDocument;
@@ -631,7 +631,7 @@ export function windowForElement(element) {
     }
     const win = doc.defaultView;
     if (win === null) {
-        throw new Error('The element was not in a window.');
+        throw new NoWindowError();
     }
     return win;
 }

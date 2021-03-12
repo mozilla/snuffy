@@ -24,8 +24,8 @@ This is a clean, simple example of a Fathom 3 ruleset. It was designed for Fatho
 Recognizers
 -----------
 
-* **Username field.** This is the username or (as is increasingly the case) email field of the login form. The ruleset finds the precise ``<input>`` element for form fill. Validation accuracy: 99.38% of 162 candidate tags across 64 pages, including ones with no login forms or with adversarial constructs like password-change, credit-card, and shipping forms.
-* **Next button.** The Log In button or, for multi-page login flows, whatever you click to advance to the next step. This was the more challenging recognizer, since there is a wider diversity of both markup and text for these constructs. Validation accuracy: 97.14% of 490 candidate tags across 64 pages. There is plenty of signal left on the table, so more invested time should give us another percentage point or two. (The whole project was timeboxed to about 3 weeks.)
+* **Username field.** This is the username or (as is increasingly the case) email field of the login form. The ruleset finds the precise ``<input>`` element for form fill. Validation precision and recall: both 96.6%, on 162 candidate tags across 64 pages, including ones with no login forms or with adversarial constructs like password-change, credit-card, and shipping forms.
+* **Next button.** The Log In button or, for multi-page login flows, whatever you click to advance to the next step. This was the more challenging recognizer, since there is a wider diversity of both markup and text for these constructs. Validation precision: 100%. Validation recall: 72.9%. This is across 490 candidate tags on 64 pages. There is plenty of signal left on the table, so more invested time should give us another percentage point or two. (The whole project was timeboxed to about 3 weeks.)
 
 `Login Forms ruleset source <https://github.com/mozilla-services/fathom-login-forms/blob/master/lockwise-proof-of-concept/trainees.js>`_
 

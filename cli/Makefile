@@ -37,7 +37,7 @@ $(VIRTUAL_ENV)/pyvenv.cfg: dev-requirements.txt doc-building-requirements.txt se
 	# We don't path-qualify pip3 because python -m venv on Travis creates a
 	# venv with no pip executable in it.
 	PATH="$(PATH)" pip3 install -r dev-requirements.txt -r doc-building-requirements.txt
-	PATH="$(PATH)" pip3 install -e . -f https://download.pytorch.org/whl/cu110/torch_stable.html
+	PATH="$(PATH)" pip3 install -e .
 
 npm_installed:
 	@$(MAKE) -C ../fathom .npm_installed

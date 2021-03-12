@@ -2,10 +2,22 @@
 Rules and Rulesets
 ==================
 
+Most everything on this page is a top-level object in the Fathom library, importable like this, for instance:
+
+.. code-block:: js
+
+   const {
+      dom,
+      element,
+      out,
+      rule,
+      ruleset
+    } = require('fathom-web');
+
 Rulesets
 ========
 
-The top-level Fathom object is the ruleset, an unordered collection of rules. The plain old :class:`Ruleset` is what you typically construct, via the ``ruleset`` convenience function:
+The most important Fathom object is the ruleset, an unordered collection of rules. The plain old :class:`Ruleset` is what you typically construct, via the ``ruleset`` convenience function:
 
 .. autofunction:: ruleset
 

@@ -2,6 +2,24 @@
 Version History
 ===============
 
+3.7.3
+=====
+
+Fathom
+------
+
+* Raise a special-purpose :class:`NoWindowError` from :func:`isVisible` if the examined element is not in a window. You can catch and swallow this in a ruleset to allow it to run (though not accurately) in a windowless environment: for instance, to test something else on its control flow path.
+
+FathomFox
+---------
+
+No changes.
+
+CLI tools
+---------
+
+No changes.
+
 3.7.2
 =====
 

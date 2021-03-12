@@ -1,7 +1,7 @@
 {
   "name": "fathom-web",
   "description": "Find meaning in the web.",
-  "version": "3.7.2",
+  "version": "3.7.3",
   "author": "Erik Rose <erik@mozilla.com> (https://www.grinchcentral.com/)",
   "bugs": {
     "url": "https://github.com/mozilla/fathom/issues"

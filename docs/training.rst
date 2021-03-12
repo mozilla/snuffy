@@ -107,4 +107,4 @@ A sane authoring process is a feedback loop something like this:
 #. Go back to step 3.
 #. Once *validation* precision and recall are sufficient, use :doc:`fathom test<commands/test>` on a fresh set of *testing* samples. These are your *testing metrics* and should reflect real-world performance, assuming your sample size is large and representative enough. The computed 95% confidence intervals should help you decide the former.
 #. If testing precision and recall are too low, imbibe the testing pages into your training set, and go back to step 3. As typical in supervised learning systems, testing samples should be considered "burned" once they are measured against a single time, as otherwise you are effectively training against them. Samples are precious.
-#. If testing precision and recall are sufficient, you're done! Make sure the latest ruleset and coefficients are in your finished product, and ship it.
+#. If testing precision and recall are sufficient, you're done! Paste the trained coefficients and biases into your ruleset, paste your ruleset into your application, and ship it.
