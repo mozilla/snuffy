@@ -49,4 +49,4 @@ dist/fathom.js: rollup.config.js .npm_installed $(MJS)
 	@node_modules/.bin/rollup -c
 
 
-.PHONY: js test coveralls debugtest publish bundle clean
+.PHONY: js lint test coveralls debugtest publish bundle clean
