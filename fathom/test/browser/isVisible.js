@@ -1,6 +1,6 @@
 const {assert, expect} = require('chai');
 const firefox = require('selenium-webdriver/firefox');
-const {Builder, until, By} = require('selenium-webdriver');
+const {Builder, until, By, Capabilities} = require('selenium-webdriver');
 const {ancestors, isDomElement, isVisible, toDomElement, windowForElement} = require('../../utilsForFrontend'); // eslint-disable-line node/no-missing-require
 const  request = require('request');
 
@@ -11,7 +11,9 @@ describe('isVisible', () => {
     const options = new firefox.Options();
     options.headless();
 
+    const caps = new Capabilities('eager');
     const driver = new Builder()
+        .withCapabilities(caps)
         .forBrowser('firefox')
         .setFirefoxOptions(options)
         .build();
