@@ -40,15 +40,19 @@ describe('isVisible', () => {
 
     async function checkElementsVisibility(idStub, isVisible) {
         console.log('1111');
-        const elementIds = await driver.executeScript(`
-            return Array.prototype.map.call(document.querySelectorAll('[id^="${idStub}"]'), (element) => element.id);
-        `);
+        try {
+            const elementIds = await driver.executeScript(`
+                return Array.prototype.map.call(document.querySelectorAll('[id^="${idStub}"]'), (element) => element.id);
+            `);
 
-        console.log('2222');
-        await driver.get(TEST_PAGE_URL);
-        console.log('3333');
-        for (const id of elementIds) {
-            await checkElementVisibility(id, isVisible);
+            console.log('2222');
+            await driver.get(TEST_PAGE_URL);
+            console.log('3333');
+            for (const id of elementIds) {
+                await checkElementVisibility(id, isVisible);
+            }
+        } catch (err) {
+            console.log('Received error:  ${err.message}');
         }
         console.log('4444');
     }
