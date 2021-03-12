@@ -14,6 +14,7 @@ lint: .npm_installed
 	@node_modules/.bin/eslint test/browser
 
 test: $(JS) .npm_installed
+	npm list
 	@node_modules/.bin/nyc --reporter=text-summary node_modules/mocha/bin/_mocha  --full-trace --recursive
 
 coverage: .npm_installed test
