@@ -82,6 +82,24 @@ describe('isVisible', () => {
             expect(res.body).to.contain('not-visible-1');
             done();
         });
+
+        try {
+            console.log('aaaa');
+            const elementIds = driver.executeScript(`
+                return Array.prototype.map.call(document.querySelectorAll('[id^="not-visible-"]'), (element) => element.id);
+            `);
+
+            console.log('bbbb');
+            driver.get(TEST_PAGE_URL);
+            console.log('cccc');
+            console.log(`elementIds: ${elementIds} `);
+
+        } catch (err) {
+            console.log(`Received error:  ${err.name} ---- ${err.message} ---- ${err.stack}`);
+            console.trace();
+            throw err;
+        }
+
     });
 
     after(async function () {
