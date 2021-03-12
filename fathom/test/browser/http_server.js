@@ -28,7 +28,7 @@ const server = http.createServer((request, response) => {
 before(
     function start_server() {
         server.listen(PORT);
-        console.log(`Serving from ${__dirname} at http://localhost:${PORT}...`);
+        console.log(`Serving from ${__dirname} at http://localhost:${PORT}... listening: ${server.listening}`);
     }
 );
 
