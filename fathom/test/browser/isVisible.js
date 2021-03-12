@@ -53,6 +53,7 @@ describe('isVisible', () => {
             }
         } catch (err) {
             console.log(`Received error:  ${err.name} ---- ${err.message}`);
+            throw err;
         }
         console.log('4444');
     }
