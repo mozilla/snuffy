@@ -87,12 +87,11 @@ describe('isVisible', () => {
 
         try {
             console.log('aaaa');
+            driver.get(TEST_PAGE_URL);
+            console.log('bbbb');
             const elementIds = driver.executeScript(`
                 return Array.prototype.map.call(document.querySelectorAll('[id^="not-visible-"]'), (element) => element.id);
             `);
-
-            console.log('bbbb');
-            driver.get(TEST_PAGE_URL);
             console.log('cccc');
             console.log(`elementIds: ${elementIds} `);
 
