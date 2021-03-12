@@ -27,6 +27,7 @@
     "jsdoc": "^3.5.4",
     "mocha": "^6.2.2",
     "nyc": "^14.1.1",
+    "request": "*",
     "rollup": "^1.27.5",
     "selenium-webdriver": "^4.0.0-alpha.4"
   },
