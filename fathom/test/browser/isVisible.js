@@ -1,7 +1,8 @@
-const {assert} = require('chai');
+const {assert, expect} = require('chai');
 const firefox = require('selenium-webdriver/firefox');
 const {Builder, until, By} = require('selenium-webdriver');
 const {ancestors, isDomElement, isVisible, toDomElement, windowForElement} = require('../../utilsForFrontend'); // eslint-disable-line node/no-missing-require
+const  request = require('request');
 
 const WAIT_MS = 10000;  //increasing from 10000 to 20000 did not allow first test to run.
 const TEST_PAGE_URL = 'http://localhost:8000/isVisible.html';
@@ -72,6 +73,15 @@ describe('isVisible', () => {
         this.timeout(WAIT_MS);
         await checkElementsVisibility('visible-', true);
         console.log('<<< Finished IS VISIBLE');
+    });
+
+    it('should return 200', function (done) {
+        request.get(TEST_PAGE_URL, function (err, res, body) {
+            console.log(`Processed simple test`);
+            expect(res.statusCode).to.equal(200);
+            expect(res.body).to.contain('not-visible-1');
+            done();
+        });
     });
 
     after(async function () {
