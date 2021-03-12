@@ -34,6 +34,9 @@ before(
 
 after(
     function stop_server() {
+        console.log(`Stopping server from ${__dirname} at http://localhost:${PORT}... listening: ${server.listening}`);
+
         server.close();
+        console.log(`Server stopped... listening: ${server.listening}`);
     }
 );
