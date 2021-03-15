@@ -92,7 +92,7 @@ describe('isVisible', () => {
         }
     });
 
-    it('should return 200', function test() {
+    /*it('should return 200', function test() {
         try {
             request.get(TEST_PAGE_URL, function (err, res, body) {
                 console.log(`Processing simple test`);
@@ -105,7 +105,7 @@ describe('isVisible', () => {
             console.trace();
             throw err;
         }
-    });
+    });*/
 
     after( function () {
         this.timeout(WAIT_MS);
