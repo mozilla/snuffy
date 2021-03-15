@@ -80,7 +80,8 @@ describe('isVisible', () => {
     it('should run simple_selenium_test', async function test() {
         try {
             await console.log('1111');
-            await driver.get(TEST_PAGE_URL);
+            await driver.then(d => d.get(TEST_PAGE_URL));
+            //await driver.get(TEST_PAGE_URL);
             await console.log('2222');
             let element = await driver.findElement(By.id('not-visible-1'));
             await console.log(element);
