@@ -63,7 +63,7 @@ describe('isVisible', () => {
         console.log('4444');
     }
 
-    it('should return false when an element is hidden', async function () {
+    /*it('should return false when an element is hidden', async function () {
         console.log('>>> Started IS HIDDEN');
         this.timeout(WAIT_MS);
         await checkElementsVisibility('not-visible-', false);
@@ -75,6 +75,18 @@ describe('isVisible', () => {
         this.timeout(WAIT_MS);
         await checkElementsVisibility('visible-', true);
         console.log('<<< Finished IS VISIBLE');
+    });*/
+
+    it('should run simple_selenium_test', async function test() {
+        try {
+            await driver.get(TEST_PAGE_URL);
+            let element = driver.findElement(By.id('not-visible-1'));
+            await console.log(element);
+        } catch (err) {
+            console.log(`Received error:  ${err.name} ---- ${err.message} ---- ${err.stack}`);
+            console.trace();
+            throw err;
+        }
     });
 
     it('should return 200', function (done) {
@@ -85,9 +97,9 @@ describe('isVisible', () => {
             done();
         });
 
-        try {
+        /*try {
             console.log('aaaa');
-            driver.get(TEST_PAGE_URL);
+            console.log(element);
             console.log('bbbb');
             const start = new Date().getTime();
             driver.executeAsyncScript(
@@ -101,7 +113,7 @@ describe('isVisible', () => {
             console.log(`Received error:  ${err.name} ---- ${err.message} ---- ${err.stack}`);
             console.trace();
             throw err;
-        }
+        }*/
 
     });
 
