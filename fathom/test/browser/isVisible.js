@@ -13,7 +13,7 @@ describe('isVisible', () => {
 
     const caps = new Capabilities('eager');
     const driver = new Builder()
-        .withCapabilities(caps)
+        //.withCapabilities(caps)
         .forBrowser('firefox')
         .setFirefoxOptions(options)
         .disableEnvironmentOverrides()
@@ -21,7 +21,7 @@ describe('isVisible', () => {
         .build();
 
     //Need to kick the page before doing any tests.
-    driver.get(TEST_PAGE_URL);
+    //driver.get(TEST_PAGE_URL);
 
     async function checkElementVisibility(id, expected) {
         console.log('11111111');
@@ -79,16 +79,33 @@ describe('isVisible', () => {
         console.log('<<< Finished IS VISIBLE');
     });*/
 
-    it('should run simple_selenium_test', async function test() {
+    before(function () {
+        console.log(`Calling before test`);
+        driver.get( TEST_PAGE_URL );
+        let el_promise = driver.findElement(By.id('not-visible-1'));
+        el_promise.then(function (ele) {
+            console.log(`>>>>>>>> ${ele}`);
+        });
+        console.log(`Finished calling before test`);
+        // a promise is returned while ‘click’ action
+        // is registered in ‘driver’ object
+        return driver.findElement(By.id('not-visible-1'));
+    });
+
+
+    it('should run simple_selenium_test', function (done) {
         try {
             console.log('1111');
-            this.timeout(WAIT_MS);
-            driver.get(TEST_PAGE_URL);
-            this.timeout(WAIT_MS);
+            //driver.get(TEST_PAGE_URL);
+            var titlePromise = driver.getTitle();
+            titlePromise.then(function (title) {
+                console.log(`Retrieved title: ${title}`);
+            });
             console.log('2222');
-            let element = await driver.findElement(By.id('not-visible-1'));
-            console.log(element);
+            //let element = driver.findElement(By.id('not-visible-1'));
+            //console.log(element);
             console.log('3333');
+            done();
         } catch (err) {
             console.log(`Received error:  ${err.name} ---- ${err.message} ---- ${err.stack}`);
             console.trace();
@@ -110,10 +127,11 @@ describe('isVisible', () => {
             throw err;
         }
     });*/
-
-    after(async function () {
+    after(function () {
         this.timeout(WAIT_MS);
         console.log('Calling driver.quit()');
         return driver.quit();
     });
+
+
 });
