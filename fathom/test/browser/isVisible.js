@@ -4,7 +4,7 @@ const {Builder, until, By, Capabilities} = require('selenium-webdriver');
 const {ancestors, isDomElement, isVisible, toDomElement, windowForElement} = require('../../utilsForFrontend'); // eslint-disable-line node/no-missing-require
 const  request = require('request');
 
-const WAIT_MS = 10000;  //increasing from 10000 to 20000 did not allow first test to run.
+const WAIT_MS = 20000;  //increasing from 10000 to 20000 did not allow first test to run.
 const TEST_PAGE_URL = 'http://localhost:8000/isVisible.html';
 
 describe('isVisible', () => {
