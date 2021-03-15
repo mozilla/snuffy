@@ -77,15 +77,14 @@ describe('isVisible', () => {
         console.log('<<< Finished IS VISIBLE');
     });*/
 
-    it('should run simple_selenium_test', async function test() {
+    it('should run simple_selenium_test', function test() {
         try {
-            await console.log('1111');
-            await driver.then(d => d.get(TEST_PAGE_URL));
-            //await driver.get(TEST_PAGE_URL);
-            await console.log('2222');
-            let element = await driver.findElement(By.id('not-visible-1'));
-            await console.log(element);
-            await console.log('3333');
+            console.log('1111');
+            driver.get(TEST_PAGE_URL);
+            console.log('2222');
+            let element = driver.findElement(By.id('not-visible-1'));
+            console.log(element);
+            console.log('3333');
         } catch (err) {
             console.log(`Received error:  ${err.name} ---- ${err.message} ---- ${err.stack}`);
             console.trace();
@@ -121,9 +120,9 @@ describe('isVisible', () => {
 
     });
 
-    after(async function () {
+    after( function () {
         this.timeout(WAIT_MS);
         console.log('Calling driver.quit()');
-        return await driver.quit();
+        return driver.quit();
     });
 });
