@@ -112,6 +112,6 @@ describe('isVisible', () => {
     after(async function () {
         this.timeout(WAIT_MS);
         console.log('Calling driver.quit()');
-        return await driver.quit();
+        return driver.quit();
     });
 });
