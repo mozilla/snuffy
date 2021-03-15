@@ -16,6 +16,8 @@ describe('isVisible', () => {
         .withCapabilities(caps)
         .forBrowser('firefox')
         .setFirefoxOptions(options)
+        .disableEnvironmentOverrides()
+        .setLoggingPrefs({Browser: 'All', Driver: 'All'})
         .build();
 
     //Need to kick the page before doing any tests.
