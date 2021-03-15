@@ -92,32 +92,19 @@ describe('isVisible', () => {
         }
     });
 
-    it('should return 200', function (done) {
-        request.get(TEST_PAGE_URL, function (err, res, body) {
-            console.log(`Processed simple test`);
-            expect(res.statusCode).to.equal(200);
-            expect(res.body).to.contain('not-visible-1');
-            done();
-        });
-
-        /*try {
-            console.log('aaaa');
-            console.log(element);
-            console.log('bbbb');
-            const start = new Date().getTime();
-            driver.executeAsyncScript(
-                'window.setTimeout(arguments[arguments.length - 1], 500);').
-                then(function () {
-                    console.log('Elapsed time: ' + (new Date().getTime() - start) + ' ms');
-                });
-            console.log('cccc');
-
+    it('should return 200', function test() {
+        try {
+            request.get(TEST_PAGE_URL, function (err, res, body) {
+                console.log(`Processing simple test`);
+                expect(res.statusCode).to.equal(200);
+                expect(res.body).to.contain('not-visible-1');
+                console.log(`Processed simple test`);
+            });
         } catch (err) {
             console.log(`Received error:  ${err.name} ---- ${err.message} ---- ${err.stack}`);
             console.trace();
             throw err;
-        }*/
-
+        }
     });
 
     after( function () {
