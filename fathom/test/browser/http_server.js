@@ -9,7 +9,6 @@ const url = require('url');
 
 const PORT = 8000;
 const server = http.createServer((request, response) => {
-    console.log('processing request');
     // TODO: Replace url.parse with url.URL.
     // eslint-disable-next-line node/no-deprecated-api
     const path = url.parse(request.url).pathname;
@@ -17,7 +16,6 @@ const server = http.createServer((request, response) => {
         if (error) {
             console.error(`There was a ${error.code} error fetching the resource at ${path}.`);
         } else {
-            console.log(`Fetched resource at ${path}`);
             response.writeHead(200, {'Content-Type': 'text/html'});
             response.write(data);
             response.end();
