@@ -19,7 +19,9 @@ describe('isVisible', () => {
         .build();
 
     let caps_promise = driver.getCapabilities();
+    console.log(`Attempting to get capabilities`);
     caps_promise.then(function (caps) {
+        console.log(`Processing capabilities`);
         let browserName = caps.getBrowserName();
         let browserVersion = caps.getBrowserVersion();
         console.log(`PREP: Selenium is using ${browserName} : ${browserVersion}`);
@@ -94,16 +96,16 @@ describe('isVisible', () => {
     });*/
 
     async function basic() {
+        console.log(`1111`);
         await driver.get( TEST_PAGE_URL );
+        console.log(`2222`);
         let current_url = await driver.getCurrentUrl();
         console.log(`BASIC: current_url ${current_url}`);
-
         let ele = await driver.findElement(By.id('not-visible-1'));
         console.log(`BASIC: not-visible-1 element ${ele}`);
     }
 
     it('should run simple_selenium_test', async function () {
-
         await basic();
         /*try {
             console.log('1111');
