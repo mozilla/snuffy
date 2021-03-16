@@ -65,7 +65,7 @@ describe('isVisible', () => {
         }
     }
 
-    /*it('should return false when an element is hidden', async function () {
+    it('should return false when an element is hidden', async function () {
         console.log('>>> Started IS HIDDEN');
         this.timeout(WAIT_MS);
         await checkElementsVisibility('not-visible-', false);
@@ -77,7 +77,7 @@ describe('isVisible', () => {
         this.timeout(WAIT_MS);
         await checkElementsVisibility('visible-', true);
         console.log('<<< Finished IS VISIBLE');
-    });*/
+    });
 
 
     /*before(function () {
@@ -95,7 +95,7 @@ describe('isVisible', () => {
         console.log(`Finished calling before test`);
     });*/
 
-    async function basic() {
+    /*async function basic() {
         console.log(`1111`);
         await driver.get( TEST_PAGE_URL );
         console.log(`2222`);
@@ -103,7 +103,7 @@ describe('isVisible', () => {
         console.log(`BASIC: current_url ${current_url}`);
         let ele = await driver.findElement(By.id('not-visible-1'));
         console.log(`BASIC: not-visible-1 element ${ele}`);
-    }
+    }*/
 
     /*it('should run simple_selenium_test', async function () {
         await basic();
@@ -126,7 +126,7 @@ describe('isVisible', () => {
         }
     });*/
 
-    it('should return 200', function test() {
+    /*t('should return 200', function test() {
         try {
             request.get(TEST_PAGE_URL, function (err, res, body) {
                 console.log(`Processing simple test`);
@@ -139,7 +139,7 @@ describe('isVisible', () => {
             console.trace();
             throw err;
         }
-    });
+    });*/
 
     after(function () {
         this.timeout(WAIT_MS);
