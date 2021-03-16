@@ -11,22 +11,27 @@ describe('isVisible', () => {
     const options = new firefox.Options();
     options.headless();
 
-    const caps = new Capabilities('eager');
     const driver = new Builder()
-        //.withCapabilities(caps)
         .forBrowser('firefox')
         .setFirefoxOptions(options)
         .disableEnvironmentOverrides()
         .setLoggingPrefs({Browser: 'All', Driver: 'All'})
         .build();
 
-    //Need to kick the page before doing any tests.
-    //driver.get(TEST_PAGE_URL);
+    let caps_promise = driver.getCapabilities();
+    caps_promise.then(function (caps) {
+        let browserName = caps.getBrowserName();
+        let browserVersion = caps.getBrowserVersion();
+        console.log(`PREP: Selenium is using ${browserName} : ${browserVersion}`);
+        let proxy = caps.getProxy();
+        let certs = caps.getAcceptInsecureCerts();
+        let platform = caps.getPlatform();
+        console.log(`PREP: proxy settings: ${proxy} acceptInsecureCerts: ${certs} platform: ${platform}`);
+    });
+
 
     async function checkElementVisibility(id, expected) {
-        console.log('11111111');
         await driver.wait(until.elementLocated(By.id(id)), WAIT_MS);
-        console.log('22222222');
         const isElementVisible = await driver.executeScript(`
             ${ancestors}
             ${isDomElement}
@@ -40,20 +45,14 @@ describe('isVisible', () => {
             expected,
             `isVisible should return ${expected} for element with id '${id}'.`
         );
-        console.log('33333333');
     }
 
     async function checkElementsVisibility(idStub, isVisible) {
-        console.log('1111');
         try {
-
             const elementIds = await driver.executeScript(`
                 return Array.prototype.map.call(document.querySelectorAll('[id^="${idStub}"]'), (element) => element.id);
             `);
-
-            console.log('2222');
             await driver.get(TEST_PAGE_URL);
-            console.log('3333');
             for (const id of elementIds) {
                 await checkElementVisibility(id, isVisible);
             }
@@ -62,7 +61,6 @@ describe('isVisible', () => {
             console.trace();
             throw err;
         }
-        console.log('4444');
     }
 
     /*it('should return false when an element is hidden', async function () {
@@ -79,27 +77,40 @@ describe('isVisible', () => {
         console.log('<<< Finished IS VISIBLE');
     });*/
 
-    before(function () {
-        console.log(`Calling before test`);
+
+    /*before(function () {
+        console.log(`Calling before`);
         driver.get( TEST_PAGE_URL );
+        //without await the url is about:blank but cannot add await outside async
+        let current_url_promise = driver.getCurrentUrl();
+        current_url_promise.then(function (url) {
+            console.log(`current_url ${url}`);
+        });
         let el_promise = driver.findElement(By.id('not-visible-1'));
         el_promise.then(function (ele) {
-            console.log(`>>>>>>>> ${ele}`);
+            console.log(`not-visible-1 element ${ele}`);
         });
         console.log(`Finished calling before test`);
-        // a promise is returned while ‘click’ action
-        // is registered in ‘driver’ object
-        return driver.findElement(By.id('not-visible-1'));
-    });
+    });*/
 
+    async function basic() {
+        await driver.get( TEST_PAGE_URL );
+        let current_url = await driver.getCurrentUrl();
+        console.log(`BASIC: current_url ${current_url}`);
 
-    it('should run simple_selenium_test', function (done) {
-        try {
+        let ele = await driver.findElement(By.id('not-visible-1'));
+        console.log(`BASIC: not-visible-1 element ${ele}`);
+    }
+
+    it('should run simple_selenium_test', async function () {
+
+        await basic();
+        /*try {
             console.log('1111');
-            //driver.get(TEST_PAGE_URL);
             var titlePromise = driver.getTitle();
             titlePromise.then(function (title) {
                 console.log(`Retrieved title: ${title}`);
+                assert(title === 'isVisible functional test');
             });
             console.log('2222');
             //let element = driver.findElement(By.id('not-visible-1'));
@@ -110,7 +121,7 @@ describe('isVisible', () => {
             console.log(`Received error:  ${err.name} ---- ${err.message} ---- ${err.stack}`);
             console.trace();
             throw err;
-        }
+        }*/
     });
 
     /*it('should return 200', function test() {
