@@ -105,9 +105,9 @@ describe('isVisible', () => {
         console.log(`BASIC: not-visible-1 element ${ele}`);
     }
 
-    it('should run simple_selenium_test', async function () {
+    /*it('should run simple_selenium_test', async function () {
         await basic();
-        /*try {
+        try {
             console.log('1111');
             var titlePromise = driver.getTitle();
             titlePromise.then(function (title) {
@@ -123,10 +123,10 @@ describe('isVisible', () => {
             console.log(`Received error:  ${err.name} ---- ${err.message} ---- ${err.stack}`);
             console.trace();
             throw err;
-        }*/
-    });
+        }
+    });*/
 
-    /*it('should return 200', function test() {
+    it('should return 200', function test() {
         try {
             request.get(TEST_PAGE_URL, function (err, res, body) {
                 console.log(`Processing simple test`);
@@ -139,9 +139,10 @@ describe('isVisible', () => {
             console.trace();
             throw err;
         }
-    });*/
+    });
+
     after(function () {
-        this.timeout(WAIT_MS);
+        //this.timeout(WAIT_MS);
         console.log('Calling driver.quit()');
         return driver.quit();
     });
