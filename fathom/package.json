@@ -23,7 +23,7 @@
     "eslint": "^6.7.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^10.0.0",
-    "geckodriver": "^1.16.2",
+    "geckodriver": "^1.22.2",
     "jsdoc": "^3.5.4",
     "mocha": "^6.2.2",
     "nyc": "^14.1.1",
