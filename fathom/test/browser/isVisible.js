@@ -142,7 +142,7 @@ describe('isVisible', () => {
     });
 
     after(function () {
-        //this.timeout(WAIT_MS);
+        this.timeout(WAIT_MS);
         console.log('Calling driver.quit()');
         return driver.quit();
     });
