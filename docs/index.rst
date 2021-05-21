@@ -64,3 +64,12 @@ You can find us on...
    glossary
 
 * :ref:`genindex`
+
+.. toctree::
+   :hidden:
+
+   zoo/new_password
+   zoo/login
+   zoo/smoot_articles
+   zoo/smoot_shopping
+   zoo/price_tracker

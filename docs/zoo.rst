@@ -5,14 +5,16 @@ Ruleset Zoo
 Welcome to the Fathom Ruleset Zoo, a bestiary of Fathom real-world examples. Each gives an overview and links to a repository with full source code.
 
 .. note::
-   Some repos are private because they contain copyrighted training samples. While we believe this is fair use, we don't wish to provoke cease-and-desist bots. If you work for Mozilla, just ask, and we’ll grant you access. Otherwise, enjoy!
+   Some repos are private because they contain copyrighted training samples. While we believe this is fair use, we don't wish to provoke cease-and-desist bots. If you work for Mozilla, just ask, and we’ll grant you access. Otherwise, we've pasted the ruleset source code into the docs, so you can at least see that. Enjoy!
 
 New-Password Forms
 ==================
 
 Firefox's password manager needed a way to identify new-password fields so it could suggest (and memorize) high-entropy passwords for them. There is standardized markup for this, but only 2-4% of sites use it. Fathom thus stepped in to backstop the other 97%. On a corpus of 508 pages, we trained to a testing precision of 99.2% and recall of 92.1%. (We used ``fathom train --pos-weight`` to slant the results in favor of fewer false positives, sacrificing some recall for it.) Independent QA work showed an accuracy and false-negative rate better than that of Google Chrome—and a false-positive rate only 1% worse—and all of that with a purely client-side model. It shipped in Firefox 76.
 
-`New-password ruleset source <https://github.com/mozilla-services/fathom-login-forms/blob/master/new-password/rulesets.js>`_
+:doc:`Ruleset source<zoo/new_password>`
+
+`Full repo <https://github.com/mozilla-services/fathom-login-forms/blob/master/new-password/rulesets.js>`_
 
 Login Forms
 ===========
@@ -27,7 +29,9 @@ Recognizers
 * **Username field.** This is the username or (as is increasingly the case) email field of the login form. The ruleset finds the precise ``<input>`` element for form fill. Validation precision and recall: both 96.6%, on 162 candidate tags across 64 pages, including ones with no login forms or with adversarial constructs like password-change, credit-card, and shipping forms.
 * **Next button.** The Log In button or, for multi-page login flows, whatever you click to advance to the next step. This was the more challenging recognizer, since there is a wider diversity of both markup and text for these constructs. Validation precision: 100%. Validation recall: 72.9%. This is across 490 candidate tags on 64 pages. There is plenty of signal left on the table, so more invested time should give us another percentage point or two. (The whole project was timeboxed to about 3 weeks.)
 
-`Login Forms ruleset source <https://github.com/mozilla-services/fathom-login-forms/blob/master/lockwise-proof-of-concept/trainees.js>`_
+:doc:`Ruleset source<zoo/login>`
+
+`Full repo <https://github.com/mozilla-services/fathom-login-forms/blob/master/lockwise-proof-of-concept/trainees.js>`_
 
 Smoot: Page Classification
 ==========================
@@ -42,7 +46,11 @@ Recognizers
 * **Article.** A page whose main attraction is prose to read. Though still under development, this model scores 90% in validation on a corpus of 60 pages.
 * **“Techie” Article.** An article aimed at a computer-savvy audience. This is intended for audience segmentation. It’s too early for numbers here as well.
 
-`Smoot source <https://github.com/mozilla-services/fathom-smoot>`_
+:doc:`Articles ruleset source<zoo/smoot_articles>`
+
+:doc:`Shopping ruleset source<zoo/smoot_shopping>`
+
+`Full repo <https://github.com/mozilla-services/fathom-smoot>`_
 
 Price Tracker
 =============
@@ -62,7 +70,9 @@ Price Tracker’s accuracy numbers are unusually noisy, partly due to the rules 
 
 More metrics are available on `the pull request that merged the Fathom 3 upgrade <https://github.com/mozilla/price-tracker/pull/317>`_, but they mostly serve as a warning that a more diverse corpus is necessary for confident measurement. Take Price Tracker as an example of coding practices and product-market fit, not corpus design.
 
-`The Fathom-related bits of the source <https://github.com/mozilla/price-tracker/blob/master/src/extraction/fathom/ruleset_factory.js>`_
+:doc:`Ruleset source<zoo/price_tracker>`
+
+`Full repo <https://github.com/mozilla/price-tracker/blob/master/src/extraction/fathom/ruleset_factory.js>`_
 
 Pop-up Detector
 ===============

@@ -6,3 +6,4 @@ This is the simple example ruleset that ships with FathomFox; it is made availab
 
 .. literalinclude:: ../fathom_fox/src/rulesets.js
    :language: js
+   :linenos:
